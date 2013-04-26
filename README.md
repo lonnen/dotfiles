@@ -1,10 +1,10 @@
 # Dotfiles
 
-My OS X / Ubuntu dotfiles.
+My OS X dotfiles.
 
 ## Where did these come from?
 
-Lonnen forked this repo from [Ben "cowboy" Alman](https://github.com/cowboy/dotfiles) and customized it, some. It's probably safe to assume any first person writing was done by Ben.
+Lonnen forked this repo from [Ben "cowboy" Alman](https://github.com/cowboy/dotfiles) and customized it. It's probably safe to assume any first person writing was done by Ben.
 
 ## Why is this a git repo?
 
@@ -46,17 +46,6 @@ Notes:
 bash -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles)" && source ~/.bashrc
 ```
 
-### Ubuntu
-Notes:
-
-* You need to be an administrator (for `sudo`).
-* If APT hasn't been updated or upgraded recently, it will probably be a few minutes before you see anything.
-
-```sh
-sudo apt-get -qq update && sudo apt-get -qq upgrade && sudo apt-get -qq install curl && echo &&
-bash -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles)" && source ~/.bashrc
-```
-
 ## The "init" step
 These things will be installed, but _only_ if they aren't already.
 
@@ -71,20 +60,6 @@ These things will be installed, but _only_ if they aren't already.
   * git-extras
   * htop-osx
   * apple-gcc42 (via [homebrew-dupes](https://github.com/Homebrew/homebrew-dupes/blob/master/apple-gcc42.rb))
-
-### Ubuntu
-* APT
-  * build-essential
-  * libssl-dev
-  * git-core
-  * tree
-  * sl
-  * id3tool
-  * nmap
-  * telnet
-  * htop
-
-### Both
 * Nave
   * Npm (latest stable)
     * Grunt
