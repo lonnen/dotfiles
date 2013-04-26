@@ -9,7 +9,7 @@
 # [11:14:45] $
 #
 # Read more (and see a screenshot) in the "Prompt" section of
-# https://github.com/cowboy/dotfiles
+# https://github.com/lonnen/dotfiles
 
 # ANSI CODES - SEPARATE MULTIPLE VALUES WITH ;
 #
@@ -99,7 +99,7 @@ function prompt_command() {
   [[ "$simple_prompt" ]] && PS1='\n$ ' && return
 
   prompt_getcolors
-  # http://twitter.com/cowboy/status/150254030654939137
+  # http://twitter.com/lonnen/status/150254030654939137
   PS1="\n"
   # svn: [repo:lastchanged]
   PS1="$PS1$(prompt_svn)"

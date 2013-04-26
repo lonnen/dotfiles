@@ -42,7 +42,7 @@ function npm_publish() {
 # Crazy-ass, cross-repo npm linking.
 
 # Inter-link all projects, where each project exists in a subdirectory of
-# the current parent directory. Uses https://github.com/cowboy/node-linken
+# the current parent directory. Uses https://github.com/lonnen/node-linken
 alias npm_linkall='eachdir "rm -rf node_modules; npm install"; linken */ --src .'
 alias npm_link='rm -rf node_modules; npm install; linken . --src ..'
 
@@ -56,7 +56,7 @@ alias npm_owner_list='eachdir "npm owner ls 2>/dev/null | sort"'
 function npm_owner_add() {
   local users=
   local root="$(basename $(pwd))"
-  [[ $root == "gruntjs" ]] && users="cowboy tkellen"
+  [[ $root == "gruntjs" ]] && users="lonnen tkellen"
   if [[ -n "$users" ]]; then
     eachdir "__npm_owner_add_each $users"
   fi
