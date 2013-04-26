@@ -2,24 +2,22 @@
 
 My OS X dotfiles.
 
-## Where did these come from?
+## Why is this a git repo?
 
 Lonnen forked this repo from [Ben "cowboy" Alman](https://github.com/cowboy/dotfiles) and customized it. It's probably safe to assume any first person writing was done by Ben.
 
-## Why is this a git repo?
+Reducing the amount of manual work to set up and maintain machines is the goal. [Boxen](https://github.com/boxen/) is a good start, but it falls short on dotfile management. Cowboy said it well:
 
-I've been using bash on-and-off for a long time (since Slackware Linux was distributed on 1.44MB floppy disks). In all that time, every time I've set up a new Linux or OS X machine, I've copied over my `.bashrc` file and my `~/bin` folder to each machine manually. And I've never done a very good job of actually maintaining these files. It's been a total mess.
+> I finally decided that I wanted to be able to execute a single command to "bootstrap" a new system to pull down all of my dotfiles and configs, as well as install all the tools I commonly use. In addition, I wanted to be able to re-execute that command at any time to synchronize anything that might have changed. Finally, I wanted to make it easy to re-integrate changes back in, so that other machines could be updated.
 
-I finally decided that I wanted to be able to execute a single command to "bootstrap" a new system to pull down all of my dotfiles and configs, as well as install all the tools I commonly use. In addition, I wanted to be able to re-execute that command at any time to synchronize anything that might have changed. Finally, I wanted to make it easy to re-integrate changes back in, so that other machines could be updated.
-
-That command is [~/bin/dotfiles][dotfiles], and this is my "dotfiles" Git repo.
+> That command is [~/bin/dotfiles][dotfiles]
 
 [dotfiles]: https://github.com/lonnen/dotfiles/blob/master/bin/dotfiles
 [bin]: https://github.com/lonnen/dotfiles/tree/master/bin
 
 ## What, exactly, does the "dotfiles" command do?
 
-It's really not very complicated. When [dotfiles][dotfiles] is run, it does a few things:
+When [dotfiles][dotfiles] is run, it does a few things:
 
 1. Git is installed if necessary, via APT or Homebrew (which is installed if necessary).
 2. This repo is cloned into the `~/.dotfiles` directory (or updated if it already exists).
@@ -36,7 +34,6 @@ Note:
 * Files in `caches` are cached files, only used by some scripts. This folder will only be created if necessary.
 
 ## Installation
-### OS X
 Notes:
 
 * You need to be an administrator (for `sudo`).
@@ -49,7 +46,6 @@ bash -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles
 ## The "init" step
 These things will be installed, but _only_ if they aren't already.
 
-### OS X
 * Homebrew
   * git
   * tree
@@ -105,7 +101,7 @@ SVN repos display as **[rev1:rev2]** where rev1 and rev2 are:
 
 Check it out:
 
-![My awesome bash prompt](http://farm8.staticflickr.com/7142/6754488927_563dd73553_b.jpg)
+![Cowboy's awesome bash prompt](http://farm8.staticflickr.com/7142/6754488927_563dd73553_b.jpg)
 
 ## Inspiration
 <https://github.com/gf3/dotfiles>
