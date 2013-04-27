@@ -146,5 +146,13 @@
 		<key>with</key>
 		<string>grunt</string>
 	</dict>
+	<dict>
+		<key>on</key>
+		<integer>1</integer>
+		<key>replace</key>
+		<string>:flip</string>
+		<key>with</key>
+		<string>(╯°o°）╯︵ ┻━┻</string>
+	</dict>
 </array>
 </plist>

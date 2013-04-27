@@ -25,6 +25,8 @@ alias grv='gr -v'
 alias grr='git remote rm'
 alias gcl='git clone'
 alias gcd='git rev-parse 2>/dev/null && cd "./$(git rev-parse --show-cdup)"'
+alias gsu='git submodule update --init --recursive'
+
 
 # Run commands in each subdirectory.
 alias gu-all='eachdir git pull'

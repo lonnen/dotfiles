@@ -17,3 +17,5 @@ function qs() {
   pwd | perl -ne"s#^$(echo ~/.dotfiles)## && exit 1" && cd ~/.dotfiles
   q ~/.dotfiles
 }
+
+alias e="subl -n ."

@@ -19,3 +19,9 @@ function titlebar() {
 if [[ -e ~/.ssh/known_hosts ]]; then
   complete -o default -W "$(cat ~/.ssh/known_hosts | sed 's/[, ].*//' | sort | uniq | grep -v '[0-9]')" ssh scp stfp
 fi
+
+# JSON Parser
+alias json='python -m json.tool'
+
+# which replacement
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'

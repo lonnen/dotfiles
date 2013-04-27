@@ -1,6 +1,8 @@
 [user]
-  name = Ben Alman
+  name = lonnen
   email = EMAIL
+[github]
+  user = lonnen
 [core]
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
@@ -14,9 +16,11 @@
   df = diff
   g = grep -I
   lg = log -p
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
   rb = rbranch
   rv = review
+  s = status -sb
   st = status
   ksdiff = difftool -y -t Kaleidoscope
 [branch "master"]

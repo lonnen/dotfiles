@@ -44,30 +44,8 @@ bash -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles
 ```
 
 ## The "init" step
-These things will be installed, but _only_ if they aren't already.
 
-* Homebrew
-  * git
-  * tree
-  * sl
-  * lesspipe
-  * id3tool
-  * nmap
-  * git-extras
-  * htop-osx
-  * apple-gcc42 (via [homebrew-dupes](https://github.com/Homebrew/homebrew-dupes/blob/master/apple-gcc42.rb))
-* Nave
-  * Npm (latest stable)
-    * Grunt
-    * JSHint
-    * Uglify-JS
-* Rbenv
-  * Ruby 1.9.3-p194 (default)
-  * Ruby 1.9.2-p290 (default)
-* Ruby Gems
-  * bundler
-  * awesome_print
-  * interactive_editor
+Handles installation of homebrew, ruby, and node packages, iff they don't already exist. Look into the init folder for specific packages.
 
 ## The ~/ "copy" step
 Any file in the `copy` subdirectory will be copied into `~/`. Any file that _needs_ to be modified with personal information (like [.gitconfig](https://github.com/lonnen/dotfiles/blob/master/copy/.gitconfig) which contains an email address and private key) should be _copied_ into `~/`. Because the file you'll be editing is no longer in `~/.dotfiles`, it's less likely to be accidentally committed into your public dotfiles repo.
@@ -104,11 +82,4 @@ Check it out:
 ![Cowboy's awesome bash prompt](http://farm8.staticflickr.com/7142/6754488927_563dd73553_b.jpg)
 
 ## Inspiration
-<https://github.com/gf3/dotfiles>
-<https://github.com/mathiasbynens/dotfiles>
-(and 15+ years of accumulated crap)
-
-## License
-Copyright (c) 2012 "cowboy" Ben Alman
-Licensed under the MIT license.
-<http://benalman.com/about/license/>
+<https://github.com/cowboy/dotfiles>
