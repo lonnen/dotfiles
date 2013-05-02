@@ -7,9 +7,8 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
 Usage: $(basename "$0")
 
 See the README for documentation.
-https://github.com/cowboy/dotfiles
+https://github.com/lonnen/dotfiles
 
-Copyright (c) 2012 "Cowboy" Ben Alman
 Licensed under the MIT license.
 http://benalman.com/about/license/
 HELP
@@ -131,25 +130,15 @@ if [[ ! "$(type -P gcc)" && "$OSTYPE" =~ ^darwin ]]; then
   exit 1
 fi
 
-# If Git is not installed...
+# Ensure Git is installed...
 if [[ ! "$(type -P git)" ]]; then
-  # It's easiest to get Git via Homebrew, so get that first.
-  if [[ ! "$(type -P brew)" ]]; then
-    e_header "Installing Homebrew"
-    true | /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
-  fi
-  # If Homebrew was installed, install Git.
-  if [[ "$(type -P brew)" ]]; then
-    e_header "Updating Homebrew"
-    brew update
-    e_header "Installing Git"
-    brew install git
-  fi
+  e_error "Git must be installed first."
+  exit 1
 fi
 
-# If Git isn't installed by now, something exploded. We gots to quit!
-if [[ ! "$(type -P git)" ]]; then
-  e_error "Git should be installed. It isn't. Aborting."
+# Ensure Homebrew is installed...
+if [[ ! "$(type -P brew)" ]]; then
+  e_error "Git must be installed first."
   exit 1
 fi
 
@@ -161,7 +150,7 @@ if [[ ! -d ~/.dotfiles ]]; then
   new_dotfiles_install=1
   # ~/.dotfiles doesn't exist? Clone it!
   e_header "Downloading dotfiles"
-  git clone --recursive git://github.com/cowboy/dotfiles.git ~/.dotfiles
+  git clone --recursive git://github.com/lonnen/dotfiles.git ~/.dotfiles
   cd ~/.dotfiles
 else
   # Make sure we have the latest files.
