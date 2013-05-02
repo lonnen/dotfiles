@@ -25,3 +25,6 @@ alias json='python -m json.tool'
 
 # which replacement
 alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+
+# yokes
+alias please='sudo'

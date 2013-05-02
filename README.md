@@ -45,10 +45,10 @@ bash -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles
 
 ## The "init" step
 
-Handles installation of homebrew, ruby, and node packages, iff they don't already exist. Look into the init folder for specific packages.
+Handles installation of homebrew and some packages iff it doesn't already exist. Handles custom linking of some conf files. Look into the init folder for specifics.
 
 ## The ~/ "copy" step
-Any file in the `copy` subdirectory will be copied into `~/`. Any file that _needs_ to be modified with personal information (like [.gitconfig](https://github.com/lonnen/dotfiles/blob/master/copy/.gitconfig) which contains an email address and private key) should be _copied_ into `~/`. Because the file you'll be editing is no longer in `~/.dotfiles`, it's less likely to be accidentally committed into your public dotfiles repo.
+Any file in the `copy` subdirectory will be copied into `~/`. Files that need to be overwritten with personal or private info should go in here. Copying them makes it less likely to accidentally commit public dotfiles.
 
 ## The ~/ "link" step
 Any file in the `link` subdirectory gets symbolically linked with `ln -s` into `~/`. Edit these, and you change the file in the repo. Don't link files containing sensitive data, or you might accidentally commit that data!
@@ -62,24 +62,6 @@ In addition to the aforementioned [dotfiles][dotfiles] script, there are a few o
 * [dotfiles][dotfiles] - (re)initialize dotfiles. It might ask for your password (for `sudo`).
 * [src](https://github.com/lonnen/dotfiles/blob/master/link/.bashrc#L6-15) - (re)source all files in `source` directory
 * Look through the [bin][bin] subdirectory for a few more.
-
-## Prompt
-I think [my bash prompt](https://github.com/lonnen/dotfiles/blob/master/source/50_prompt.sh) is awesome. It shows git and svn repo status, a timestamp, error exit codes, and even changes color depending on how you've logged in.
-
-Git repos display as **[branch:flags]** where flags are:
-
-**?** untracked files
-**!** changed (but unstaged) files
-**+** staged files
-
-SVN repos display as **[rev1:rev2]** where rev1 and rev2 are:
-
-**rev1** last changed revision
-**rev2** revision
-
-Check it out:
-
-![Cowboy's awesome bash prompt](http://farm8.staticflickr.com/7142/6754488927_563dd73553_b.jpg)
 
 ## Inspiration
 <https://github.com/cowboy/dotfiles>
