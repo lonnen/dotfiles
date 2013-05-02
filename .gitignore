@@ -4,3 +4,4 @@ copy/.ssh/authorized_keys
 copy/.ssh/id_*
 copy/.ssh/known_hosts
 *LOCAL*
+private/

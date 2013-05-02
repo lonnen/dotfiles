@@ -24,6 +24,7 @@ When [dotfiles][dotfiles] is run, it does a few things:
 2. Files in `init` are executed (in alphanumeric order).
 3. Files in `copy` are copied into `~/`.
 4. Files in `link` are linked into `~/`.
+5. Files in `private` are linked into `~/`, iff `private` exists.
 
 Note:
 
@@ -32,6 +33,7 @@ Note:
 * Files in `source` get sourced whenever a new shell is opened (in alphanumeric order)..
 * Files in `conf` just sit there. If a config file doesn't _need_ to go in `~/`, put it in there.
 * Files in `caches` are cached files, only used by some scripts. This folder will only be created if necessary.
+* The `private` folder is not tracked, and must be added manually. Iff it exists, it will be treated like `link` but applied last.
 
 ## Installation
 Notes:

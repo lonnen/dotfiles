@@ -89,7 +89,11 @@ function link_do() {
 # Copy, link, init, etc.
 function do_stuff() {
   local base dest skip
-  local files=(~/.dotfiles/$1/*)
+  if [[ -n $2 ]]; then
+    local files=(~/.dotfiles/$2/*)
+  else
+    local files=(~/.dotfiles/$1/*)
+  fi
   # No files? abort.
   if (( ${#files[@]} == 0 )); then return; fi
   # Run _header function only if declared.
@@ -182,6 +186,7 @@ backup=
 do_stuff "init"
 do_stuff "copy"
 do_stuff "link"
+do_stuff "link" "private"
 
 # Alert if backups were made.
 if [[ "$backup" ]]; then
