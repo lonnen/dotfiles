@@ -25,9 +25,4 @@ if [[ "$(type -P brew)" ]]; then
     e_header "Installing Homebrew recipes: $list"
     brew install $list
   fi
-
-  if [[ ! "$(type -P gcc-4.2)" ]]; then
-    e_header "Installing Homebrew dupe recipe: apple-gcc42"
-    brew install https://raw.github.com/Homebrew/homebrew-dupes/master/apple-gcc42.rb
-  fi
 fi

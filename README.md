@@ -19,7 +19,7 @@ Reducing the amount of manual work to set up and maintain machines is the goal. 
 
 When [dotfiles][dotfiles] is run, it does a few things:
 
-1. Git is installed if necessary, via APT or Homebrew (which is installed if necessary).
+1. Verifies Xcode, Git and Homebrew are installed
 2. This repo is cloned into the `~/.dotfiles` directory (or updated if it already exists).
 2. Files in `init` are executed (in alphanumeric order).
 3. Files in `copy` are copied into `~/`.
@@ -33,7 +33,7 @@ Note:
 * Files in `source` get sourced whenever a new shell is opened (in alphanumeric order)..
 * Files in `conf` just sit there. If a config file doesn't _need_ to go in `~/`, put it in there.
 * Files in `caches` are cached files, only used by some scripts. This folder will only be created if necessary.
-* The `private` folder is not tracked, and must be added manually. Iff it exists, it will be treated like `link` but applied last.
+* The `private` folder is not tracked, and must be added manually.
 
 ## Installation
 Notes:
@@ -55,8 +55,11 @@ Any file in the `copy` subdirectory will be copied into `~/`. Files that need to
 ## The ~/ "link" step
 Any file in the `link` subdirectory gets symbolically linked with `ln -s` into `~/`. Edit these, and you change the file in the repo. Don't link files containing sensitive data, or you might accidentally commit that data!
 
+## The ~/ "private" step
+If the `private` subdirectory exists, any file in it gets symbolically linked with `ln -s` into `~/`. This dir and all files in it will be ignored by git, so put your sensisitive data here. You can sync it between installs manually, or via a third party tool like BT Sync, or Dropbox and encFs.
+
 ## Aliases and Functions
-To keep things easy, the `~/.bashrc` and `~/.bash_profile` files are extremely simple, and should never need to be modified. Instead, add your aliases, functions, settings, etc into one of the files in the `source` subdirectory, or add a new file. They're all automatically sourced when a new shell is opened. Take a look, I have [a lot of aliases and functions](https://github.com/lonnen/dotfiles/tree/master/source). I even have a [fancy prompt](https://github.com/lonnen/dotfiles/blob/master/source/50_prompt.sh) that shows the current directory, time and current git/svn repo status.
+To keep things easy, the `~/.profile`, `~/.bashrc` and `~/.bash_profile` files are extremely simple, and should never need to be modified. Instead, add your aliases, functions, settings, etc into one of the files in the `source` subdirectory, or add a new file. They're all automatically sourced when a new shell is opened. If you're using boxen these will backup and replace files boxen creates on installation, but `/source/20_boxen` will keep things working.
 
 ## Scripts
 In addition to the aforementioned [dotfiles][dotfiles] script, there are a few other [bash scripts][bin].
