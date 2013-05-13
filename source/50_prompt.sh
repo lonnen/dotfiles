@@ -1,15 +1,12 @@
-# My awesome bash prompt
+# Bash prompt customizations
 #
-# Copyright (c) 2012 "Cowboy" Ben Alman
+# Inspired by "Cowboy" Ben Alman's awesome bash prompt
 # Licensed under the MIT license.
 # http://benalman.com/about/license/
 #
 # Example:
-# [master:!?][cowboy@CowBook:~/.dotfiles]
+# [lonnen@musashi:~/.dotfiles][master:!?]
 # [11:14:45] $
-#
-# Read more (and see a screenshot) in the "Prompt" section of
-# https://github.com/lonnen/dotfiles
 
 # ANSI CODES - SEPARATE MULTIPLE VALUES WITH ;
 #
@@ -101,14 +98,14 @@ function prompt_command() {
   prompt_getcolors
   # http://twitter.com/cowboy/status/150254030654939137
   PS1="\n"
-  # svn: [repo:lastchanged]
-  PS1="$PS1$(prompt_svn)"
-  # git: [branch:flags]
-  PS1="$PS1$(prompt_git)"
   # misc: [cmd#:hist#]
   # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
   # path: [user@host:path]
   PS1="$PS1$c1[$c0\u$c1@$c0\h$c1:$c0\w$c1]$c9"
+  # svn: [repo:lastchanged]
+  PS1="$PS1$(prompt_svn)"
+  # git: [branch:flags]
+  PS1="$PS1$(prompt_git)"
   PS1="$PS1\n"
   # date: [HH:MM:SS]
   PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"
