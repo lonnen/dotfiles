@@ -28,3 +28,6 @@ alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-ti
 
 # yokes
 alias please='sudo'
+
+#dokku
+alias d='ssh -t dokku@lonnen.com'
