@@ -75,3 +75,4 @@ Desktop.ini
 
 # NPM
 .npmignore
+.node-version

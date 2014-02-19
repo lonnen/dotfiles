@@ -9,9 +9,9 @@ if [[ "$(type -P brew)" ]]; then
   recipes=(
     git tree sl lesspipe id3tool nmap git-extras htop-osx man2html
     atk   emacs   glm   jpeg    libvpx    objective-caml  python    subversion
-    autoconf213 faac    gmp   lame    libyaml   oniguruma python3   swig
+    faac    gmp   lame    libyaml   oniguruma python3   swig
     autossh   ffmpeg    gnupg   libass    little-cms  opencore-amr  readline
-    bash-completion fribidi   gource    libiconv  mongodb   pango   redis   wget
+    bash-completion fribidi   gource   mongodb   pango   redis   wget
     bazaar    gdbm    graphviz  libidl    mosh    pcre    rtmpdump  x264
     boost   gdk-pixbuf  gtk+    libmpc    mpfr    pcre++    ruby    xvid
     cairo   gettext   hub   libogg    mysql   pidof   sdl   xz   theora

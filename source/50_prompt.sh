@@ -1,15 +1,12 @@
-# My awesome bash prompt
+# Bash prompt customizations
 #
-# Copyright (c) 2012 "Cowboy" Ben Alman
+# Inspired by "Cowboy" Ben Alman's awesome bash prompt
 # Licensed under the MIT license.
 # http://benalman.com/about/license/
 #
 # Example:
-# [master:!?][cowboy@CowBook:~/.dotfiles]
+# (socorro)lonnen@musashi:~/.dotfiles master:!?
 # [11:14:45] $
-#
-# Read more (and see a screenshot) in the "Prompt" section of
-# https://github.com/lonnen/dotfiles
 
 # ANSI CODES - SEPARATE MULTIPLE VALUES WITH ;
 #
@@ -26,6 +23,7 @@ if [[ ! "${prompt_colors[@]}" ]]; then
   prompt_colors=(
     "36" # information color
     "37" # bracket color
+    "34" # secondary info color
     "31" # error color
   )
 
@@ -64,9 +62,9 @@ function prompt_git() {
       END {print r}'
   )"
   if [[ "$flags" ]]; then
-    output="$output$c1:$c0$flags"
+    output="$output$c1:$c2$flags"
   fi
-  echo "$c1[$c0$output$c1]$c9"
+  echo " $c1$c2$output$c9"
 }
 
 # SVN info.
@@ -77,7 +75,17 @@ function prompt_svn() {
   if [[ "$info" ]]; then
     last="$(echo "$info" | awk '/Last Changed Rev:/ {print $4}')"
     current="$(echo "$info" | awk '/Revision:/ {print $2}')"
-    echo "$c1[$c0$last$c1:$c0$current$c1]$c9"
+    echo "  $c2$last$c1:$c2$current$c9"
+  fi
+}
+
+# virtual environment info
+function prompt_venv() {
+  prompt_getcolors
+  [[ "$VIRTUAL_ENV" ]] || return;
+  local info="$(basename $VIRTUAL_ENV)"
+  if [[ "$info" ]]; then
+    echo "$c1($c2$info$c1)$c9"
   fi
 }
 
@@ -101,14 +109,16 @@ function prompt_command() {
   prompt_getcolors
   # http://twitter.com/cowboy/status/150254030654939137
   PS1="\n"
-  # svn: [repo:lastchanged]
-  PS1="$PS1$(prompt_svn)"
-  # git: [branch:flags]
-  PS1="$PS1$(prompt_git)"
+  # virtual env: (venv)
+  PS1="$PS1$(prompt_venv)"
   # misc: [cmd#:hist#]
   # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
-  # path: [user@host:path]
-  PS1="$PS1$c1[$c0\u$c1@$c0\h$c1:$c0\w$c1]$c9"
+  # path: user@host:path
+  PS1="$PS1$c1$c0\u$c1@$c0\h$c1:$c0\w$c1$c9"
+  # svn: repo:lastchanged
+  PS1="$PS1$(prompt_svn)"
+  # git: branch:flags
+  PS1="$PS1$(prompt_git)"
   PS1="$PS1\n"
   # date: [HH:MM:SS]
   PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"

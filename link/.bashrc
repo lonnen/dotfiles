@@ -11,6 +11,11 @@ function src() {
     for file in ~/.dotfiles/source/*; do
       source "$file"
     done
+    if [[ -d "~/.dotfiles/private-source" ]]; then
+      for file in ~/.dotfiles/private-source/*; do
+        source "$file"
+      done
+    fi
   fi
 }
 

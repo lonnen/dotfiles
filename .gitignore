@@ -5,3 +5,4 @@ copy/.ssh/id_*
 copy/.ssh/known_hosts
 *LOCAL*
 private/
+private-source/
