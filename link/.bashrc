@@ -25,3 +25,6 @@ function dotfiles() {
 }
 
 src
+
+# added by travis gem
+[ -f /Users/lonnen/.travis/travis.sh ] && source /Users/lonnen/.travis/travis.sh

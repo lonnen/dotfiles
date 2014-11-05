@@ -1,0 +1,4 @@
+#!/bin/bash
+as-set-instance-health $1 --status Unhealthy
+sleep 1
+ec2-terminate-instances $1
