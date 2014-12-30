@@ -7,17 +7,123 @@ if [[ "$(type -P brew)" ]]; then
 
   # Install Homebrew recipes.
   recipes=(
-    git tree sl lesspipe id3tool nmap git-extras htop-osx man2html
-    atk   emacs   glm   jpeg    libvpx    objective-caml  python    subversion
-    faac    gmp   lame    libyaml   oniguruma python3   swig
-    autossh   ffmpeg    gnupg   libass    little-cms  opencore-amr  readline
-    bash-completion fribidi   gource   mongodb   pango   redis   wget
-    bazaar    gdbm    graphviz  libidl    mosh    pcre    rtmpdump  x264
-    boost   gdk-pixbuf  gtk+    libmpc    mpfr    pcre++    ruby    xvid
-    cairo   gettext   hub   libogg    mysql   pidof   sdl   xz   theora
-    ccache    git   imagemagick libtiff   neon    pixman    sdl_image yasm
-    cmake   glew    imagesnap libvo-aacenc  nmap    pkg-config  sphinx
-    dos2unix  glib    jasper    libvorbis node    pypy    sqlite
+    ack
+    android-platform-tools
+    apple-gcc42
+    atk
+    autoconf
+    autoconf213
+    automake
+    autossh
+    awscli
+    bash-completion
+    bazaar
+    boost
+    cairo
+    ccache
+    cloog
+    cmake
+    curl
+    dnsmasq
+    dos2unix
+    doxygen
+    emacs
+    erlang
+    faac
+    faad2
+    ffmpeg
+    findutils
+    flac
+    fluid-synth
+    fontconfig
+    freetype
+    fribidi
+    gawk
+    gcc
+    gdbm
+    gdk-pixbuf
+    gettext
+    ghc
+    git
+    git-extras
+    glew
+    glib
+    glm
+    gmp
+    gnu-tar
+    gnupg
+    gnutls
+    go
+    gobject-introspection
+    haskell-platform
+    htop-osx
+    hub
+    icu4c
+    id3tool
+    isl
+    jpeg
+    lame
+    lesspipe
+    libffi
+    libgcrypt
+    libgpg-error
+    libid3tag
+    libidl
+    libmpc
+    libmpdclient
+    libogg
+    libpng
+    libsamplerate
+    libshout
+    libtasn1
+    libtiff
+    libtool
+    libvorbis
+    llvm
+    makedepend
+    man2html
+    mercurial
+    mpd
+    mpfr
+    mysql
+    nettle
+    nginx
+    nmap
+    node
+    openssl
+    ossp-uuid
+    p11-kit
+    pcre
+    pixman
+    pkg-config
+    python
+    rabbitmq
+    readline
+    redis
+    s-lang
+    sdl
+    sdl2
+    sdl2_image
+    sdl_image
+    sl
+    speex
+    sqlite
+    taglib
+    terraform
+    texi2html
+    theora
+    tree
+    ttyrec
+    webp
+    weechat
+    wget
+    wry
+    wxmac
+    x264
+    xvid
+    xz
+    yajl
+    yasm
   )
 
   list="$(to_install "${recipes[*]}" "$(brew list)")"
