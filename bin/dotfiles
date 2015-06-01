@@ -1,18 +1,30 @@
 #!/bin/bash
 
-echo 'Dotfiles - "Cowboy" Ben Alman - http://benalman.com/'
+echo 'Get you some Dotfiles!'
 
-if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
+usage() {
+  cat <<HELP
 
-Usage: $(basename "$0")
+  Usage: $(basename "$0") [options]
 
-See the README for documentation.
-https://github.com/lonnen/dotfiles
+  Options:
 
-Licensed under the MIT license.
-http://benalman.com/about/license/
+    -h, --help              This message
+
+  See the README for documentation.
+  https://github.com/lonnen/dotfiles
+
+  Licensed under the MIT license.
+  http://opensource.org/licenses/MIT
 HELP
-exit; fi
+}
+
+case $1 in
+  *)
+    usage
+    exit
+    ;;
+esac
 
 # Logging stuff.
 function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
