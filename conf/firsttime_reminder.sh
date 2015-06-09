@@ -5,5 +5,4 @@ source ~/.bashrc
 cat <<EOF
 Remember!
 * Sync your private dotifles
-* Merge your private, public, and boxen generated .gitconfig files
 EOF
