@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
 Multi-Firefox Fixer
@@ -47,7 +47,7 @@ for ff in "${apps[@]}"; do
     echo "Creating $bin script."
   fi
   cat > "$bin_path/$bin" <<'BASH'
-#!/bin/bash
+#!/usr/bin/env bash
 bin="$(echo $0 | perl -pe's/-bin$//;s/$/.bin/')"
 profile="$(echo $0 | perl -ne'm#/(Firefox[^/]*)\.app/# && print $1')"
 "$bin" -P "$profile"

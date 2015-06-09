@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
 Chromium Updater
@@ -91,7 +91,7 @@ bin_file="$bin_path/Chromium"
 mv "$bin_file" "$bin_path/Chromium-bin"
 
 cat > "$bin_file" <<'BASH'
-#!/bin/bash
+#!/usr/bin/env bash
 devtools=~/.dotfiles/caches/chromium/devtools
 "$0-bin" --debug-devtools-frontend="$devtools"
 BASH

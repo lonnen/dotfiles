@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ ! "$1" || "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
 Curl a remote file into an editor.
@@ -23,7 +23,7 @@ exit; fi
 script="$(basename "$0")"
 bin="${script#curl}"
 
-cache_dir=~/.dotfiles/caches/"$script"
+cache_dir=$DOTFILES/caches/"$script"
 
 # Create tempfile.
 tmp="$(mktemp "/tmp/$script.XXXXX")"
