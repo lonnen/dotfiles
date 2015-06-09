@@ -48,23 +48,44 @@ function prompt_exitcode() {
 # Git status.
 function prompt_git() {
   prompt_getcolors
-  local status output flags
+  local status output flags branch
   status="$(git status 2>/dev/null)"
   [[ $? != 0 ]] && return;
   output="$(echo "$status" | awk '/# Initial commit/ {print "(init)"}')"
   [[ "$output" ]] || output="$(echo "$status" | awk '/# On branch/ {print $4}')"
-  [[ "$output" ]] || output="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
+  [[ "$output" ]] || output="$(git branch | perl -ne '/^\* \(detached from (.*)\)$/ ? print "($1)" : /^\* (.*)/ && print $1')"
   flags="$(
     echo "$status" | awk 'BEGIN {r=""} \
-      /^# Changes to be committed:$/        {r=r "+"}\
-      /^# Changes not staged for commit:$/  {r=r "!"}\
-      /^# Untracked files:$/                {r=r "?"}\
+      /^(# )?Changes to be committed:$/        {r=r "+"}\
+      /^(# )?Changes not staged for commit:$/  {r=r "!"}\
+      /^(# )?Untracked files:$/                {r=r "?"}\
       END {print r}'
   )"
   if [[ "$flags" ]]; then
     output="$output$c1:$c2$flags"
   fi
   echo " $c1$c2$output$c9"
+}
+
+# hg status.
+function prompt_hg() {
+  prompt_getcolors
+  local summary output bookmark flags
+  summary="$(hg summary 2>/dev/null)"
+  [[ $? != 0 ]] && return;
+  output="$(echo "$summary" | awk '/branch:/ {print $2}')"
+  bookmark="$(echo "$summary" | awk '/bookmarks:/ {print $2}')"
+  flags="$(
+    echo "$summary" | awk 'BEGIN {r="";a=""} \
+      /(modified)/     {r= "+"}\
+      /(unknown)/      {a= "?"}\
+      END {print r a}'
+  )"
+  output="$output:$bookmark"
+  if [[ "$flags" ]]; then
+    output="$output$c1:$c0$flags"
+  fi
+  echo "$c1[$c0$output$c1]$c9"
 }
 
 # SVN info.
@@ -111,6 +132,8 @@ function prompt_command() {
   PS1="\n"
   # virtual env: (venv)
   PS1="$PS1$(prompt_venv)"
+  # hg:  [branch:flags]
+  PS1="$PS1$(prompt_hg)"
   # misc: [cmd#:hist#]
   # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
   # path: user@host:path
