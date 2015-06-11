@@ -21,6 +21,7 @@ recipes=(
   boost
   cairo
   ccache
+  clib
   cloog
   cmake
   cmatrix
