@@ -103,7 +103,7 @@ case $1 in
 esac
 
 # OSX only
-if [[ ! is_osx ]]; then
+if ! is_osx; then
   exit 1
 fi
 
@@ -266,7 +266,7 @@ else
 fi
 
 # Ensure that we can actually, like, compile anything.
-if [[ ! "$(type -P gcc)" && is_osx ]]; then
+if [[ ! "$(type -P gcc)" ]] && is_osx; then
   e_error "The XCode Command Line Tools must be installed first."
   exit 1
 fi
