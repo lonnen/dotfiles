@@ -174,14 +174,14 @@ function link_test() {
 
 function link_do() {
   e_success "Linking ~/$1."
-  ln -sf ${2#$HOME/} ~/
+  ln -sf "${2#$HOME/}" ~/
 }
 
 # Copy, link, init, etc.
 function do_stuff() {
   local base dest skip
   local files=($DOTFILES/$1/*)
-  [[ $(declare -f "$1_files") ]] && files=($($1_files "${files[@]}"))
+  [[ $(declare -f "$1_files") ]] && files=($("$1_files" "${files[@]}"))
   # No files? abort.
   if (( ${#files[@]} == 0 )); then return; fi
   # Run _header function only if declared.
@@ -239,25 +239,6 @@ if [[ "$OSX_VERSION" -ge 9 ]] || [[ ! -d /usr/include ]]; then
 
   # remove the placeholder
   [[ -f $PLACEHOLDER ]] && rm $PLACEHOLDER
-else
-  if [[ ! -f /usr/bin/gcc ]]; then
-    echo "
---> Installing command-line tools for Mavericks"
-
-    # on 10.8, we instead download from public download URLs, which can
-    # be found in the dvtdownloadableindex:
-    # https://devimages.apple.com.edgekey.net/downloads/xcode/simulators/index-3905972D-B609-49CE-8D06-51ADC78E07BC.dvtdownloadableindex
-    DMGURL=http://devimages.apple.com/downloads/xcode/command_line_tools_for_osx_mountain_lion_april_2014.dmg
-
-    TOOLS=/tmp/clitools.dmg
-    curl "$DMGURL" -o "$TOOLS"
-    TMPMOUNT=`/usr/bin/mktemp -d /tmp/clitools.XXXX`
-    hdiutil attach "$TOOLS" -mountpoint "$TMPMOUNT"
-    installer -pkg "$(find $TMPMOUNT -name '*.mpkg')" -target /
-    hdiutil detach "$TMPMOUNT"
-    rm -rf "$TMPMOUNT"
-    rm "$TOOLS"
-  fi
 fi
 
 # Ensure that we can actually, like, compile anything.
