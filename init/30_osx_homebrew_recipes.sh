@@ -21,7 +21,6 @@ recipes=(
   boost
   cairo
   ccache
-  clib
   cloog
   cmake
   cmatrix
@@ -108,6 +107,7 @@ recipes=(
   sdl2
   sdl2_image
   sdl_image
+  shellcheck
   sl
   ssh-copy-id
   speex
