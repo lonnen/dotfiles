@@ -23,9 +23,7 @@ casks=(
   atom
   bittorrent-sync
   chromium
-  create
   dropbox
-  edit
   fetch
   firefox
   google-chrome
@@ -42,15 +40,13 @@ casks=(
   sublime-text
   the-unarchiver
   transmission-remote-gui
-  uninstall
-  update
   vagrant
   virtualbox
   viscosity
   vlc
-  vmware_fusion
+  vmware-fusion
   ynab
-  zap
+  owasp-zap
   # Drivers
   d235j-xbox360-controller-driver
   # Quick Look plugins
