@@ -188,7 +188,7 @@ function do_stuff() {
   [[ $(declare -f "$1_header") ]] && "$1_header"
   # Iterate over files.
   for file in "${files[@]}"; do
-    base="$(basename $file)"
+    base=$(basename "$file")
     dest="$HOME/$base"
     # Run _test function only if declared.
     if [[ $(declare -f "$1_test") ]]; then
