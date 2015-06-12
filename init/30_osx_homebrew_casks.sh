@@ -21,28 +21,19 @@ casks=(
   # Applications
   alfred
   atom
-  audit
   bittorrent-sync
-  cat
   chromium
-  cleanup
   create
-  doctor
   dropbox
   edit
   fetch
   firefox
   google-chrome
   google-earth
-  home
-  info
   iterm2
-  install
   menumeters
   minecraft
   moom
-  remote-desktop-connection
-  search
   skype
   slack
   sonos

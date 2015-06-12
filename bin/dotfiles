@@ -221,6 +221,50 @@ function do_stuff() {
 
 # Enough with the functions, let's do stuff.
 
+# boxen-web OSX install the command line tools
+OSX_VERSION=$(sw_vers -productVersion | awk -F "." '{print $2}')
+
+if [[ "$OSX_VERSION" -ge 9 ]] || [[ ! -d /usr/include ]]; then
+  echo "Installing command-line tools for OS X ${OSX_VERSION}"
+
+  [ "$OSX_VERSION" -eq 9 ]  && TOOLS_REGEX="Command Line Developer"
+  [ "$OSX_VERSION" -eq 10 ] && TOOLS_REGEX="Command Line Tools"
+  PLACEHOLDER=/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+
+  # create the placeholder file that's checked by CLI updates' .dist code
+  # in Apple's SUS catalog
+  touch $PLACEHOLDER
+
+  # find the update with the right name, and grab its identifier
+  PROD=$(softwareupdate -l | grep -B 1 "${TOOLS_REGEX}" | \
+         awk -F"*" '/^ +\*/ {print $2}' | sed 's/^ *//' | head -n 1)
+
+  # install it
+  softwareupdate -i "${PROD}"
+
+  # remove the placeholder
+  [[ -f $PLACEHOLDER ]] && rm $PLACEHOLDER
+else
+  if [[ ! -f /usr/bin/gcc ]]; then
+    echo "
+--> Installing command-line tools for Mavericks"
+
+    # on 10.8, we instead download from public download URLs, which can
+    # be found in the dvtdownloadableindex:
+    # https://devimages.apple.com.edgekey.net/downloads/xcode/simulators/index-3905972D-B609-49CE-8D06-51ADC78E07BC.dvtdownloadableindex
+    DMGURL=http://devimages.apple.com/downloads/xcode/command_line_tools_for_osx_mountain_lion_april_2014.dmg
+
+    TOOLS=/tmp/clitools.dmg
+    curl "$DMGURL" -o "$TOOLS"
+    TMPMOUNT=`/usr/bin/mktemp -d /tmp/clitools.XXXX`
+    hdiutil attach "$TOOLS" -mountpoint "$TMPMOUNT"
+    installer -pkg "$(find $TMPMOUNT -name '*.mpkg')" -target /
+    hdiutil detach "$TMPMOUNT"
+    rm -rf "$TMPMOUNT"
+    rm "$TOOLS"
+  fi
+fi
+
 # Ensure that we can actually, like, compile anything.
 if [[ ! "$(type -P gcc)" && is_osx ]]; then
   e_error "The XCode Command Line Tools must be installed first."
@@ -247,6 +291,7 @@ elif [[ "$1" != "restart" ]]; then
   # Make sure we have the latest files.
   e_header "Updating dotfiles"
   cd $DOTFILES
+  prev_head="$(git rev-parse HEAD)"
   git pull
   git submodule update --init --recursive --quiet
   if [[ "$(git rev-parse HEAD)" != "$prev_head" ]]; then
