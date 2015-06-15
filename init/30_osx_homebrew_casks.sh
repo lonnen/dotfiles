@@ -31,7 +31,6 @@ casks=(
   iterm2
   menumeters
   minecraft
-  moom
   skype
   slack
   sonos
