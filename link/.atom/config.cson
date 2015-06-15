@@ -31,3 +31,4 @@
       "git-diff": true
       "find-and-replace": true
   react: {}
+  linter: {}
