@@ -1,0 +1,26 @@
+{
+  "name": "language-haskell",
+  "version": "1.0.0",
+  "description": "Haskell language support in Atom",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jroesch/language-haskell"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Haskell support in Atom\n\nAdds syntax highlighting and snippets to Haskell files in Atom.\n\nConverted from the [Haskell TextMate bundle](https://github.com/textmate/haskell.tmbundle).\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jroesch/language-haskell/issues"
+  },
+  "homepage": "https://github.com/jroesch/language-haskell",
+  "_id": "language-haskell@1.0.0",
+  "dist": {
+    "shasum": "b3a368ba79204fe8b206209e6fd4c533f4c13226"
+  },
+  "_resolved": "/var/folders/mg/yfz5pk0x66d57hvh1pxg_49w0000gn/T/d-114726-75573-pooe4o/package.tgz",
+  "_from": "/var/folders/mg/yfz5pk0x66d57hvh1pxg_49w0000gn/T/d-114726-75573-pooe4o/package.tgz"
+}

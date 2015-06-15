@@ -1,0 +1,12 @@
+{
+  "name": "flatui-dark",
+  "theme": "syntax",
+  "version": "0.3.0",
+  "private": true,
+  "description": "A darker version of the flatui Atom syntax theme.",
+  "repository": "https://github.com/jpinnix/flatui-dark",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  }
+}

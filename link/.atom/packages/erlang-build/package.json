@@ -1,0 +1,32 @@
+{
+  "name": "erlang-build",
+  "main": "./lib/erlang-build",
+  "version": "0.3.0",
+  "description": "Erlang Build Tools for Atom",
+  "activationEvents": [
+    "erlang-build:compile"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spiegela/atom-erlang-build"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "atom-message-panel": ">=1.0.0"
+  },
+  "readme": "# Atom Erlang Build package\n### Erlang build shortcuts in Atom\n\n![Screenshot of Erlang-Build](./screenshot.png)\n> Compilation Error panel\n\n## Installation\n\n```bash\n$ apm install erlang-build\n```\n\n## Prerequisites\n\nThe Erlang-Build package uses the [Rebar](https://github.com/rebar/rebar) build\ntool, so your program must use rebar.\n\n## Usage\n\n## Known Issues\n\n## Features\n\n * Compile rebar appliations on project save\n * Display compilation success or failure with compilation errors\n\n## TODO\n> A lot...\n\n * Add rebar path detection\n * Add line preview in message-pane\n * Add in-editor highlighting of error/warning messages\n * Add styles to messages\n * Add [EUnit](http://www.erlang.org/doc/apps/eunit/chapter.html) support\n * Add [Dialyzer](http://www.erlang.org/doc/man/dialyzer.html) support\n * Add [Cover](http://www.erlang.org/doc/man/cover.html) support\n * Add [Wrangler](https://github.com/RefactoringTools/wrangler) support\n * Add [Smother](https://github.com/ramsay-t/Smother) support\n * Add [Skel](https://github.com/ParaPhrase/skel) support\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/spiegela/atom-erlang-build/issues"
+  },
+  "homepage": "https://github.com/spiegela/atom-erlang-build",
+  "_id": "erlang-build@0.3.0",
+  "dist": {
+    "shasum": "21b32040af0cb9268ed4a4a126a24e07b13884ab"
+  },
+  "_resolved": "/private/var/folders/mg/yfz5pk0x66d57hvh1pxg_49w0000gn/T/d-114916-28985-loh56t/package.tgz",
+  "_from": "/private/var/folders/mg/yfz5pk0x66d57hvh1pxg_49w0000gn/T/d-114916-28985-loh56t/package.tgz"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "flat-simple-dark-ui",
+  "theme": "ui",
+  "version": "0.1.1",
+  "description": "Flat Simple Dark theme for interface components",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lohek/flat-simple-dark-ui"
+  },
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# Flat Simple Dark UI theme\n\nInstall [Source Code Pro](https://github.com/adobe/source-code-pro) font.\n\n![](http://uppix.net/ByIBka.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/lohek/flat-simple-dark-ui/issues"
+  },
+  "homepage": "https://github.com/lohek/flat-simple-dark-ui",
+  "_id": "flat-simple-dark-ui@0.1.1",
+  "dist": {
+    "shasum": "84a19d202597b30483baaa78766068fc9c90f47a"
+  },
+  "_resolved": "/var/folders/mg/yfz5pk0x66d57hvh1pxg_49w0000gn/T/d-114615-63066-2430ek/package.tgz",
+  "_from": "/var/folders/mg/yfz5pk0x66d57hvh1pxg_49w0000gn/T/d-114615-63066-2430ek/package.tgz"
+}

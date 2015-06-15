@@ -1,0 +1,19 @@
+{
+    "name": "csscomb-core",
+    "version": "2.0.2",
+    "description": "Framework for writing postprocessors",
+    "dependencies": {
+        "gonzales-pe": "~3.0.0",
+        "minimatch": "0.2.12",
+        "vow": "0.4.4",
+        "vow-fs": "0.3.2"
+    },
+    "main": "lib/core.js",
+    "maintainers": [{
+        "name": "Tony Ganch",
+        "email": "tonyganch+github@gmail.com",
+        "web": "http://tonyganch.com/"
+    }],
+    "license": "MIT",
+    "repository": "https://github.com/csscomb/core"
+}

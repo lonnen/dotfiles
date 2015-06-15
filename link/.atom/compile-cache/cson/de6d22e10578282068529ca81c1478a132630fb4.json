@@ -1,0 +1,1 @@
+{".source.haskell":{"editor":{"commentStart":"-- ","increaseIndentPattern":"((^.*(=|\\bdo|\\bwhere|\\bthen|\\belse|\\bof)\\s*$)|(^.*\\bif(?!.*\\bthen\\b.*\\belse\\b.*).*$))","decreaseIndentPattern":"^\\s*$"}}}

@@ -1,0 +1,17 @@
+{
+  "name": "erlang-build",
+  "main": "./lib/erlang-build",
+  "version": "0.3.0",
+  "description": "Erlang Build Tools for Atom",
+  "activationEvents": [
+    "erlang-build:compile"
+  ],
+  "repository": "https://github.com/spiegela/atom-erlang-build",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "atom-message-panel": ">=1.0.0"
+  }
+}
