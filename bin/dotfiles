@@ -89,11 +89,11 @@ function setdiff() {
 case $1 in
   source)
     # if this file was being sourced, all the functions are set up now
-    exit
+    return 0
     ;;
   -h|--help)
     usage
-    exit
+    exit 0
     ;;
 esac
 
