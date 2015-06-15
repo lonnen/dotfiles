@@ -5,4 +5,7 @@ source ~/.bashrc
 cat <<EOF
 Remember!
 * Sync your private dotifles
+* Manually load all your app store purchases
+* Sign into all your apps and sync everything those can sink
+* scp -r old_machine:~/* new_machine:~/
 EOF
