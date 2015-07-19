@@ -1,7 +1,7 @@
 {
   "name": "atom-css-comb",
   "main": "./lib/css-comb",
-  "version": "1.2.0",
+  "version": "2.0.1",
   "description": "CSScomb is a coding style formatter for CSS (LESS|SASS|etc). You can easily write your own configuration to make your style sheets beautiful and consistent.",
   "activationCommands": {
     "atom-text-editor": [
@@ -25,12 +25,12 @@
     "url": "https://github.com/jchouse/csscomb-atom/issues"
   },
   "homepage": "https://github.com/jchouse/csscomb-atom",
-  "readme": "# Csscomb package\nCSScomb is a coding style formatter for CSS.\n\n![Css Comb](https://raw.githubusercontent.com/jchouse/csscomb-atom/master/i/combed.png)\n\nBased on [csscombjs 3.0](https://github.com/csscomb/csscomb.js)\n\n## Configure\nCan use [ready-made presets](https://github.com/csscomb/csscomb.js/tree/master/config), [customize](http://csscomb.com/config) your own common or project config.\nTo open setting menu use `Packages`->`Css Comb`->`Settings`\n\n![settings](https://raw.githubusercontent.com/jchouse/csscomb-atom/master/i/settings.png)\n\n## How to use\nOpen any file and press `ctrl+alt+c`, or use context menu.\n\n## Contributors\nHaojia Che [1989car](https://github.com/1989car)\n",
+  "readme": "# Csscomb package\nCSScomb is a coding style formatter for CSS.\nBased on [csscombjs 3.0](https://github.com/csscomb/csscomb.js)\n![Css Comb](https://raw.githubusercontent.com/jchouse/csscomb-atom/master/i/combed.png)\n\n## Configure\nCreate you [own config](http://csscomb.com/config)\nRead about prep [configs](https://github.com/csscomb/csscomb.js/tree/master/config)\n\n## How to use\nOpen any file and press `ctrl+alt+c`, or use context menu.\n\n## Contributors\nHaojia Che [1989car](https://github.com/1989car)\n",
   "readmeFilename": "README.md",
-  "_id": "atom-css-comb@1.2.0",
-  "_shasum": "f51cef28809b8c9b74a2ed117b9aa04db6b3c892",
-  "_resolved": "file:../d-115418-13819-16iu5ls/package.tgz",
-  "_from": "../d-115418-13819-16iu5ls/package.tgz",
+  "_id": "atom-css-comb@2.0.1",
+  "_shasum": "54c40f4b817aff1be131d87a71407560bcf45720",
+  "_resolved": "file:../d-115614-3692-hqt9ky/package.tgz",
+  "_from": "../d-115614-3692-hqt9ky/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -96,7 +96,7 @@
       },
       {
         "name": "amdefine",
-        "version": "0.1.0",
+        "version": "1.0.0",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/coffeestack/node_modules/source-map/node_modules/amdefine/amdefine.js"
       },
       {
@@ -156,7 +156,7 @@
       },
       {
         "name": "csscomb",
-        "version": "3.0.4",
+        "version": "3.1.8",
         "path": "node_modules/csscomb/lib/csscomb.js"
       },
       {
@@ -166,7 +166,7 @@
       },
       {
         "name": "csscomb-core",
-        "version": "2.0.4",
+        "version": "3.0.0-3.1",
         "path": "node_modules/csscomb/node_modules/csscomb-core/lib/core.js"
       },
       {
@@ -176,12 +176,12 @@
       },
       {
         "name": "lru-cache",
-        "version": "2.6.3",
+        "version": "2.6.5",
         "path": "node_modules/csscomb/node_modules/csscomb-core/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js"
       },
       {
         "name": "sigmund",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "path": "node_modules/csscomb/node_modules/csscomb-core/node_modules/minimatch/node_modules/sigmund/sigmund.js"
       },
       {
@@ -211,7 +211,7 @@
       },
       {
         "name": "gonzales-pe",
-        "version": "3.0.0-10",
+        "version": "3.0.0-28",
         "path": "node_modules/csscomb/node_modules/gonzales-pe/lib/gonzales.js"
       },
       {
@@ -222,7 +222,6 @@
     ],
     "extensions": {
       ".coffee": [
-        "lib/css-comb-view.coffee",
         "lib/css-comb.coffee"
       ],
       ".js": [
@@ -780,6 +779,8 @@
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/node_modules/underscore/underscore.js",
         "node_modules/csscomb/lib/cli.js",
         "node_modules/csscomb/lib/csscomb.js",
+        "node_modules/csscomb/lib/format.js",
+        "node_modules/csscomb/lib/gonzales.js",
         "node_modules/csscomb/lib/options/always-semicolon.js",
         "node_modules/csscomb/lib/options/block-indent.js",
         "node_modules/csscomb/lib/options/color-case.js",
@@ -807,6 +808,9 @@
         "node_modules/csscomb/lib/options/vendor-prefix-align.js",
         "node_modules/csscomb/node_modules/commander/index.js",
         "node_modules/csscomb/node_modules/csscomb-core/lib/core.js",
+        "node_modules/csscomb/node_modules/csscomb-core/lib/errors.js",
+        "node_modules/csscomb/node_modules/csscomb-core/lib/format.js",
+        "node_modules/csscomb/node_modules/csscomb-core/lib/plugin.js",
         "node_modules/csscomb/node_modules/csscomb-core/node_modules/minimatch/minimatch.js",
         "node_modules/csscomb/node_modules/csscomb-core/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js",
         "node_modules/csscomb/node_modules/csscomb-core/node_modules/minimatch/node_modules/sigmund/bench.js",
@@ -821,41 +825,30 @@
         "node_modules/csscomb/node_modules/csscomb-core/node_modules/vow-fs/node_modules/node-uuid/benchmark/benchmark.js",
         "node_modules/csscomb/node_modules/csscomb-core/node_modules/vow-fs/node_modules/node-uuid/uuid.js",
         "node_modules/csscomb/node_modules/csscomb-core/node_modules/vow-fs/node_modules/vow-queue/lib/queue.js",
+        "node_modules/csscomb/node_modules/gonzales-pe/bin/generate-tests.js",
         "node_modules/csscomb/node_modules/gonzales-pe/bin/gonzales.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/ast-to-src.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/ast-to-string.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/css/mark.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/css/node-types.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/css/rules.js",
+        "node_modules/csscomb/node_modules/gonzales-pe/lib/css/parse.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/css/stringify.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/css/tokenizer.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/gonzales.ast-to-css.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/gonzales.css-to-ast.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/gonzales.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/js/mark.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/js/node-types.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/js/rules.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/js/stringify.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/js/tokenizer.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/less/mark.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/less/node-types.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/less/rules.js",
+        "node_modules/csscomb/node_modules/gonzales-pe/lib/less/parse.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/less/stringify.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/less/tokenizer.js",
+        "node_modules/csscomb/node_modules/gonzales-pe/lib/node-types.js",
+        "node_modules/csscomb/node_modules/gonzales-pe/lib/node.js",
+        "node_modules/csscomb/node_modules/gonzales-pe/lib/parse.js",
+        "node_modules/csscomb/node_modules/gonzales-pe/lib/parsing-error.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/sass/mark.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/sass/node-types.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/sass/rules.js",
+        "node_modules/csscomb/node_modules/gonzales-pe/lib/sass/parse.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/sass/stringify.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/sass/tokenizer.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/scss/mark.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/scss/node-types.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/scss/rules.js",
+        "node_modules/csscomb/node_modules/gonzales-pe/lib/scss/parse.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/scss/stringify.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/scss/tokenizer.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/lib/src-to-ast.js",
         "node_modules/csscomb/node_modules/gonzales-pe/lib/token-types.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/web/gonzales.ast-to-css.js",
-        "node_modules/csscomb/node_modules/gonzales-pe/web/gonzales.css-to-ast.js",
         "node_modules/csscomb/node_modules/vow/lib/vow.js",
         "node_modules/csscomb/node_modules/vow/vow.min.js"
       ],
@@ -911,7 +904,6 @@
     "folders": [
       {
         "paths": [
-          "configs",
           "lib",
           ""
         ],
@@ -1239,18 +1231,19 @@
         ],
         "dependencies": {
           "commander": "2.0.0",
-          "csscomb-core": "~2.0.0",
-          "gonzales-pe": "3.0.0-10",
+          "csscomb-core": "3.0.0-3.1",
+          "gonzales-pe": "3.0.0-28",
           "vow": "0.4.4"
         }
       },
       {
         "paths": [
           "node_modules/csscomb/node_modules/csscomb-core/lib",
-          "node_modules/csscomb/node_modules/csscomb-core"
+          "node_modules/csscomb/node_modules/csscomb-core",
+          "node_modules/csscomb/node_modules/csscomb-core/test"
         ],
         "dependencies": {
-          "gonzales-pe": "3.0.0-10",
+          "gonzales-pe": "3.0.0-28",
           "minimatch": "0.2.12",
           "vow": "0.4.4",
           "vow-fs": "0.3.2"

@@ -1,6 +1,7 @@
 'scopeName': 'source.clojure'
 'fileTypes': [
   'clj'
+  'cljc'
   'cljs'
   'cljx'
   'clojure'

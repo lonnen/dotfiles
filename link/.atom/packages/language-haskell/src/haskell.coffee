@@ -1,6 +1,4 @@
-makeGrammar = require 'atom-syntax-tools'
-
-makeGrammar_ = (p,g) -> makeGrammar g,p
+makeGrammar = require './syntax-tools'
 
 toString = (rx) ->
   if rx instanceof RegExp
@@ -20,7 +18,7 @@ concat = (list...) ->
   r=''.concat (list.map (i) -> "(?:#{toString i})")...
   "(?:#{r})"
 
-makeGrammar_ "grammars/haskell.cson",
+haskellGrammar =
   name: 'Haskell'
   fileTypes: [ 'hs' ]
   scopeName: 'source.haskell'
@@ -69,11 +67,12 @@ makeGrammar_ "grammars/haskell.cson",
       |(?:(?!deriving)(?:[\w()'→⇒\[\],]|->|=>)+\s*)+ #anything goes!
       )
       ///
-    ctor: concat /({className})\s+/,
+    ctor: concat /\b({className})\s+/,
       listMaybe('ctorArgs',/{ctorArgs}/,/\s+/)
     typeDecl: /.+?/
     indentChar: /[ \t]/
-    indentBlockEnd: /^(?!\1{indentChar}.*[^ \t]|^$)/
+    indentBlockEnd: /^(?!\1{indentChar}|{indentChar}*$)/
+    maybeBirdTrack: /^/
 
   patterns: [
       name: 'keyword.operator.function.infix.haskell'
@@ -92,6 +91,17 @@ makeGrammar_ "grammars/haskell.cson",
     ,
       name: 'constant.language.empty-list.haskell'
       match: /\[\]/
+    ,
+      begin: /(\[)({functionNameOne})(\|)/
+      end: /(\|)(\])/
+      beginCaptures:
+        1: name: 'punctuation.definition.quasiquotes.begin.haskell'
+        2: name: 'entity.name.tag.haskell'
+        3: name: 'string.quoted.quasiquotes.haskell'
+      endCaptures:
+        1: name: 'string.quoted.quasiquotes.haskell'
+        2: name: 'punctuation.definition.quasiquotes.end.haskell'
+      contentName: 'string.quoted.quasiquotes.haskell'
     ,
       name: 'meta.declaration.module.haskell'
       begin: /\b(module)\b/
@@ -156,7 +166,7 @@ makeGrammar_ "grammars/haskell.cson",
       ]
     ,
       name: 'meta.foreign.haskell'
-      begin: /(^\s*)(foreign)\s+(import|export)\b/
+      begin: /{maybeBirdTrack}(\s*)(foreign)\s+(import|export)\b/
       end: /{indentBlockEnd}/
       beginCaptures:
         2: name: 'keyword.other.haskell'
@@ -185,7 +195,7 @@ makeGrammar_ "grammars/haskell.cson",
       ]
     ,
       name: 'meta.declaration.type.data.haskell'
-      begin: /^(\s)*(data|newtype)\s+({typeDecl})\s*(?=\=|$)/
+      begin: /{maybeBirdTrack}(\s)*(data|newtype)\s+({typeDecl})\s*(?=\=|$)/
       end: /{indentBlockEnd}/
       beginCaptures:
         2: name: 'storage.type.data.haskell'
@@ -228,7 +238,7 @@ makeGrammar_ "grammars/haskell.cson",
       ]
     ,
       name: 'meta.declaration.type.type.haskell'
-      begin: /^(\s)*(type)\s+({typeDecl})\s*(?=\=|$)/
+      begin: /{maybeBirdTrack}(\s)*(type)\s+({typeDecl})\s*(?=\=|$)/
       end: /{indentBlockEnd}/
       contentName: 'meta.type-signature.haskell'
       beginCaptures:
@@ -266,7 +276,7 @@ makeGrammar_ "grammars/haskell.cson",
       match: /\b([0-9]+|0([xX][0-9a-fA-F]+|[oO][0-7]+))\b/
     ,
       name: 'meta.preprocessor.c'
-      match: /^\s*(#)\s*\w+/
+      match: /{maybeBirdTrack}\s*(#)\s*\w+/
       captures:
         1: name: 'punctuation.definition.preprocessor.c'
       ###
@@ -380,7 +390,7 @@ makeGrammar_ "grammars/haskell.cson",
       ]
     comments:
       patterns: [
-          begin: /(^[ \t]+)?(?=--+\s+[|^])/
+          begin: /({maybeBirdTrack}[ \t]+)?(?=--+\s+[|^])/
           end: /(?!\G)/
           beginCaptures:
             1: name: 'punctuation.whitespace.comment.leading.haskell'
@@ -398,7 +408,7 @@ makeGrammar_ "grammars/haskell.cson",
           entirely composed of - characters. This means comments can't be
           immediately followed by an allowable operator character.
           ###
-          begin: /(^[ \t]+)?(?=--+(?!{operatorChar}))/
+          begin: /({maybeBirdTrack}[ \t]+)?(?=--+(?!{operatorChar}))/
           end: /(?!\G)/
           beginCaptures:
             1: name: 'punctuation.whitespace.comment.leading.haskell'
@@ -444,7 +454,7 @@ makeGrammar_ "grammars/haskell.cson",
       ]
     module_name:
       name: 'support.other.module.haskell'
-      match: /(?:{className}\.)+{className}?/
+      match: /(?:{className}\.)*{className}\.?/
     pragma:
       name: 'meta.preprocessor.haskell'
       begin: /\{-#/
@@ -455,7 +465,7 @@ makeGrammar_ "grammars/haskell.cson",
       ]
     function_type_declaration:
       name: 'meta.function.type-declaration.haskell'
-      begin: concat /^(\s*)/,/{functionTypeDeclaration}/
+      begin: concat /{maybeBirdTrack}(\s*)/,/{functionTypeDeclaration}/
       end: /{indentBlockEnd}/
       contentName: 'meta.type-signature.haskell'
       beginCaptures:
@@ -594,3 +604,55 @@ makeGrammar_ "grammars/haskell.cson",
       captures:
         1: name: 'keyword.other.haskell'
         2: name: 'entity.other.inherited-class.haskell'
+
+makeGrammar haskellGrammar, "grammars/haskell.cson"
+
+literateHaskellGrammar =
+  name: 'Literate Haskell'
+  fileTypes: [ 'lhs' ]
+  scopeName: 'text.tex.latex.haskell'
+
+  macros: haskellGrammar.macros
+  patterns: [
+      begin: /^((\\)begin)({)(code|spec)(})(\s*\n)?/
+      beginCaptures:
+        1:
+          name: 'support.function.be.latex'
+        2:
+          name: 'punctuation.definition.function.latex'
+        3:
+          name: 'punctuation.definition.arguments.begin.latex'
+        5:
+          name: 'punctuation.definition.arguments.end.latex'
+      end: /^((\\)end)({)\4(})/
+      endCaptures:
+        1:
+          name: 'support.function.be.latex'
+        2:
+          name: 'punctuation.definition.function.latex'
+        3:
+          name: 'punctuation.definition.arguments.begin.latex'
+        4:
+          name: 'punctuation.definition.arguments.end.latex'
+      contentName: 'source.haskell.embedded.latex'
+      name: 'meta.embedded.block.haskell.latex'
+      patterns: [
+          include: 'source.haskell'
+      ]
+    ,
+      begin: /^(?=> )/
+      end: /^(?!> )/
+      name: 'meta.embedded.haskell'
+      patterns: haskellGrammar.patterns.concat
+        match: /^> /
+        name: 'punctuation.definition.bird-track.haskell'
+    ,
+      include: 'text.tex.latex'
+  ]
+  repository: haskellGrammar.repository
+
+literateHaskellGrammar.macros.maybeBirdTrack = /^> /
+literateHaskellGrammar.macros.indentBlockEnd =
+  /^(?!> \1{indentChar}|> {indentChar}*$)|^(?!> )/
+
+makeGrammar literateHaskellGrammar, "grammars/literate haskell.cson"

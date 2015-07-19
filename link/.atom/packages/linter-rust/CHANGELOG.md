@@ -1,3 +1,22 @@
+# 0.2.4
+* Support multiline lint messages
+* Use explicit path to rusts executables
+* Move parsing into dedicated method for testability
+
+
+# 0.2.3
+* Include columns in lint range (thanks to @b52).
+
+# 0.2.2
+* Remove 'linter-package' from the package.json. Close #23
+
+# 0.2.1
+* Fix and close #20.
+
+# 0.2.0
+* Migrate to linter-plus.
+* Add Rust home path configuration option.
+
 # 0.1.0
 * Remove linting "on the fly".
 * Support Cargo. See #5. Thanks @liigo for ideas.

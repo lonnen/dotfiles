@@ -1,4 +1,4 @@
-{CompositeDisposable} = require 'event-kit'
+{CompositeDisposable} = require 'atom'
 {repositoryForPath} = require './helpers'
 
 module.exports =
@@ -6,19 +6,26 @@ class MinimapGitDiffBinding
 
   active: false
 
-  constructor: (@gitDiff, @minimap) ->
-    @editor = @minimap.getTextEditor()
+  constructor: (@minimap) ->
     @decorations = {}
     @markers = null
     @subscriptions = new CompositeDisposable
 
+    unless @minimap?
+      return console.warn 'minimap-git-diff binding created without a minimap'
+
+    @editor = @minimap.getTextEditor()
+
     @subscriptions.add @editor.getBuffer().onDidStopChanging @updateDiffs
+    @subscriptions.add @minimap.onDidDestroy @destroy
 
     if repository = @getRepo()
       @subscriptions.add repository.onDidChangeStatuses =>
         @scheduleUpdate()
       @subscriptions.add repository.onDidChangeStatus (changedPath) =>
         @scheduleUpdate() if changedPath is @editor.getPath()
+      @subscriptions.add repository.onDidDestroy =>
+        @destroy()
 
     @scheduleUpdate()
 
@@ -57,10 +64,11 @@ class MinimapGitDiffBinding
     @markers ?= []
     @markers.push(marker)
 
-  destroy: ->
+  destroy: =>
     @removeDecorations()
     @subscriptions.dispose()
     @diffs = null
+    @minimap = null
 
   getPath: -> @editor.getBuffer()?.getPath()
 

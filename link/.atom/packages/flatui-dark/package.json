@@ -1,7 +1,7 @@
 {
   "name": "flatui-dark",
   "theme": "syntax",
-  "version": "0.3.0",
+  "version": "6.0.0",
   "private": true,
   "description": "A darker version of the flatui Atom syntax theme.",
   "repository": {
@@ -18,10 +18,18 @@
     "url": "https://github.com/jpinnix/flatui-dark/issues"
   },
   "homepage": "https://github.com/jpinnix/flatui-dark",
-  "_id": "flatui-dark@0.3.0",
-  "dist": {
-    "shasum": "b01a5b9f2962310dfa380df1a6efe612f21f48e2"
-  },
-  "_resolved": "/var/folders/mg/yfz5pk0x66d57hvh1pxg_49w0000gn/T/d-114615-62975-125ak88/package.tgz",
-  "_from": "/var/folders/mg/yfz5pk0x66d57hvh1pxg_49w0000gn/T/d-114615-62975-125ak88/package.tgz"
+  "_id": "flatui-dark@6.0.0",
+  "_shasum": "cf4a756eace11badcb9a77f024f79f2d0edadac8",
+  "_resolved": "file:../d-115614-3706-14ccsen/package.tgz",
+  "_from": "../d-115614-3706-14ccsen/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

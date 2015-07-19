@@ -18,6 +18,7 @@
 
 # ignore those atom session files
 /link/.atom/storage/editor*
+/link/.atom/compile-cache*
 
 # Ignore any file with LOCAL in the name (good for per-machine vars/functions)
 *LOCAL*

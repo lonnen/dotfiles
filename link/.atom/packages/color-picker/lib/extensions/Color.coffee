@@ -41,8 +41,13 @@
                     return this
 
                 # Set the Color element background color
+                previousColor: null
                 setColor: (smartColor) ->
-                    @el.style.backgroundColor = smartColor.toRGBA()
+                    _color = smartColor.toRGBA()
+                    return if @previousColor and @previousColor is _color
+                    
+                    @el.style.backgroundColor = _color
+                    return @previousColor = _color
             colorPicker.element.add @element.el
 
         #  Increase Color Picker height
@@ -74,6 +79,13 @@
                 return unless _isClicking
                 colorPicker.replace @color
                 colorPicker.element.close()
+
+        #  Set or replace Color on key press enter
+        # ---------------------------
+            colorPicker.onKeyDown (e) =>
+                return unless e.which is 13
+                e.stopPropagation()
+                colorPicker.replace @color
 
         #  Set background element color on Alpha change
         # ---------------------------
