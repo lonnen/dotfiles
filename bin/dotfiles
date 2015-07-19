@@ -225,7 +225,7 @@ function do_stuff() {
 OSX_VERSION=$(sw_vers -productVersion | awk -F "." '{print $2}')
 
 if [[ "$OSX_VERSION" -ge 9 ]] || [[ ! -d /usr/include ]]; then
-  echo "Installing command-line tools for OS X ${OSX_VERSION}"
+  echo "Checking for command-line tools for OS X ${OSX_VERSION}"
 
   [ "$OSX_VERSION" -eq 9 ]  && TOOLS_REGEX="Command Line Developer"
   [ "$OSX_VERSION" -eq 10 ] && TOOLS_REGEX="Command Line Tools"

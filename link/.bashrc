@@ -11,13 +11,17 @@ export PATH
 function src() {
   local file
   if [[ "$1" ]]; then
-    source "$DOTFILES/source/$1.sh"
+    if [ -f "$DOTFILES/private-source/$1.sh"]; then
+      source "$DOTFILES/private-source/$1.sh"
+    else
+      source "$DOTFILES/source/$1.sh"
+    fi
   else
     for file in $DOTFILES/source/*; do
       source "$file"
     done
-    if [[ -d "~/.dotfiles/private-source" ]]; then
-      for file in ~/.dotfiles/private-source/*; do
+    if [ -d "$DOTFILES/private-source" ]; then
+      for file in $DOTFILES/private-source/*; do
         source "$file"
       done
     fi
