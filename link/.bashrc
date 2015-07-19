@@ -3,6 +3,8 @@ export DOTFILES=~/.dotfiles
 
 # Add binaries into the path
 PATH=$DOTFILES/bin:$PATH
+# Add brew sbin to the path
+PATH=$PATH:/usr/local/sbin
 export PATH
 
 # Source all files in "source"
