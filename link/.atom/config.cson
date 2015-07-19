@@ -24,6 +24,10 @@
       "solarized-dark-syntax"
     ]
     audioBeep: false
+    disabledPackages: [
+      "erlang-build"
+      "language-erlang"
+    ]
   "atom-lint":
     showViolationMetadata: false
   minimap:

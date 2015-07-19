@@ -1,1 +1,0 @@
-{"context-menu":{".overlayer":{"Css Comb":"css-comb:comb"}},"menu":[{"label":"Packages","submenu":[{"label":"Css Comb","submenu":[{"label":"Comb","command":"css-comb:comb"},{"label":"Project settings","command":"css-comb:userSettings"}]}]}]}
