@@ -28,3 +28,6 @@ alias please='sudo'
 
 #dokku
 alias d='ssh -t dokku@lonnen.com'
+
+#hub
+eval "$(hub alias -s)"
