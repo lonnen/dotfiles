@@ -9,10 +9,10 @@
     userId: "b0a52562eb75387fb7e311a58bc9ad73ed912482"
   editor:
     fontFamily: "Monaco"
-    fontSize: 14
     softWrap: true
     softWrapAtPreferredLineLength: true
     invisibles: {}
+    fontSize: 15
   core:
     ignoredNames: [
       ".git"
