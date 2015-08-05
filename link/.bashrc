@@ -37,3 +37,6 @@ src
 
 # added by travis gem
 [ -f /Users/lonnen/.travis/travis.sh ] && source /Users/lonnen/.travis/travis.sh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
