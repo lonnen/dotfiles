@@ -1,36 +1,60 @@
 {
-  "name": "language-terraform",
-  "version": "0.4.0",
-  "description": "Terraform.io support for Atom",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/GiantToast/language-terraform.git"
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117231-24832-8121rn/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117231-24832-8121rn/package.tgz",
+        "spec": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117231-24832-8121rn/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/apm-install-dir-117231-24832-aw0hh5"
+    ]
+  ],
+  "_from": "../d-117231-24832-8121rn/package.tgz",
+  "_id": "language-terraform@0.8.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/language-terraform",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117231-24832-8121rn/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117231-24832-8121rn/package.tgz",
+    "spec": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117231-24832-8121rn/package.tgz",
+    "type": "local"
   },
-  "homepage": "http://GiantToast.github.io/language-terraform",
-  "license": "MIT",
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117231-24832-8121rn/package.tgz",
+  "_shasum": "0148d7c3b6150e8827f1ea86f73cb47f6f8ef624",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117231-24832-8121rn/package.tgz",
+  "_where": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/apm-install-dir-117231-24832-aw0hh5",
+  "bugs": {
+    "url": "https://github.com/GiantToast/language-terraform/issues"
+  },
+  "dependencies": {},
+  "description": "Terraform.io support for Atom",
+  "devDependencies": {},
   "engines": {
     "atom": "*",
     "node": "*"
   },
-  "bugs": {
-    "url": "https://github.com/GiantToast/language-terraform/issues"
-  },
-  "readme": "# Terraform.io language support in Atom\n\nAdds syntax highlighting for Terraform.io configuration files to Atom.\n\nContributions are not only welcome, but encouraged.  Please fork and submit pull requests for snippets, grammar tweaks, etc.\n",
+  "homepage": "http://GiantToast.github.io/language-terraform",
+  "license": "MIT",
+  "name": "language-terraform",
+  "optionalDependencies": {},
+  "readme": "# Terraform.io language support in Atom\n\nAdds syntax highlighting for Terraform.io configuration files to Atom.\n\n## Install\n\nInstall the package `language-terraform` in Atom (Preferences->Install->Packages) or Atom's package manager from a shell:\n\n```bash\n$ apm install language-terraform\n```\n\n## Contributions\n\nContributions are not only welcome, but encouraged.  Please fork and submit pull requests for snippets, grammar tweaks, etc.\n",
   "readmeFilename": "README.md",
-  "_id": "language-terraform@0.4.0",
-  "dist": {
-    "shasum": "48a672fe3919245d56f12990da960ed4e9ae29f7"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiantToast/language-terraform.git"
   },
-  "_resolved": "/private/var/folders/mg/yfz5pk0x66d57hvh1pxg_49w0000gn/T/d-1141119-65927-1un3g2e/package.tgz",
-  "_from": "/private/var/folders/mg/yfz5pk0x66d57hvh1pxg_49w0000gn/T/d-1141119-65927-1un3g2e/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "0.8.0"
 }

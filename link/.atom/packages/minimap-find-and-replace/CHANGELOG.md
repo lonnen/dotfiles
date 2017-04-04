@@ -1,3 +1,65 @@
+<a name="v4.5.2"></a>
+# v4.5.2 (2017-03-03)
+
+## :bug: Bug Fixes
+
+- Fix issue with latest fnr version ([185fe01b](https://github.com/atom-minimap/minimap-find-and-replace/commit/185fe01be6b45476e0f27f6892055c50e2372d1e))
+
+<a name="v4.5.1"></a>
+# v4.5.1 (2016-04-11)
+
+## :bug: Bug Fixes
+
+- Fix issue with latest version that removed the find-result class on markers ([346d8b2d](https://github.com/atom-minimap/minimap-find-and-replace/commit/346d8b2d12d553fd1136515127b58e048185442f))
+
+<a name="v4.5.0"></a>
+# v4.5.0 (2016-03-07)
+
+## :sparkles: Features
+
+- Add plugin origin in created decorations ([8b67f86d](https://github.com/atom-minimap/minimap-find-and-replace/commit/8b67f86dee4e27415c6d06b28b0f98acecf40560))
+
+<a name="v4.4.0"></a>
+# v4.4.0 (2015-12-09)
+
+## :sparkles: Features
+
+- Add support for new find-and-replace service and marker layer ([e9a40522](https://github.com/atom-minimap/minimap-find-and-replace/commit/e9a4052295b67d7d32246b34804f5a431cb2b237))
+  <br>Fixes #14
+
+<a name="v4.3.2"></a>
+# v4.3.2 (2015-11-01)
+
+## :bug: Bug Fixes
+
+- Prevent registering a decoration if it couldn't be created ([32d54ea3](https://github.com/atom-minimap/minimap-find-and-replace/commit/32d54ea3d88b2764c51e28d54f498bd1945c918f), [#12](https://github.com/atom-minimap/minimap-find-and-replace/issues/12))
+
+<a name="v4.3.1"></a>
+# v4.3.1 (2015-10-12)
+
+## :bug: Bug Fixes
+
+- Fix use of event-kit ([19c2d542](https://github.com/atom-minimap/minimap-find-and-replace/commit/19c2d5425e485d01b8832a5c8033e16012a2da8c), [#11](https://github.com/atom-minimap/minimap-find-and-replace/issues/11))
+
+<a name="v4.3.0"></a>
+# v4.3.0 (2015-08-17)
+
+This version is a rewrite of the decorations lifecycle that relies on the `DisplayBuffer` markers events rather than accessing the find model directly.
+
+<a name="v4.2.2"></a>
+# v4.2.2 (2015-08-17)
+
+## :bug: Bug Fixes
+
+- Fix markers persisting after disabling the plugin ([083597ef](https://github.com/atom-minimap/minimap-find-and-replace/commit/083597ef0d398e40ac23ea5e2423730538d3ad9f))
+
+<a name="v4.2.1"></a>
+# v4.2.1 (2015-08-11)
+
+## :bug: Bug Fixes
+
+- Fix error raised when quickly opening search after switching tab ([36ab9382](https://github.com/atom-minimap/minimap-find-and-replace/commit/36ab938296535f301fbd56e078cb87aa3dce4fae))
+
 <a name="v4.2.0"></a>
 # v4.2.0 (2015-03-01)
 

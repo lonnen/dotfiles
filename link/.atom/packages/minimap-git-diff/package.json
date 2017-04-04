@@ -1,7 +1,7 @@
 {
   "name": "minimap-git-diff",
   "main": "./lib/minimap-git-diff",
-  "version": "4.1.7",
+  "version": "4.3.1",
   "description": "A minimap binding for the git diff package",
   "author": {
     "name": "Cédric Néhémie",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom-minimap/minimap-git-diff"
+    "url": "git+https://github.com/atom-minimap/minimap-git-diff.git"
   },
   "license": "MIT",
   "engines": {
@@ -31,17 +31,17 @@
   "bugs": {
     "url": "https://github.com/atom-minimap/minimap-git-diff/issues"
   },
-  "homepage": "https://github.com/atom-minimap/minimap-git-diff",
-  "_id": "minimap-git-diff@4.1.7",
-  "_shasum": "f780019a2ff220138b408da8483d4e6df7ed8ecf",
-  "_resolved": "file:../d-115614-3741-15vl1xr/package.tgz",
-  "_from": "../d-115614-3741-15vl1xr/package.tgz",
+  "homepage": "https://github.com/atom-minimap/minimap-git-diff#readme",
+  "_id": "minimap-git-diff@4.3.1",
+  "_shasum": "351b314abee91e17e3688479ada6b6fd49e94d89",
+  "_resolved": "file:../d-116412-98867-i8cexs/package.tgz",
+  "_from": "../d-116412-98867-i8cexs/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "fs-plus",
-        "version": "2.8.1",
+        "version": "2.8.2",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
       },
       {
@@ -109,8 +109,7 @@
       {
         "paths": [
           "lib",
-          "",
-          "spec"
+          ""
         ],
         "dependencies": {
           "mixto": "1.x",

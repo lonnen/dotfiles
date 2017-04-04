@@ -1,3 +1,32 @@
+<a name="v4.3.1"></a>
+# v4.3.1 (2016-05-07)
+
+## :bug: Bug Fixes
+
+- Fix deprecation with display layer new API ([5a91d992](https://github.com/atom-minimap/minimap-git-diff/commit/5a91d992e156bdeade4125757113dfa8159cf270))
+
+<a name="v4.3.0"></a>
+# v4.3.0 (2016-04-16)
+
+## :sparkles: Features
+
+- Add support for gutter decorations ([2cc91b81](https://github.com/atom-minimap/minimap-git-diff/commit/2cc91b81daeee50d55828a22e44717f15fea3e73))
+  <br>As promised in #21
+
+<a name="v4.2.0"></a>
+# v4.2.0 (2016-03-07)
+
+## :sparkles: Features
+
+- Add plugin origin on created decorations ([35e8641b](https://github.com/atom-minimap/minimap-git-diff/commit/35e8641b0ca68787a9d1c6ecb80478f4b4f90661))
+
+<a name="v4.1.8"></a>
+# v4.1.8 (2015-08-17)
+
+## :bug: Bug Fixes
+
+- Fix error still raised when reading the diffs from a destroyed repo ([68544885](https://github.com/atom-minimap/minimap-git-diff/commit/68544885bc51c841da0419465dd7dc260bf50ade), [#14](https://github.com/atom-minimap/minimap-git-diff/issues/14))
+
 <a name="v4.1.7"></a>
 # v4.1.7 (2015-07-14)
 

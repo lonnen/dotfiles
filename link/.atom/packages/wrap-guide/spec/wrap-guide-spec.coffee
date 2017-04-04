@@ -1,5 +1,7 @@
 Grim = require 'grim'
 
+# TODO: remove references to logical display buffer when it is released.
+
 describe "WrapGuide", ->
   [editor, editorElement, wrapGuide, workspaceElement] = []
 
@@ -27,24 +29,24 @@ describe "WrapGuide", ->
 
     runs ->
       editor = atom.workspace.getActiveTextEditor()
-      editorElement = atom.views.getView(editor)
+      editorElement = editor.getElement()
       wrapGuide = editorElement.rootElement.querySelector(".wrap-guide")
 
   describe ".activate", ->
     getWrapGuides  = ->
       wrapGuides = []
       atom.workspace.getTextEditors().forEach (editor) ->
-        guide = atom.views.getView(editor).rootElement.querySelector(".wrap-guide")
+        guide = editor.getElement().rootElement.querySelector(".wrap-guide")
         wrapGuides.push(guide) if guide
       wrapGuides
 
     it "appends a wrap guide to all existing and new editors", ->
-      expect(atom.workspace.getPanes().length).toBe 1
+      expect(atom.workspace.getTextEditors().length).toBe 1
       expect(getWrapGuides().length).toBe 1
       expect(getLeftPosition(getWrapGuides()[0])).toBeGreaterThan(0)
 
       atom.workspace.getActivePane().splitRight(copyActiveItem: true)
-      expect(atom.workspace.getPanes().length).toBe 2
+      expect(atom.workspace.getTextEditors().length).toBe 2
       expect(getWrapGuides().length).toBe 2
       expect(getLeftPosition(getWrapGuides()[0])).toBeGreaterThan(0)
       expect(getLeftPosition(getWrapGuides()[1])).toBeGreaterThan(0)
@@ -52,7 +54,7 @@ describe "WrapGuide", ->
     it "positions the guide at the configured column", ->
       width = editor.getDefaultCharWidth() * wrapGuide.getDefaultColumn()
       expect(width).toBeGreaterThan(0)
-      expect(getLeftPosition(wrapGuide)).toBe(width)
+      expect(Math.abs(getLeftPosition(wrapGuide) - width)).toBeLessThan 1
       expect(wrapGuide).toBeVisible()
 
   describe "when the font size changes", ->
@@ -81,19 +83,21 @@ describe "WrapGuide", ->
 
   describe "when the editor's scroll left changes", ->
     it "updates the wrap guide position to a relative position on screen", ->
-      # FIXME: remove conditional as soon as the tiled editor is released.
-      return unless editorElement.hasTiledRendering
-
+      spyOn(editorElement.component, 'measureDimensions').andCallThrough()
       editor.setText("a long line which causes the editor to scroll")
-      editor.setWidth(100)
+      editorElement.style.width = "100px"
 
-      initial = getLeftPosition(wrapGuide)
-      expect(initial).toBeGreaterThan(0)
+      if atom.views.performDocumentPoll # TODO: Remove this branch once atom.views.performDocumentPoll is gone
+        atom.views.performDocumentPoll()
+      else
+        waitsFor -> editorElement.component.measureDimensions.callCount > 0
 
-      editor.setScrollLeft(10)
-
-      expect(getLeftPosition(wrapGuide)).toBe(initial - 10)
-      expect(wrapGuide).toBeVisible()
+      runs ->
+        initial = getLeftPosition(wrapGuide)
+        expect(initial).toBeGreaterThan(0)
+        editorElement.setScrollLeft(10)
+        expect(getLeftPosition(wrapGuide)).toBe(initial - 10)
+        expect(wrapGuide).toBeVisible()
 
   describe "when the editor's grammar changes", ->
     it "updates the wrap guide position", ->
@@ -108,19 +112,15 @@ describe "WrapGuide", ->
 
     it 'listens for preferredLineLength updates for the new grammar', ->
       editor.setGrammar(atom.grammars.grammarForScopeName('source.coffee'))
-      spyOn(wrapGuide, 'updateGuide')
-
+      initial = getLeftPosition(wrapGuide)
       atom.config.set('editor.preferredLineLength', 20, scopeSelector: '.source.coffee')
-
-      expect(wrapGuide.updateGuide).toHaveBeenCalled()
+      expect(getLeftPosition(wrapGuide)).toBeLessThan(initial)
 
     it 'listens for wrap-guide.enabled updates for the new grammar', ->
       editor.setGrammar(atom.grammars.grammarForScopeName('source.coffee'))
-      spyOn(wrapGuide, 'updateGuide')
-
-      atom.config.set('wrap-guide.enabled', false, scopeSelecotr: '.source.coffee')
-
-      expect(wrapGuide.updateGuide).toHaveBeenCalled()
+      expect(wrapGuide).toBeVisible()
+      atom.config.set('wrap-guide.enabled', false, scopeSelector: '.source.coffee')
+      expect(wrapGuide).not.toBeVisible()
 
   describe "using a custom config column", ->
     it "places the wrap guide at the custom column", ->
@@ -128,14 +128,14 @@ describe "WrapGuide", ->
       wrapGuide.updateGuide()
       width = editor.getDefaultCharWidth() * 20
       expect(width).toBeGreaterThan(0)
-      expect(getLeftPosition(wrapGuide)).toBe(width)
+      expect(Math.abs(getLeftPosition(wrapGuide) - width)).toBeLessThan 1
 
     it "uses the default column when no custom column matches the path", ->
       atom.config.set('wrap-guide.columns', [{pattern: '\.jsp$', column: '100'}])
       wrapGuide.updateGuide()
       width = editor.getDefaultCharWidth() * wrapGuide.getDefaultColumn()
       expect(width).toBeGreaterThan(0)
-      expect(getLeftPosition(wrapGuide)).toBe(width)
+      expect(Math.abs(getLeftPosition(wrapGuide) - width)).toBeLessThan 1
 
     it "hides the guide when the config column is less than 1", ->
       atom.config.set('wrap-guide.columns', [{pattern: 'sample\.js$', column: -1}])
@@ -151,14 +151,14 @@ describe "WrapGuide", ->
       wrapGuide.updateGuide()
       width = editor.getDefaultCharWidth() * 20
       expect(width).toBeGreaterThan(0)
-      expect(getLeftPosition(wrapGuide)).toBe(width)
+      expect(Math.abs(getLeftPosition(wrapGuide) - width)).toBeLessThan 1
 
     it "uses the default column when no scope name matches", ->
       atom.config.set('wrap-guide.columns', [{scope: 'source.gfm', column: '100'}])
       wrapGuide.updateGuide()
       width = editor.getDefaultCharWidth() * wrapGuide.getDefaultColumn()
       expect(width).toBeGreaterThan(0)
-      expect(getLeftPosition(wrapGuide)).toBe(width)
+      expect(Math.abs(getLeftPosition(wrapGuide) - width)).toBeLessThan 1
 
     it "favors the first matching rule", ->
       atom.config.set('wrap-guide.columns', [{pattern: '\.js$', column: 20},
@@ -166,7 +166,7 @@ describe "WrapGuide", ->
       wrapGuide.updateGuide()
       width = editor.getDefaultCharWidth() * 20
       expect(width).toBeGreaterThan(0)
-      expect(getLeftPosition(wrapGuide)).toBe(width)
+      expect(Math.abs(getLeftPosition(wrapGuide) - width)).toBeLessThan 1
 
   describe 'scoped config', ->
     it '::getDefaultColumn returns the scope-specific column value', ->
@@ -175,12 +175,10 @@ describe "WrapGuide", ->
       expect(wrapGuide.getDefaultColumn()).toBe 132
 
     it 'updates the guide when the scope-specific column changes', ->
-      spyOn(wrapGuide, 'updateGuide')
-
+      initial = getLeftPosition(wrapGuide)
       column = atom.config.get('editor.preferredLineLength', scope: editor.getRootScopeDescriptor())
       atom.config.set('editor.preferredLineLength', column + 10, scope: '.source.js')
-
-      expect(wrapGuide.updateGuide).toHaveBeenCalled()
+      expect(getLeftPosition(wrapGuide)).toBeGreaterThan(initial)
 
     it 'updates the guide when wrap-guide.enabled is set to false', ->
       expect(wrapGuide).toBeVisible()

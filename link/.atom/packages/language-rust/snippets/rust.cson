@@ -1,4 +1,19 @@
 '.source.rust':
+  'allow':
+    'prefix': 'allow'
+    'body': '#[allow(${1:lint})]'
+  'allow!':
+    'prefix': 'allow!'
+    'body': '#![allow(${1:lint})]'
+  'deny':
+    'prefix': 'deny'
+    'body': '#[deny(${1:lint})]'
+  'deny!':
+    'prefix': 'deny!'
+    'body': '#![deny(${1:lint})]'
+  'derive':
+    'prefix': 'derive'
+    'body': '#[derive(${1:Trait})]'
   'enum':
     'prefix': 'enum'
     'body': '''
@@ -10,14 +25,14 @@
     'prefix': 'fn'
     'body': '''
       fn ${1:function_name}($2) {
-      \t$3
+      \t${3:unimplemented!()}
       }
     '''
   'fnr':
     'prefix': 'fnr'
     'body': '''
       fn ${1:function_name}($2) -> ${3:TypeName} {
-      \t$4
+      \t${4:unimplemented!()}
       }
     '''
   'for':
@@ -62,7 +77,7 @@
     'prefix': 'main'
     'body': '''
       fn main() {
-      \t$1
+      \t${1:unimplemented!()}
       }
     '''
   'match':
@@ -72,6 +87,12 @@
       \t$2
       }
     '''
+  'print':
+    'prefix': 'print'
+    'body': 'print!("${1:{${2::?}\\}}", ${3});'
+  'println':
+    'prefix': 'println'
+    'body': 'println!("${1:{${2::?}\\}}", ${3});'
   'static':
     'prefix': 'static'
     'body': 'static ${1:CONSTANT}: ${2:TypeName} = ${3:value};'
@@ -87,17 +108,19 @@
     'body': '''
       #[test]
       fn ${1:test_name}() {
-      \t$2
+      \t${2:unimplemented!()}
       }
     '''
   'testmod':
     'prefix': 'testmod'
     'body': '''
       #[cfg(test)]
-      mod test {
+      mod tests {
+      \tuse super::*;
+
       \t#[test]
       \tfn ${1:test_name}() {
-      \t\t$2
+      \t\t${2:unimplemented!()}
       \t}
       }
     '''
@@ -111,6 +134,12 @@
   'type':
     'prefix': 'type'
     'body': 'type ${1:TypeName} = ${2:TypeName};'
+  'warn':
+    'prefix': 'warn'
+    'body': '#[warn(${1:lint})]'
+  'warn!':
+    'prefix': 'warn!'
+    'body': '#![warn(${1:lint})]'
   'while':
     'prefix': 'while'
     'body': '''

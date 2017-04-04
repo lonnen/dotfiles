@@ -190,7 +190,11 @@ class GrammarCreator
 
     P
 
-makeGrammar = (grammar, print = false) ->
-  (new GrammarCreator grammar, print).process()
+makeGrammar = (print, grammar) ->
+  grammar_ = (require 'clone')(grammar)
+  (new GrammarCreator grammar_, print).process()
 
-module.exports = makeGrammar
+include = (what) -> require "./include/#{what}"
+
+
+module.exports = { makeGrammar, include }

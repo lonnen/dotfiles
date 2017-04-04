@@ -1,28 +1,27 @@
-# Atom-AppVeyor-CI-Template
-
-# version format
 version: "{build}"
 
-# Operating system (build VM template)
-os: Windows Server 2012 R2
+platform: x64
 
-init:
-  - cmd: rd /s /q %CHOCOLATEYINSTALL%
-  - ps: iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
+branches:
+    only:
+      - master
 
-# scripts that run after cloning repository
+clone_depth: 10
+
+skip_tags: true
+
+environment:
+  APM_TEST_PACKAGES:
+
+  matrix:
+  - ATOM_CHANNEL: stable
+  - ATOM_CHANNEL: beta
+
 install:
-  - cinst atom
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - "%LOCALAPPDATA%/atom/bin/apm install"
+  - ps: Install-Product node 4
 
-# to run your custom scripts instead of automatic MSBuild
 build_script:
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - "%LOCALAPPDATA%/atom/bin/apm test --path %LOCALAPPDATA%/atom/bin/atom.cmd"
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/atom/ci/master/build-package.ps1'))
 
-# to disable automatic tests
 test: off
-
-# to disable deployment
 deploy: off

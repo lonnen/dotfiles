@@ -1,71 +1,74 @@
-_ = require 'underscore-plus'
-{Subscriber, Emitter} = require 'emissary'
-{CompositeDisposable} = require 'event-kit'
-MinimapFindResultsView = null
-
-PLUGIN_NAME = 'find-and-replace'
+{CompositeDisposable} = require 'atom'
+FindAndReplace = null
 
 module.exports =
 class MinimapFindAndReplaceBinding
-  Emitter.includeInto(this)
-
-  active: false
-  pluginActive: false
-  isActive: -> @pluginActive
-
-  constructor: (@findAndReplace, @minimap) ->
+  constructor: (@minimap, @fnrAPI) ->
+    @editor = @minimap.getTextEditor()
     @subscriptions = new CompositeDisposable
+    @decorationsByMarkerId = {}
+    @subscriptionsByMarkerId = {}
 
-    @minimap.registerPlugin PLUGIN_NAME, this
+    if @fnrAPI?
+      @layer = @fnrAPI.resultsMarkerLayerForTextEditor(@editor)
 
-  activatePlugin: ->
-    @pluginActive = true
-    @subscriptions.add atom.commands.add 'atom-workspace',
-      'find-and-replace:show': @activate
-      'find-and-replace:toggle': @activate
-      'find-and-replace:show-replace': @activate
-      'core:cancel': @deactivate
-      'core:close': @deactivate
+      @subscriptions.add @layer.onDidCreateMarker (marker) =>
+        @handleCreatedMarker(marker)
+    else
+      @subscriptions.add @editor.displayBuffer.onDidCreateMarker (marker) =>
+        @handleCreatedMarker(marker)
 
-    @subscriptions.add @minimap.onDidActivate @activate
-    @subscriptions.add @minimap.onDidDeactivate @deactivate
-
-    @activate() if @findViewIsVisible()
-
-  deactivatePlugin: ->
-    @pluginActive = false
-    @subscriptions.dispose()
-    @deactivate()
-
-  activate: =>
-    return unless @pluginActive
-    return @deactivate() unless @findViewIsVisible()
-    return if @active
-
-    MinimapFindResultsView ||= require('./minimap-find-results-view')(@findAndReplace, @minimap)
-
-    @active = true
-
-    @findView = @findAndReplace.findView
-    @findModel = @findView.findModel
-    @findResultsView = new MinimapFindResultsView(@findModel)
-
-    setImmediate =>
-      @findModel.emitter.emit('did-update', _.clone(@findModel.markers))
-
-  deactivate: =>
-    return unless @active
-    @findResultsView?.destroy()
-    @active = false
+    @discoverMarkers()
 
   destroy: ->
-    @deactivate()
+    sub.dispose() for id,sub of @subscriptionsByMarkerId
+    decoration.destroy() for id,decoration of @decorationsByMarkerId
 
-    @findAndReplacePackage = null
-    @findAndReplace = null
-    @minimapPackage = null
-    @findResultsView = null
+    @subscriptions.dispose()
     @minimap = null
+    @editor = null
+    @decorationsByMarkerId = {}
+    @subscriptionsByMarkerId = {}
+
+  clear: ->
+    for id,sub of @subscriptionsByMarkerId
+      sub.dispose()
+      delete @subscriptionsByMarkerId[id]
+
+    for id,decoration of @decorationsByMarkerId
+      decoration.destroy()
+      delete @decorationsByMarkerId[id]
+
+  findAndReplace: -> FindAndReplace ?= atom.packages.getLoadedPackage('find-and-replace').mainModule
+
+  discoverMarkers: ->
+    if @fnrAPI?
+      @layer.getMarkers().forEach (marker) => @createDecoration(marker)
+    else
+      @editor.findMarkers(class: 'find-result').forEach (marker) =>
+        @createDecoration(marker)
+
+  handleCreatedMarker: (marker) ->
+    if @fnrAPI? or marker.getProperties()?.class is 'find-result'
+      @createDecoration(marker)
+
+  createDecoration: (marker) ->
+    return unless @findViewIsVisible()
+    return if @decorationsByMarkerId[marker.id]?
+
+    decoration = @minimap.decorateMarker(marker, {
+      type: 'highlight'
+      scope: ".minimap .search-result"
+      plugin: 'find-and-replace'
+    })
+    return unless decoration?
+
+    id = marker.id
+    @decorationsByMarkerId[id] = decoration
+    @subscriptionsByMarkerId[id] = decoration.onDidDestroy =>
+      @subscriptionsByMarkerId[id].dispose()
+      delete @decorationsByMarkerId[id]
+      delete @subscriptionsByMarkerId[id]
 
   findViewIsVisible: ->
-    @findAndReplace.findView? and @findAndReplace.findView.parent().length is 1
+    document.querySelector('.find-and-replace')?

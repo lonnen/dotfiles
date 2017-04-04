@@ -1,517 +1,64 @@
 {
-  "name": "language-haskell",
-  "version": "1.1.8",
-  "description": "Haskell language support in Atom",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/atom-haskell/language-haskell"
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117120-10557-jr65lo/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117120-10557-jr65lo/package.tgz",
+        "spec": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117120-10557-jr65lo/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/apm-install-dir-117120-10557-og1b0e"
+    ]
+  ],
+  "_from": "../d-117120-10557-jr65lo/package.tgz",
+  "_id": "language-haskell@1.12.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/language-haskell",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117120-10557-jr65lo/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117120-10557-jr65lo/package.tgz",
+    "spec": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117120-10557-jr65lo/package.tgz",
+    "type": "local"
   },
-  "license": "MIT",
-  "engines": {
-    "atom": ">=0.174.0 <2.0.0"
-  },
-  "dependencies": {
-    "season": "^2.0.0",
-    "coffee-script": "~1.9.0"
-  },
-  "scripts": {
-    "postinstall": "coffee src/haskell.coffee"
-  },
-  "readme": "# Haskell support in Atom\n\nAdds syntax highlighting and snippets to Haskell files in Atom.\n\nGrammars:\n\n* Haskell (\\*.hs)\n* Literate Haskell (\\*.lhs)\n* Cabal (\\*.cabal)\n\n![image](https://cloud.githubusercontent.com/assets/7275622/8120540/f16d7ee6-10a8-11e5-9b9d-223ff05a54c6.png)\n\nBased on [Haskell TextMate bundle](https://github.com/textmate/haskell.tmbundle).\n",
-  "readmeFilename": "README.md",
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117120-10557-jr65lo/package.tgz",
+  "_shasum": "d3169c9bb25afcc7e4e475cb4ec0a12208e37221",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/d-117120-10557-jr65lo/package.tgz",
+  "_where": "/private/var/folders/g0/y05t99ys3536t7_hkj2rsxh40000gn/T/apm-install-dir-117120-10557-og1b0e",
   "bugs": {
     "url": "https://github.com/atom-haskell/language-haskell/issues"
   },
-  "homepage": "https://github.com/atom-haskell/language-haskell",
-  "_id": "language-haskell@1.1.8",
-  "_shasum": "7055d0e31f7999369db2d2a5e6cd5d56dffb1048",
-  "_resolved": "file:../d-115614-3713-1azpt40/package.tgz",
-  "_from": "../d-115614-3713-1azpt40/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [
-      {
-        "name": "coffee-script",
-        "version": "1.9.3",
-        "path": "node_modules/coffee-script/lib/coffee-script/coffee-script.js"
-      },
-      {
-        "name": "season",
-        "version": "2.0.0",
-        "path": "node_modules/season/lib/cson.js"
-      },
-      {
-        "name": "cson-safe",
-        "version": "0.1.1",
-        "path": "node_modules/season/node_modules/cson-safe/lib/cson-safe.js"
-      },
-      {
-        "name": "coffee-script-redux",
-        "version": "2.0.0-beta8",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/module.js"
-      },
-      {
-        "name": "cscodegen",
-        "version": "0.1.0",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/cscodegen/lib/cscodegen.js"
-      },
-      {
-        "name": "escodegen",
-        "version": "0.0.28",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/escodegen.js"
-      },
-      {
-        "name": "esprima",
-        "version": "1.0.4",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/node_modules/esprima/esprima.js"
-      },
-      {
-        "name": "estraverse",
-        "version": "1.3.2",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/node_modules/estraverse/estraverse.js"
-      },
-      {
-        "name": "esmangle",
-        "version": "0.0.17",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/esmangle.js"
-      },
-      {
-        "name": "escope",
-        "version": "1.0.3",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/escope/escope.js"
-      },
-      {
-        "name": "estraverse",
-        "version": "2.0.0",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/escope/node_modules/estraverse/estraverse.js"
-      },
-      {
-        "name": "esprima",
-        "version": "1.0.4",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esprima/esprima.js"
-      },
-      {
-        "name": "esshorten",
-        "version": "0.0.2",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esshorten/lib/esshorten.js"
-      },
-      {
-        "name": "estraverse",
-        "version": "1.2.0",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esshorten/node_modules/estraverse/estraverse.js"
-      },
-      {
-        "name": "estraverse",
-        "version": "1.3.2",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/estraverse/estraverse.js"
-      },
-      {
-        "name": "nopt",
-        "version": "2.1.2",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/lib/nopt.js"
-      },
-      {
-        "name": "abbrev",
-        "version": "1.0.7",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/node_modules/abbrev/abbrev.js"
-      },
-      {
-        "name": "source-map",
-        "version": "0.1.11",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib/source-map.js"
-      },
-      {
-        "name": "amdefine",
-        "version": "1.0.0",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/node_modules/amdefine/amdefine.js"
-      },
-      {
-        "name": "StringScanner",
-        "version": "0.0.3",
-        "path": "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/StringScanner/lib/StringScanner.js"
-      },
-      {
-        "name": "fs-plus",
-        "version": "2.8.1",
-        "path": "node_modules/season/node_modules/fs-plus/lib/fs-plus.js"
-      },
-      {
-        "name": "async",
-        "version": "0.2.10",
-        "path": "node_modules/season/node_modules/fs-plus/node_modules/async/lib/async.js"
-      },
-      {
-        "name": "mkdirp",
-        "version": "0.3.5",
-        "path": "node_modules/season/node_modules/fs-plus/node_modules/mkdirp/index.js"
-      },
-      {
-        "name": "rimraf",
-        "version": "2.2.8",
-        "path": "node_modules/season/node_modules/fs-plus/node_modules/rimraf/rimraf.js"
-      },
-      {
-        "name": "optimist",
-        "version": "0.4.0",
-        "path": "node_modules/season/node_modules/optimist/index.js"
-      },
-      {
-        "name": "wordwrap",
-        "version": "0.0.3",
-        "path": "node_modules/season/node_modules/optimist/node_modules/wordwrap/index.js"
-      },
-      {
-        "name": "underscore-plus",
-        "version": "1.6.6",
-        "path": "node_modules/season/node_modules/underscore-plus/lib/underscore-plus.js"
-      },
-      {
-        "name": "underscore",
-        "version": "1.6.0",
-        "path": "node_modules/season/node_modules/underscore-plus/node_modules/underscore/underscore.js"
-      }
-    ],
-    "extensions": {
-      ".json": [
-        "node_modules/coffee-script/bower.json",
-        "node_modules/coffee-script/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/StringScanner/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/cscodegen/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/node_modules/esprima/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/node_modules/estraverse/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/escope/bower.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/escope/node_modules/estraverse/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/escope/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esprima/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esshorten/node_modules/estraverse/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esshorten/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/estraverse/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/node_modules/abbrev/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/node_modules/amdefine/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/package.json",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/package.json",
-        "node_modules/season/node_modules/cson-safe/package.json",
-        "node_modules/season/node_modules/fs-plus/node_modules/async/component.json",
-        "node_modules/season/node_modules/fs-plus/node_modules/async/package.json",
-        "node_modules/season/node_modules/fs-plus/node_modules/mkdirp/package.json",
-        "node_modules/season/node_modules/fs-plus/node_modules/rimraf/package.json",
-        "node_modules/season/node_modules/fs-plus/package.json",
-        "node_modules/season/node_modules/optimist/node_modules/wordwrap/package.json",
-        "node_modules/season/node_modules/optimist/package.json",
-        "node_modules/season/node_modules/underscore-plus/node_modules/underscore/package.json",
-        "node_modules/season/node_modules/underscore-plus/package.json",
-        "node_modules/season/package.json",
-        "package.json"
-      ],
-      ".js": [
-        "node_modules/coffee-script/lib/coffee-script/browser.js",
-        "node_modules/coffee-script/lib/coffee-script/cake.js",
-        "node_modules/coffee-script/lib/coffee-script/coffee-script.js",
-        "node_modules/coffee-script/lib/coffee-script/command.js",
-        "node_modules/coffee-script/lib/coffee-script/grammar.js",
-        "node_modules/coffee-script/lib/coffee-script/helpers.js",
-        "node_modules/coffee-script/lib/coffee-script/index.js",
-        "node_modules/coffee-script/lib/coffee-script/lexer.js",
-        "node_modules/coffee-script/lib/coffee-script/nodes.js",
-        "node_modules/coffee-script/lib/coffee-script/optparse.js",
-        "node_modules/coffee-script/lib/coffee-script/parser.js",
-        "node_modules/coffee-script/lib/coffee-script/register.js",
-        "node_modules/coffee-script/lib/coffee-script/repl.js",
-        "node_modules/coffee-script/lib/coffee-script/rewriter.js",
-        "node_modules/coffee-script/lib/coffee-script/scope.js",
-        "node_modules/coffee-script/lib/coffee-script/sourcemap.js",
-        "node_modules/coffee-script/register.js",
-        "node_modules/coffee-script/repl.js",
-        "node_modules/season/lib/cson.js",
-        "node_modules/season/lib/csonc.js",
-        "node_modules/season/node_modules/cson-safe/lib/cson-safe.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/browser.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/cli.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/compiler.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/functional-helpers.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/helpers.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/js-nodes.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/module.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/nodes.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/optimiser.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/parser.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/preprocessor.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/register.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/repl.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib/run.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/StringScanner/lib/StringScanner.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/cscodegen/lib/cscodegen.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/Gruntfile.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/bin/escodegen.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/bin/esgenerate.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/escodegen.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/node_modules/esprima/bin/esparse.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/node_modules/esprima/bin/esvalidate.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/node_modules/esprima/esprima.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/node_modules/estraverse/estraverse.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/Gruntfile.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/bin/esmangle.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/annotate-directive.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/common.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/esmangle.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/evaluator.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/map.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/options.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/concatenate-variable-definition.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/dead-code-elimination.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/drop-variable-definition.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/eliminate-duplicate-function-declarations.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/hoist-variable-to-arguments.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/reduce-branch-jump.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/reduce-multiple-if-statements.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/reduce-sequence-expression.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/remove-context-sensitive-expressions.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/remove-empty-statement.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/remove-side-effect-free-expressions.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/remove-unreachable-branch.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/remove-unused-label.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/remove-wasted-blocks.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/reordering-function-declarations.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/transform-branch-to-expression.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/transform-dynamic-to-static-property-access.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/transform-dynamic-to-static-property-definition.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/transform-immediate-function-call.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/transform-logical-association.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/transform-to-compound-assignment.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/transform-to-sequence-expression.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/transform-typeof-undefined.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass/tree-based-constant-folding.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/post/omit-parens-in-void-context-iife.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/post/rewrite-boolean.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/post/rewrite-conditional-expression.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/post/transform-infinity.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/post/transform-static-to-dynamic-property-access.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/query.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/set.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/escope/escope.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/escope/node_modules/estraverse/estraverse.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/escope/node_modules/estraverse/gulpfile.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esprima/bin/esparse.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esprima/bin/esvalidate.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esprima/esprima.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esshorten/Gruntfile.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esshorten/lib/esshorten.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esshorten/lib/map.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esshorten/lib/utility.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esshorten/node_modules/estraverse/estraverse.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/estraverse/estraverse.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/bin/nopt.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/examples/my-program.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/lib/nopt.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/node_modules/abbrev/abbrev.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/node_modules/abbrev/test.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/Makefile.dryice.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/build/assert-shim.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/build/mini-require.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/build/suffix-browser.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/build/test-prefix.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/build/test-suffix.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib/source-map/array-set.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib/source-map/base64-vlq.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib/source-map/base64.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib/source-map/binary-search.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib/source-map/source-map-consumer.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib/source-map/source-map-generator.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib/source-map/source-node.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib/source-map/util.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib/source-map.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/node_modules/amdefine/amdefine.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/node_modules/amdefine/intercept.js",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/register.js",
-        "node_modules/season/node_modules/fs-plus/lib/fs-plus.js",
-        "node_modules/season/node_modules/fs-plus/node_modules/async/lib/async.js",
-        "node_modules/season/node_modules/fs-plus/node_modules/mkdirp/examples/pow.js",
-        "node_modules/season/node_modules/fs-plus/node_modules/mkdirp/index.js",
-        "node_modules/season/node_modules/fs-plus/node_modules/rimraf/bin.js",
-        "node_modules/season/node_modules/fs-plus/node_modules/rimraf/rimraf.js",
-        "node_modules/season/node_modules/optimist/example/bool.js",
-        "node_modules/season/node_modules/optimist/example/boolean_double.js",
-        "node_modules/season/node_modules/optimist/example/boolean_single.js",
-        "node_modules/season/node_modules/optimist/example/default_hash.js",
-        "node_modules/season/node_modules/optimist/example/default_singles.js",
-        "node_modules/season/node_modules/optimist/example/divide.js",
-        "node_modules/season/node_modules/optimist/example/line_count.js",
-        "node_modules/season/node_modules/optimist/example/line_count_options.js",
-        "node_modules/season/node_modules/optimist/example/line_count_wrap.js",
-        "node_modules/season/node_modules/optimist/example/nonopt.js",
-        "node_modules/season/node_modules/optimist/example/reflect.js",
-        "node_modules/season/node_modules/optimist/example/short.js",
-        "node_modules/season/node_modules/optimist/example/string.js",
-        "node_modules/season/node_modules/optimist/example/usage-options.js",
-        "node_modules/season/node_modules/optimist/example/xup.js",
-        "node_modules/season/node_modules/optimist/index.js",
-        "node_modules/season/node_modules/optimist/node_modules/wordwrap/example/center.js",
-        "node_modules/season/node_modules/optimist/node_modules/wordwrap/example/meat.js",
-        "node_modules/season/node_modules/optimist/node_modules/wordwrap/index.js",
-        "node_modules/season/node_modules/underscore-plus/lib/underscore-plus.js",
-        "node_modules/season/node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
-        "node_modules/season/node_modules/underscore-plus/node_modules/underscore/underscore.js"
-      ],
-      ".coffee": [
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/StringScanner/src/StringScanner.coffee",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/cscodegen/src/cscodegen.coffee",
-        "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/escope/gulpfile.coffee",
-        "src/haskell.coffee",
-        "src/syntax-tools.coffee"
-      ]
-    },
-    "folders": [
-      {
-        "paths": [
-          "",
-          "src"
-        ],
-        "dependencies": {
-          "season": "^2.0.0",
-          "coffee-script": "~1.9.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/lib",
-          "node_modules/season"
-        ],
-        "dependencies": {
-          "underscore-plus": "1.x",
-          "cson-safe": "~0.1.1",
-          "optimist": "~0.4.0",
-          "fs-plus": "2.x"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/node_modules/cson-safe/lib",
-          "node_modules/season/node_modules/cson-safe"
-        ],
-        "dependencies": {
-          "coffee-script-redux": "2.0.0-beta8"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/lib",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux"
-        ],
-        "dependencies": {
-          "StringScanner": "~0.0.3",
-          "nopt": "~2.1.2",
-          "esmangle": "~0.0.8",
-          "source-map": "0.1.11",
-          "escodegen": "~0.0.24"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/escodegen/bin"
-        ],
-        "dependencies": {
-          "esprima": "~1.0.2",
-          "estraverse": "~1.3.0",
-          "source-map": ">= 0.1.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/bin",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/pass",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/lib/post"
-        ],
-        "dependencies": {
-          "esprima": "~ 1.0.2",
-          "escope": "~ 1.0.0",
-          "escodegen": "~ 0.0.28",
-          "estraverse": "~ 1.3.2",
-          "source-map": "~ 0.1.8",
-          "esshorten": "~ 0.0.2",
-          "optimist": "*"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/escope"
-        ],
-        "dependencies": {
-          "estraverse": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esshorten",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/esmangle/node_modules/esshorten/lib"
-        ],
-        "dependencies": {
-          "escope": "~ 1.0.0",
-          "estraverse": "~ 1.2.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/bin",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/examples",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt/lib",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/nopt"
-        ],
-        "dependencies": {
-          "abbrev": "1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/build",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib/source-map",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/lib",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/test",
-          "node_modules/season/node_modules/cson-safe/node_modules/coffee-script-redux/node_modules/source-map/test/source-map"
-        ],
-        "dependencies": {
-          "amdefine": ">=0.0.4"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/node_modules/fs-plus/lib",
-          "node_modules/season/node_modules/fs-plus"
-        ],
-        "dependencies": {
-          "underscore-plus": "1.x",
-          "mkdirp": "~0.3.5",
-          "rimraf": "~2.2.2",
-          "async": "~0.2.9"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/node_modules/optimist/example",
-          "node_modules/season/node_modules/optimist",
-          "node_modules/season/node_modules/optimist/test/_",
-          "node_modules/season/node_modules/optimist/test"
-        ],
-        "dependencies": {
-          "wordwrap": "~0.0.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/node_modules/underscore-plus/lib",
-          "node_modules/season/node_modules/underscore-plus"
-        ],
-        "dependencies": {
-          "underscore": "~1.6.0"
-        }
-      }
-    ]
-  }
+  "dependencies": {},
+  "description": "Haskell language support in Atom",
+  "devDependencies": {
+    "clone": "^1.0.2",
+    "coffee-script": "~1.9.0",
+    "season": "^2.0.0",
+    "underscore-plus": "^1.6.6"
+  },
+  "engines": {
+    "atom": ">=1.8.0 <2.0.0"
+  },
+  "homepage": "https://github.com/atom-haskell/language-haskell#readme",
+  "license": "MIT",
+  "name": "language-haskell",
+  "optionalDependencies": {},
+  "readme": "# Haskell support in Atom\n\nAdds syntax highlighting and snippets to Haskell files in Atom.\n\nGrammars:\n\n* Haskell (\\*.hs)\n* Literate Haskell (\\*.lhs)\n* Cabal (\\*.cabal)\n\n![image](https://cloud.githubusercontent.com/assets/7275622/8120540/f16d7ee6-10a8-11e5-9b9d-223ff05a54c6.png)\n\nBased on [Haskell TextMate bundle](https://github.com/textmate/haskell.tmbundle).\n\n# Auto-indent\n\nIf you don't like current auto-indentation settings, you can define your own regexp in `config.cson` (Edit -> Open Your Config), or disable it altogether, e.g.\n\nTo disable auto-indent:\n\n```cson\n\".haskell.source\":\n  editor:\n    increaseIndentPattern: ''\n```\n\nNote that regexp expression is using oniguruma for parsing, and it needs to be a string, not a javascript regexp. You'll also have to escape `\\`.\n\nBy default, `increaseIndentPattern` has the following value:\n\n```cson\n\".haskell.source\":\n  editor:\n    increaseIndentPattern: '(((=|\\\\bdo|\\\\bwhere|\\\\bthen|\\\\belse|\\\\bof)\\\\s*)|(\\\\bif(?!.*\\\\bthen\\\\b.*\\\\belse\\\\b.*).*))$'\n```\n\n# Configuring highlighting\n\nNote, you may need to reopen currently opened files (or restart Atom) for your new stylesheet to be applied.\n\n## Module names\n\n`language-haskell` uses `support.other.module.haskell` scope for module names, both in `import` statements and when using qualified identifiers (like `Prelude.foldl`). Your syntax theme might not support this scope. If you want to highlight module names in this case, you can add the following to your stylesheet (Edit → Stylesheet...):\n\n```less\n// pre Atom 1.13\natom-text-editor::shadow, ide-haskell-panel {\n  .support.other.module.haskell {\n    color: #C0A077; //or whatever color you like\n  }\n}\n// post Atom 1.13\n.syntax--support.syntax--other.syntax--module.syntax--haskell {\n  color: #C0A077; //or whatever color you like\n}\n```\n\n## Operators and infix function application\n\n`language-haskell` uses `keyword.operator.haskell` scope for operators and `keyword.operator.infix.haskell` for infix function application, e.g.\n\n```haskell\nnegate `map` [1..10]\n```\n\nNot all syntax themes support these scopes (almost none support `keyword.operator.infix` particularly)\n\nIf you want to higlight operators and infix function applications you can add the following to your stylesheet (Edit → Stylesheet...):\n\n```less\n// pre Atom 1.13\natom-text-editor::shadow, ide-haskell-panel {\n    .keyword.operator.haskell {\n      color: #CF8C00; // or whatever color you like\n    }\n    .keyword.operator.infix.haskell {\n      color: #CC77AC; // if you want to highlight infix application differently\n    }\n}\n// post Atom 1.13\n.syntax--keyword.syntax--operator.syntax--haskell {\n  color: #CF8C00; // or whatever color you like\n}\n.syntax--keyword.syntax--operator.syntax--infix.syntax--haskell {\n  color: #CC77AC; // if you want to highlight infix application differently\n}\n```\n\n## Special `Prelude` treatment\n\nFor historical and other reasons (see #85 for discussion), `Prelude` identifiers (functions, types, etc) are treated slightly differently and, depending on your highlighting theme, can be highlighted differently.\n\nScopes that are used:\n\n* `support.function.prelude.haskell` for functions and values\n* `support.class.prelude.haskell` for types\n* `entity.other.inherited-class.prelude.haskell` for typeclasses\n* `support.tag.prelude.haskell` for type constructors\n\nIf you want `Prelude` identifiers highlighted differently from all the rest, you can define different colors for all or some of those, f.ex. by adding something like this to your stylesheet (Edit → Stylesheet...):\n\n```less\n// pre Atom 1.13\natom-text-editor::shadow, ide-haskell-panel {\n    .support.function.prelude.haskell {\n      color: #56b6c2; // or whatever color you like\n    }\n    .support.tag.prelude.haskell {\n      color: #e9969d;\n    }\n}\n// post Atom 1.13\n.syntax--support.syntax--function.syntax--prelude.syntax--haskell {\n  color: #56b6c2; // or whatever color you like\n}\n.syntax--support.syntax--tag.syntax--prelude.syntax--haskell {\n  color: #e9969d;\n}\n```\n\nIf you don't want `Prelude` identifiers highlighted differently, you can override it by adding something like this to your stylesheet (Edit → Stylesheet...):\n\n```less\n// pre Atom 1.13\natom-text-editor::shadow, ide-haskell-panel {\n  .prelude.haskell {\n    color: inherit;\n  }\n}\n// post Atom 1.13\n.syntax--prelude.syntax--haskell {\n  color: inherit;\n}\n```\n\nNote, you may need to reopen currently opened files (or restart Atom) for your new stylesheet to be applied.\n\n### Different highlighting for different Prelude identifiers\n\nSince language-haskell v1.12.0 every Prelude identifier has a scope corresponding to its name added, so you can add special highlighting to particular identifiers only.\n\nFor example, if you would like to highlight `undefined` and `error` in angry bold red, you can add something like this to your stylesheet:\n\n```less\n// pre Atom 1.13\natom-text-editor::shadow, ide-haskell-panel {\n  .support.function.prelude.haskell {\n    &.undefined, &.error {\n      color: red;\n      font-weight: bold;\n    }\n  }\n}\n// post Atom 1.13\n.syntax--support.syntax--function.syntax--prelude.syntax--haskell {\n  &.syntax--undefined, &.syntax--error {\n    color: red;\n    font-weight: bold;\n  }\n}\n```\n\nAll identifier scopes are case-sensitive, so, if you want to highlight, f.ex. `IO`, you would use `support.class.prelude.IO.haskell` scope.\n\n# Contributing\n\nSee [CONTRIBUTING.md](https://github.com/atom-haskell/language-haskell/blob/master/CONTRIBUTING.md)\n\n# License\n\nCopyright © 2015 Atom-Haskell\n\nContributors (by number of commits):\n* Nikolay Yakimov\n* Jared Roesch\n* Matthew Griffith\n* samuela\n* Ross Ogilvie\n* Rob Rix\n* Ranjit Jhala\n* Michael Rawson\n* mdgriffith\n* Jesse Cooke\n* Ian D. Bollinger\n\nSee the [LICENSE.md][LICENSE] for details.\n\n[LICENSE]: https://github.com/atom-haskell/language-haskell/blob/master/LICENSE.md\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atom-haskell/language-haskell.git"
+  },
+  "version": "1.12.1"
 }
