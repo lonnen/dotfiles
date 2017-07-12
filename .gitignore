@@ -17,6 +17,7 @@
 /link/.rbenv/version
 
 # ignore those atom session files
+/link/.atom/
 /link/.atom/storage/*
 /link/.atom/compile-cache*
 
