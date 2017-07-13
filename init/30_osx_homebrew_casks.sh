@@ -19,18 +19,25 @@ brew cask info this-is-somewhat-annoying 2>/dev/null
 # Homebrew casks
 casks=(
   # Applications
-  alfred
   atom
-  bittorrent-sync
+  cloak
   chromium
+  dashlane
+  docker
+  docker-machine
+  docker-compose
   dropbox
-  fetch
   firefox
   google-chrome
   google-earth
+  irccloud
   iterm2
-  menumeters
+  keybase
+  little-snitch
+  moom
   minecraft
+  # pixelmator
+  sketch
   skype
   slack
   sonos
@@ -39,15 +46,13 @@ casks=(
   sublime-text
   the-unarchiver
   transmission-remote-gui
-  vagrant
-  virtualbox
   viscosity
   vlc
   vmware-fusion
-  ynab
-  owasp-zap
+
   # Drivers
   d235j-xbox360-controller-driver
+
   # Quick Look plugins
   betterzipql
   qlcolorcode
@@ -59,9 +64,6 @@ casks=(
   quicknfo
   suspicious-package
   webpquicklook
-  # Color pickers
-  colorpicker-developer
-  colorpicker-skalacolor
 )
 
 # Install Homebrew casks.
@@ -72,21 +74,4 @@ if (( ${#casks[@]} > 0 )); then
     brew cask install $cask
   done
   brew cask cleanup
-fi
-
-# Work around colorPicker symlink issue.
-# https://github.com/caskroom/homebrew-cask/issues/7004
-cps=()
-for f in ~/Library/ColorPickers/*.colorPicker; do
-  [[ -L "$f" ]] && cps=("${cps[@]}" "$f")
-done
-
-if (( ${#cps[@]} > 0 )); then
-  e_header "Fixing colorPicker symlinks"
-  for f in "${cps[@]}"; do
-    target="$(readlink "$f")"
-    e_arrow "$(basename "$f")"
-    rm "$f"
-    cp -R "$target" ~/Library/ColorPickers/
-  done
 fi
