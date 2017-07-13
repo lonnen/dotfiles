@@ -24,8 +24,6 @@ casks=(
   chromium
   dashlane
   docker
-  docker-machine
-  docker-compose
   dropbox
   firefox
   google-chrome
@@ -36,6 +34,7 @@ casks=(
   little-snitch
   moom
   minecraft
+  osxfuse
   # pixelmator
   sketch
   skype

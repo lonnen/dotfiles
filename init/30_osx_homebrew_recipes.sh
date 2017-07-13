@@ -20,7 +20,6 @@ recipes=(
   git
   git-extras
   go
-  haskell-platform
   htop-osx
   hub
   id3tool

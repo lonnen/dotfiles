@@ -17,6 +17,7 @@ EOF
 cat <<EOF
 Check the following:
   * Finder ⇒ Preferences ⇒ Advanced
+  * Finder ⇒ Preferences ⇒ Sidebar
   * System Preferences ⇒ General -> Handoff
   * System Preferences ⇒ General -> Recent Items
   * System Preferences ⇒ Security & Privacy ⇒ Advanced -> Require Admin
