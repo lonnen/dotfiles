@@ -14,6 +14,13 @@ e_header "Updating Homebrew"
 brew doctor
 brew update
 
+
+# hardentheworld :: homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_GITHUB_API=1
+export HOMEBREW_NO_INSECURE_REDIRECT=1
+
 # Functions used in subsequent init scripts.
 
 # Tap Homebrew kegs.

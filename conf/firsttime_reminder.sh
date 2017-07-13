@@ -12,3 +12,21 @@ Remember!
 ** cp -r ~/Library/Preferences ~/Library/Preferences-Backup
 ** cp -ir ~/Desktoper/Prefs/* ~/Library/Preferences/
 EOF
+
+# docs.hardentheworld.org/OS/MacOS_10.12_Sierra/index.html
+cat <<EOF
+Check the following:
+  * Finder ⇒ Preferences ⇒ Advanced
+  * System Preferences ⇒ General -> Handoff
+  * System Preferences ⇒ General -> Recent Items
+  * System Preferences ⇒ Security & Privacy ⇒ Advanced -> Require Admin
+  * System Preferences ⇒ Security & Privacy ⇒ FileVault
+  * System Preferences ⇒ Security & Privacy ⇒ Firewall
+  * System Preferences ⇒ Security & Privacy ⇒ General -> Require Pass
+  * System Preferences ⇒ Security & Privacy ⇒ Privacy
+  * System Preferences ⇒ Security & Privacy ⇒ Privacy ⇒ Diagnostics & Usage
+  * System Preferences ⇒ Security & Privacy ⇒ Privacy ⇒ Location Services
+  * System Preferences ⇒ Spotlight
+  * System Preferences ⇒ Users & Groups ⇒ Guest User
+  * System Preferences ⇒ Users & Groups ⇒ Login Options -> Password Hints
+EOF
