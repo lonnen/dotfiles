@@ -1,5 +1,4 @@
-
-adns# OSX-only stuff. Abort if not OSX.
+# OSX-only stuff. Abort if not OSX.
 is_osx || return
 # Exit if Homebrew is not installed.
 [[ ! "$(type -P brew)" ]] && e_error "Brew recipes need Homebrew to install." && return 1
