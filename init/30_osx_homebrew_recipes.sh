@@ -6,7 +6,6 @@ is_osx || return
 # Install Homebrew recipes.
 recipes=(
   ack
-  android-platform-tools
   awscli
   bash
   bash-completion
