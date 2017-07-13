@@ -1,6 +1,6 @@
-# OSX-only stuff. Abort if not OSX.
-is_osx || return 1
 
+adns# OSX-only stuff. Abort if not OSX.
+is_osx || return
 # Exit if Homebrew is not installed.
 [[ ! "$(type -P brew)" ]] && e_error "Brew recipes need Homebrew to install." && return 1
 
@@ -8,128 +8,41 @@ is_osx || return 1
 recipes=(
   ack
   android-platform-tools
-  apple-gcc42
-  atk
-  autoconf
-  autoconf213
-  automake
-  autossh
   awscli
-  bash-completion
-  bazaar
   bash
-  boost
-  cairo
-  ccache
-  cloog
+  bash-completion
   cmake
   cmatrix
   cowsay
-  curl
-  dnsmasq
-  dos2unix
-  doxygen
   emacs
+  encfs
   erlang
-  faac
-  faad2
-  ffmpeg
-  findutils
-  flac
-  fluid-synth
-  fontconfig
-  freetype
-  fribidi
-  gawk
   gcc
-  gdbm
-  gdk-pixbuf
-  gettext
   ghc
   git
   git-extras
-  glew
-  glib
-  glm
-  gmp
-  gnu-tar
-  gnupg
-  gnutls
   go
-  gobject-introspection
   haskell-platform
   htop-osx
   hub
-  icu4c
   id3tool
-  isl
-  jpeg
-  lame
+  jq
   lesspipe
-  libffi
-  libgcrypt
-  libgpg-error
-  libid3tag
-  libidl
-  libmpc
-  libmpdclient
-  libogg
-  libpng
-  libsamplerate
-  libshout
-  libtasn1
-  libtiff
-  libtool
-  libvorbis
   llvm
-  makedepend
   man2html
   mercurial
-  mpd
-  mpfr
-  mysql
-  nettle
-  nginx
   nmap
   node
-  openssl
-  ossp-uuid
-  p11-kit
-  pcre
-  pixman
-  pkg-config
   python
-  rabbitmq
   readline
-  redis
-  s-lang
-  sdl
-  sdl2
-  sdl2_image
-  sdl_image
   shellcheck
   sl
   ssh-copy-id
-  speex
-  sqlite
-  taglib
   terminal-notifier
-  terraform
-  texi2html
-  theora
   the_silver_searcher
   tree
-  ttyrec
-  webp
   weechat
   wget
-  wry
-  wxmac
-  x264
-  xvid
-  xz
-  yajl
-  yasm
 )
 
 
