@@ -8,6 +8,9 @@
 # (socorro)lonnen@musashi:~/.dotfiles master:!?
 # [11:14:45] $
 
+# Abort if a prompt is already defined.
+[[ "$PROMPT_COMMAND" ]] && return
+
 # ANSI CODES - SEPARATE MULTIPLE VALUES WITH ;
 #
 #  0  reset          4  underline

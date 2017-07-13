@@ -25,9 +25,7 @@ alias json='python -m json.tool'
 
 # yokes
 alias please='sudo'
-
-#dokku
-alias d='ssh -t dokku@lonnen.com'
+#alias yolo='git commit -am "yolo" && git push -f origin master'
 
 #hub
 eval "$(hub alias -s)"
