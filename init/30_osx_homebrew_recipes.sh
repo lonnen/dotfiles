@@ -20,6 +20,7 @@ recipes=(
   git
   git-extras
   go
+  gpg
   htop-osx
   hub
   id3tool
