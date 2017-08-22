@@ -223,31 +223,6 @@ function do_stuff() {
 
 # Enough with the functions, let's do stuff.
 
-# boxen-web OSX install the command line tools
-OSX_VERSION=$(sw_vers -productVersion | awk -F "." '{print $2}')
-
-if [[ "$OSX_VERSION" -ge 9 ]] || [[ ! -d /usr/include ]]; then
-  echo "Checking for command-line tools for OS X ${OSX_VERSION}"
-
-  [ "$OSX_VERSION" -eq 9 ]  && TOOLS_REGEX="Command Line Developer"
-  [ "$OSX_VERSION" -eq 10 ] && TOOLS_REGEX="Command Line Tools"
-  PLACEHOLDER=/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
-
-  # create the placeholder file that's checked by CLI updates' .dist code
-  # in Apple's SUS catalog
-  touch $PLACEHOLDER
-
-  # find the update with the right name, and grab its identifier
-  PROD=$(softwareupdate -l | grep -B 1 "${TOOLS_REGEX}" | \
-         awk -F"*" '/^ +\*/ {print $2}' | sed 's/^ *//' | head -n 1)
-
-  # install it
-  softwareupdate -i "${PROD}"
-
-  # remove the placeholder
-  [[ -f $PLACEHOLDER ]] && rm $PLACEHOLDER
-fi
-
 # Ensure that we can actually, like, compile anything.
 if [[ ! "$(type -P gcc)" ]] && is_osx; then
   e_error "The XCode Command Line Tools must be installed first."
@@ -305,6 +280,10 @@ fi
 
 # Lest I forget to do a few additional things...
 if [[ "$new_dotfiles_install" && -e "conf/firsttime_reminder.sh" ]]; then
+  e_header "First-Time settings"
+  # this may be overriden by a git config sync'd from "private" or "source"
+  git config --global core.editor "atom --wait"
+
   e_header "First-Time Reminders"
   source "conf/firsttime_reminder.sh"
 fi

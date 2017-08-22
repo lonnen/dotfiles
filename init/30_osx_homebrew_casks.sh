@@ -27,7 +27,6 @@ casks=(
   dropbox
   firefox
   google-chrome
-  google-earth
   irccloud
   iterm2
   keybase
@@ -48,9 +47,6 @@ casks=(
   viscosity
   vlc
   vmware-fusion
-
-  # Drivers
-  d235j-xbox360-controller-driver
 
   # Quick Look plugins
   betterzipql
