@@ -19,7 +19,6 @@ brew cask info this-is-somewhat-annoying 2>/dev/null
 casks=(
   # Applications
   android-platform-tools
-  atom
   cloak
   chromium
   dashlane
@@ -34,19 +33,17 @@ casks=(
   moom
   minecraft
   osxfuse
-  # pixelmator
   sketch
   skype
   slack
   sonos
   spotify
   steam
-  sublime-text
   the-unarchiver
   transmission-remote-gui
   viscosity
+  visual-studio-code
   vlc
-  vmware-fusion
 
   # Quick Look plugins
   betterzipql
@@ -59,6 +56,9 @@ casks=(
   quicknfo
   suspicious-package
   webpquicklook
+
+  # mac app store stuff
+  # pixelmator
 )
 
 # Install Homebrew casks.
