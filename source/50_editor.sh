@@ -1,5 +1,5 @@
 # Editing
 
-alias e="atom"
-export EDITOR='atom .'
+alias e="code"
+export EDITOR='code .'
 export VISUAL="$EDITOR"
