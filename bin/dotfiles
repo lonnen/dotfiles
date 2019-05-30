@@ -282,7 +282,7 @@ fi
 if [[ "$new_dotfiles_install" && -e "conf/firsttime_reminder.sh" ]]; then
   e_header "First-Time settings"
   # this may be overriden by a git config sync'd from "private" or "source"
-  git config --global core.editor "atom --wait"
+  git config --global core.editor "code --wait"
 
   e_header "First-Time Reminders"
   source "conf/firsttime_reminder.sh"
