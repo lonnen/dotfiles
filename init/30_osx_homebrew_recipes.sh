@@ -14,6 +14,7 @@ recipes=(
   cowsay
   emacs
   encfs
+  elixir
   erlang
   gcc
   ghc
