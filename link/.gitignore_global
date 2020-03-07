@@ -1,6 +1,6 @@
 # personal hack
 .todo
-.DS_Store
+.DS_*
 
 # Compiled source #
 ###################
