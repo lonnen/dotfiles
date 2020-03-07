@@ -4,7 +4,7 @@ is_osx || return 1
 # Install Homebrew.
 if [[ ! "$(type -P brew)" ]]; then
   e_header "Installing Homebrew"
-  true | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  true | "/bin/bash -c $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 # Exit if, for some reason, Homebrew is not installed.
@@ -29,7 +29,7 @@ function brew_tap_kegs() {
   if (( ${#kegs[@]} > 0 )); then
     e_header "Tapping Homebrew kegs: ${kegs[*]}"
     for keg in "${kegs[@]}"; do
-      brew tap $keg
+      brew tap "$keg"
     done
   fi
 }
@@ -40,7 +40,7 @@ function brew_install_recipes() {
   if (( ${#recipes[@]} > 0 )); then
     e_header "Installing Homebrew recipes: ${recipes[*]}"
     for recipe in "${recipes[@]}"; do
-      brew install $recipe
+      brew install "$recipe"
     done
   fi
 }
