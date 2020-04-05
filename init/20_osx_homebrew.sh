@@ -1,6 +1,12 @@
 # OSX-only stuff. Abort if not OSX.
 is_osx || return 1
 
+# Homebrew wants sbin
+if [ ! -d "/usr/local/sbin" ]; then
+  sudo mkdir -p /usr/local/sbin
+  sudo chown -R $(whoami) /usr/local/sbin
+fi
+
 # Install Homebrew.
 if [[ ! "$(type -P brew)" ]]; then
   e_header "Installing Homebrew"

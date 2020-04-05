@@ -32,6 +32,7 @@ recipes=(
   mercurial
   nmap
   node
+  poetry
   python
   readline
   shellcheck
