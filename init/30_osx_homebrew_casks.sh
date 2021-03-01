@@ -58,9 +58,6 @@ casks=(
   quicknfo
   suspicious-package
   webpquicklook
-
-  # mac app store stuff
-  # pixelmator
 )
 
 # Install Homebrew casks.
