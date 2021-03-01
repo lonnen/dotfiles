@@ -9,19 +9,25 @@ recipes=(
   awscli
   bash
   bash-completion
+  circleci
   cmake
   cmatrix
   cowsay
+  docker
+  docker-compose
+  docker-machine
+  elixir
   emacs
   encfs
-  elixir
   erlang
   gcc
   ghc
   git
   git-extras
   go
-  gpg
+  graphviz
+  heroku
+  highlight
   htop-osx
   hub
   id3tool
@@ -32,17 +38,24 @@ recipes=(
   mercurial
   nmap
   node
+  packer
+  perl
   poetry
   python
+  python3
   readline
+  ruby
   shellcheck
   sl
+  sqlite
   ssh-copy-id
   terminal-notifier
   the_silver_searcher
+  tox
+  travis
   tree
-  weechat
   wget
+  youtube-dl
 )
 
 

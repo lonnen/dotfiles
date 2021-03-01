@@ -26,12 +26,11 @@ casks=(
   dropbox
   firefox
   google-chrome
-  irccloud
   iterm2
   keybase
   little-snitch
-  moom
   minecraft
+  moom
   osxfuse
   sketch
   skype
@@ -39,11 +38,14 @@ casks=(
   sonos
   spotify
   steam
+  sublime-text
+  suspicious-package
   the-unarchiver
   transmission-remote-gui
   viscosity
   visual-studio-code
   vlc
+  vmware-fusion
 
   # Quick Look plugins
   betterzipql
