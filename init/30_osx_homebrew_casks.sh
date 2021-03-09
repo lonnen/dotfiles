@@ -52,7 +52,6 @@ casks=(
   qlcolorcode
   qlmarkdown
   qlprettypatch
-  qlstephen
   quicklook-csv
   quicklook-json
   quicknfo
