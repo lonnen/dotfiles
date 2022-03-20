@@ -1,11 +1,53 @@
 #!/usr/bin/env python3
-import http.server
-import socketserver
+from curses.ascii import isdigit
+import http.server, os, socketserver, sys
 
-PORT = 8000
+args = sys.argv[1:]
+
+if len(args) and (args[0] == "-h" or args[0] == "--help"):
+  print("""
+Serve a file (or the current directory)
+
+Usage: {} [PORT] [FILE]
+
+PORT:                     the port to bind (default: 8080)
+FILE:                     optional. file or dir, must specify a port if
+                          specifying this. (default: current directory)
+
+Options:
+  -h, --help              show this help message and exit
+
+Once started, open the specified file (or the current directory) with the
+default web browser if this is not an ssh session.
+
+Licensed under the MIT license.
+""".format(os.path.basename(sys.argv[0])))
+  sys.exit()
+
+
+PORT = 8080
+if len(args) and args[0].isdigit():
+  port = int(args[0])
+  args = args[1:] # Shift
+
+FILE = args[0] if len(args) else ""
+
+if not "SSH_TTY" in os.environ:
+  os.system("open 'http://localhost:{}/{}'".format(PORT, FILE))
 
 Handler = http.server.SimpleHTTPRequestHandler
 
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print("http://127.0.0.1:{}".format(PORT))
-    httpd.serve_forever()
+try:
+  with socketserver.TCPServer(("", PORT), Handler) as httpd:
+      print("http://127.0.0.1:{}".format(PORT))
+      try:
+        httpd.serve_forever()
+      except KeyboardInterrupt:
+        print("\nKeyboard Interrupt received. Server shutting down...")
+        sys.exit(0)
+except OSError:
+  print("""
+Socket is in use.
+If you have recently closed {} this may be because the OS has not
+freed the socket yet. Wait a minute before trying again.
+""".format(os.path.basename(sys.argv[0])))
