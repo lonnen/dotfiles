@@ -6,7 +6,7 @@ cat <<EOF
 Remember!
 * Sync your private dotifles
 * Manually load all your app store purchases
-* Sign into all your apps and sync everything those can sink
+* Sign into all your apps and sync everything those can sync
 * scp -r old_machine:~/* new_machine:~/
 * be careful with ~/Library/Preferences/com.apple.*
 ** cp -r ~/Library/Preferences ~/Library/Preferences-Backup
