@@ -43,3 +43,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Added by rustup
 export PATH="$HOME/.cargo/bin:$PATH"
+
+### PyEnv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
