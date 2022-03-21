@@ -18,12 +18,10 @@ brew cask info this-is-somewhat-annoying 2>/dev/null
 # Homebrew casks
 casks=(
   # Applications
-  android-platform-tools
   cloak
   chromium
-  dashlane
+  #datagrip
   docker
-  dropbox
   firefox
   google-chrome
   iterm2
