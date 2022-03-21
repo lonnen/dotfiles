@@ -1,5 +1,6 @@
 /caches/
 /backups/
+/build/
 
 # Top secret stuff!
 /link/.ssh/authorized_keys
