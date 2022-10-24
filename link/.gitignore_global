@@ -21,6 +21,7 @@ nosetests.xml
 
 *.egg-info
 *.egg
+*.eggs
 *.EGG
 *.EGG-INFO
 
@@ -80,3 +81,5 @@ Desktop.ini
 # NPM
 .npmignore
 .node-version
+
+.ruby-version
