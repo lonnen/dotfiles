@@ -1,7 +1,7 @@
 # Where the magic happens.
 export DOTFILES=~/.dotfiles
 
-# Add completions
+# Add hombrew-managed completions
 if type brew &>/dev/null
 then
   HOMEBREW_PREFIX="$(brew --prefix)"
