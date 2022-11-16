@@ -9,7 +9,10 @@ then
   compinit
 fi
 
-# save histroy
+# .zsh is a linked directory of functions
+fpath=(~/.zsh $fpath)
+
+# save history
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 
 # keep all the history
