@@ -1,5 +1,12 @@
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc
+#!/usr/bin/env zsh
+
+# add homebrew-managed completions
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
 fi
 
 # save histroy
