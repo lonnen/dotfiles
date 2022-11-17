@@ -1,5 +1,12 @@
 #!/usr/bin/env zsh
 
+IS_ZSH='true'
+IS_BASH='false'
+
+source ~/.commonrc
+
+# ZSH-specific content
+
 # add homebrew-managed completions
 if type brew &>/dev/null
 then
@@ -11,6 +18,9 @@ fi
 
 # .zsh is a linked directory of functions
 fpath=(~/.zsh $fpath)
+
+# MacOS is case-insensitive, so lets make globbing
+set -o NO_CASE_GLOB
 
 # save history
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
