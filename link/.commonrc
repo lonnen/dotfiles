@@ -1,3 +1,5 @@
+# .commonrc is sourced by both bash and zsh
+
 # Where the magic happens.
 export DOTFILES=~/.dotfiles
 
