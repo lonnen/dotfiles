@@ -32,7 +32,6 @@ recipes=(
   hub
   id3tool
   jq
-  lesspipe
   llvm
   man2html
   mercurial
