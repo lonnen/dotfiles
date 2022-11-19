@@ -27,5 +27,5 @@ alias json='python -m json.tool'
 alias please='sudo'
 #alias yolo='git commit -am "yolo" && git push -f origin master'
 
-#hub
+# hub
 eval "$(hub alias -s)"
