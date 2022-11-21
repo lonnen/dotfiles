@@ -50,11 +50,6 @@ function is_osx() {
   fi
 }
 
-# shell detection
-function is_bash() {
-  [[ "$SHELL" =~ bash ]] || return 1
-}
-
 # Remove an entry from $PATH
 # Based on http://stackoverflow.com/a/2108540/142339
 function path_remove() {
@@ -106,11 +101,6 @@ esac
 
 # OSX only
 if ! is_osx; then
-  exit 1
-fi
-
-if ! is_bash; then
-  echo "dotfiles needs bash to work"
   exit 1
 fi
 
