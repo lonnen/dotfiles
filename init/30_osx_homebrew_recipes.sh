@@ -39,7 +39,6 @@ recipes=(
   node
   packer
   perl
-  poetry
   python
   python3
   readline
