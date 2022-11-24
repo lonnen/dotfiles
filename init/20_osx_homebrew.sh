@@ -22,6 +22,7 @@ brew update
 
 
 # hardentheworld :: homebrew
+# also set these in /source/ in case homebrew is run directly
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_GITHUB_API=1
