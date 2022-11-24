@@ -30,6 +30,7 @@ if [[ ! "${__prompt_colors[@]}" ]]; then
     "36" # information color
     "37" # bracket color
     "31" # error color
+    "34" # secondary info color
   )
 
   if [[ "$SSH_TTY" ]]; then
@@ -117,6 +118,13 @@ function __prompt_command() {
   __prompt_get_colors
   # http://twitter.com/cowboy/status/150254030654939137
   PS1="\n"
+
+  # misc: [cmd#:hist#]
+  # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
+
+  # path: [user@host:path]
+  PS1="$PS1$c1$c0\u$c1@$c0\h$c1:$c0\w$c1$c9"
+
   __prompt_vcs_info=()
   # git: [branch:flags]
   __prompt_git || \
@@ -129,19 +137,15 @@ function __prompt_command() {
   # can't execute arbitrary commands. For more info, see this PR:
   # https://github.com/cowboy/dotfiles/pull/68
   if [[ "${#__prompt_vcs_info[@]}" != 0 ]]; then
-    PS1="$PS1$c1[$c0"
+    PS1="$PS1 $c3"
     for i in "${!__prompt_vcs_info[@]}"; do
       if [[ "${__prompt_vcs_info[i]}" ]]; then
-        [[ $i != 0 ]] && PS1="$PS1$c1:$c0"
+        [[ $i != 0 ]] && PS1="$PS1$c1:$c3"
         PS1="$PS1\${__prompt_vcs_info[$i]}"
       fi
     done
-    PS1="$PS1$c1]$c9"
+    PS1="$PS1 $c9"
   fi
-  # misc: [cmd#:hist#]
-  # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
-  # path: [user@host:path]
-  PS1="$PS1$c1[$c0\u$c1@$c0\h$c1:$c0\w$c1]$c9"
   PS1="$PS1\n"
   # date: [HH:MM:SS]
   PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"
