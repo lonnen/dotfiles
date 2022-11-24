@@ -6,7 +6,7 @@ My OS X dotfiles.
 
 Lonnen forked this repo from [Ben "cowboy" Alman](https://github.com/cowboy/dotfiles) and customized it. It's probably safe to assume any first person writing was done by Ben.
 
-Reducing the amount of manual work to set up and maintain machines is the goal. [Boxen](https://github.com/boxen/) is a good start, but it falls short on dotfile management. Cowboy said it well:
+Reducing the amount of manual work to set up and maintain machines is the goal.  Cowboy said it well:
 
 > I finally decided that I wanted to be able to execute a single command to "bootstrap" a new system to pull down all of my dotfiles and configs, as well as install all the tools I commonly use. In addition, I wanted to be able to re-execute that command at any time to synchronize anything that might have changed. Finally, I wanted to make it easy to re-integrate changes back in, so that other machines could be updated.
 
