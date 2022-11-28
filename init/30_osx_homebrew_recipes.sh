@@ -8,7 +8,6 @@ recipes=(
   ack
   awscli
   bash
-  bash-completion
   circleci
   cmake
   cmatrix
