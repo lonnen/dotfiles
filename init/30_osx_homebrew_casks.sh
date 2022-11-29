@@ -18,7 +18,7 @@ brew cask info this-is-somewhat-annoying 2>/dev/null
 # Homebrew casks
 casks=(
   # Applications
-  cloak
+  atom
   chromium
   #datagrip
   docker
@@ -27,9 +27,12 @@ casks=(
   iterm2
   keybase
   little-snitch
-  minecraft
+  #minecraft
   moom
-  osxfuse
+  moonlight
+  #osxfuse
+  rocket
+  signal
   sketch
   skype
   slack
@@ -38,12 +41,15 @@ casks=(
   steam
   sublime-text
   suspicious-package
+  tailscale
   the-unarchiver
   transmission-remote-gui
-  viscosity
+  vanilla
+  #viscosity
   visual-studio-code
   vlc
-  vmware-fusion
+  webtorrent
+  zoom
 
   # Quick Look plugins
   betterzipql
