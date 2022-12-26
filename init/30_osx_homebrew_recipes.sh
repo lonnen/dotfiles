@@ -23,6 +23,7 @@ recipes=(
   ghc
   git
   git-extras
+  git-lfs
   go
   graphviz
   heroku
@@ -62,6 +63,9 @@ brew_install_recipes
 
 # This is where brew stores its binary symlinks
 local binroot="$(brew --config | awk '/HOMEBREW_PREFIX/ {print $2}')"/bin
+
+# git lfs
+git lfs install --system
 
 # htop
 if [[ "$(type -P $binroot/htop)" ]] && [[ "$(stat -L -f "%Su:%Sg" "$binroot/htop")" != "root:wheel" || ! "$(($(stat -L -f "%DMp" "$binroot/htop") & 4))" ]]; then
