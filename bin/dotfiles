@@ -54,7 +54,7 @@ assert() {
 is_osx() {
   [[ "$OSTYPE" =~ ^darwin ]] || return 1
 
-  if [[ $# > 0 ]]; then
+  if [[ $# -gt 0 ]]; then
     version=$(sw_vers -productVersion | awk -F'.' '{print $2}')
     [[ $version == $1 ]] || return 1
   fi
