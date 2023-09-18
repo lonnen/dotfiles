@@ -59,17 +59,6 @@ is_xcode_installed() {
   [[ xcode-select -p ]] || return 1
 }
 
-# Remove an entry from $PATH
-# Based on http://stackoverflow.com/a/2108540/142339
-path_remove() {
-  local arg path
-  path=":$PATH:"
-  for arg in "$@"; do path="${path//:$arg:/:}"; done
-  path="${path%:}"
-  path="${path#:}"
-  echo "$path"
-}
-
 # Given strings containing space-delimited words A and B, "setdiff A B" will
 # return all words in A that do not exist in B. Arrays in bash are insane
 # (and not in a good way).
