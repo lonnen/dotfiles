@@ -36,13 +36,13 @@ HELP
 export DOTFILES=~/.dotfiles
 
 # Logging stuff.
-function e_header()   { echo -e "\n\033[1m$*\033[0m"; }
-function e_success()  { echo -e " \033[1;32m✔\033[0m  $*"; }
-function e_error()    { echo -e " \033[1;31m✖\033[0m  $*"; }
-function e_arrow()    { echo -e " \033[1;33m➜\033[0m  $*"; }
+e_header()   { echo -e "\n\033[1m$*\033[0m"; }
+e_success()  { echo -e " \033[1;32m✔\033[0m  $*"; }
+e_error()    { echo -e " \033[1;31m✖\033[0m  $*"; }
+e_arrow()    { echo -e " \033[1;33m➜\033[0m  $*"; }
 
 # For testing.
-function assert() {
+assert() {
   local success modes equals actual expected
   modes=(e_error e_success); equals=("!=" "=="); expected="$1"; shift
   actual="$("$@")"
@@ -51,7 +51,7 @@ function assert() {
 }
 
 # OS detection
-function is_osx() {
+is_osx() {
   [[ "$OSTYPE" =~ ^darwin ]] || return 1
 
   if [[ $# > 0 ]]; then
@@ -62,7 +62,7 @@ function is_osx() {
 
 # Remove an entry from $PATH
 # Based on http://stackoverflow.com/a/2108540/142339
-function path_remove() {
+path_remove() {
   local arg path
   path=":$PATH:"
   for arg in "$@"; do path="${path//:$arg:/:}"; done
@@ -75,7 +75,7 @@ function path_remove() {
 # return all words in A that do not exist in B. Arrays in bash are insane
 # (and not in a good way).
 # From http://stackoverflow.com/a/1617303/142339
-function setdiff() {
+setdiff() {
   local debug skip a b
   if [[ "$1" == 1 ]]; then debug=1; shift; fi
   if [[ "$1" ]]; then
@@ -116,7 +116,7 @@ fi
 
 # Given a list of desired items and installed items, return a list
 # of uninstalled items. Arrays in bash are insane (not in a good way).
-function to_install() {
+to_install() {
   local debug desired installed i desired_s installed_s remain
   if [[ "$1" == 1 ]]; then debug=1; shift; fi
   # Convert args to arrays, handling both space- and newline-separated lists.
@@ -140,13 +140,13 @@ function to_install() {
 }
 
 # Initialize.
-function init_do() {
+init_do() {
   e_header "Sourcing $(basename "$2")"
   source "$2"
 }
 
 # Offer the user a chance to skip something.
-function skip() {
+skip() {
   REPLY=noskip
   read -t 5 -n 1 -s -p "To skip, press X within 5 seconds. "
   if [[ "$REPLY" =~ ^[Xx]$ ]]; then
@@ -158,11 +158,11 @@ function skip() {
 }
 
 # Copy files.
-function copy_header() {
+copy_header() {
   e_header "Copying files into home directory"
 }
 
-function copy_test() {
+copy_test() {
   if [[ -e "$2" && ! "$(cmp "$1" "$2" 2> /dev/null)" ]]; then
     echo "same file"
   elif [[ "$1" -ot "$2" ]]; then
@@ -170,27 +170,27 @@ function copy_test() {
   fi
 }
 
-function copy_do() {
+copy_do() {
   e_success "Copying ~/$1."
   cp "$2" ~/
 }
 
 # Link files.
-function link_header() {
+link_header() {
   e_header "Linking files into home directory"
 }
 
-function link_test() {
+link_test() {
   [[ "$1" -ef "$2" ]] && echo "same file"
 }
 
-function link_do() {
+link_do() {
   e_success "Linking ~/$1."
   ln -sf "${2#$HOME/}" ~/
 }
 
 # Copy, link, init, etc.
-function do_stuff() {
+do_stuff() {
   local base dest skip
   # allow a second arg to specify an alternate folder for the same function
   if [[ -n $2 ]]; then
