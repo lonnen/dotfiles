@@ -2,6 +2,10 @@
 
 My OS X dotfiles.
 
+#### note: this branch is pre-macOS Catalina (10.5)
+
+In Catalina the default shell is zsh, and this repo will not work correctly without bash. It's supposedly possible to change it, but it will creap back into your development in ways that will leave you confused for the rest of your life. Only use this branch/tag for pre-Catalina MacOS.
+
 ## Why is this a git repo?
 
 Lonnen forked this repo from [Ben "cowboy" Alman](https://github.com/cowboy/dotfiles) and customized it. It's probably safe to assume any first person writing was done by Ben.
