@@ -10,7 +10,6 @@
 # Respects the following environment variables:
 #   DOTFILES - path to the Dotfiles repository folder
 #
-set -e
 
 [[ "$1" == "source" ]] || echo '.files'
 
@@ -51,6 +50,13 @@ is_osx() {
     version=$(sw_vers -productVersion | awk -F'.' '{print $2}')
     [[ $version == $1 ]] || return 1
   fi
+}
+
+is_xcode_installed() {
+  # detect if the xcode tools are installed
+  # this method should be good for  10.10 Yosemite to 10.15 Catalina
+  # see: https://stackoverflow.com/questions/15371925/how-to-check-if-xcode-command-line-tools-are-installed
+  [[ xcode-select -p ]] || return 1
 }
 
 # Remove an entry from $PATH
@@ -227,7 +233,7 @@ do_stuff() {
 # Enough with the functions, let's do stuff.
 
 # Ensure that we can actually, like, compile anything.
-if [[ ! "$(type -P gcc)" ]] && is_osx; then
+if ! is_xcode_installed; then
   e_error "The XCode Command Line Tools must be installed first."
   exit 1
 fi
