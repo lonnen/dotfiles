@@ -44,11 +44,6 @@ e_arrow()    { echo -e " \033[1;33m➜\033[0m  $*"; }
 # OS detection
 is_osx() {
   [[ "$OSTYPE" =~ ^darwin ]] || return 1
-
-  if [[ $# -gt 0 ]]; then
-    version=$(sw_vers -productVersion | awk -F'.' '{print $2}')
-    [[ $version == $1 ]] || return 1
-  fi
 }
 
 is_xcode_installed() {
