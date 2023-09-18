@@ -6,9 +6,13 @@ is_osx || return 1
 
 # Ensure the cask keg and recipe are installed.
 kegs=(
+  homebrew/bundle
+  homebrew/cask
   homebrew/cask-drivers
   homebrew/cask-fonts
   homebrew/cask-versions
+  homebrew/core
+  homebrew/services
 )
 brew_tap_kegs
 
