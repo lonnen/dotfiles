@@ -1,7 +1,17 @@
-#!/usr/bin/env bash
-[[ "$1" == "source" ]] || \
+#!/bin/sh
+#
+# This script may be initially run via curl:
+#   sh -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles)"
+# or via wget:
+#   wget -qO- https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles
+#   sh dotfiles
+#
+# Respects the following environment variables:
+#   DOTFILES - path to the Dotfiles repository folder
+#
+set -e
 
-echo 'Get you some Dotfiles!'
+[[ "$1" == "source" ]] || echo '.files'
 
 usage() {
   cat <<HELP
