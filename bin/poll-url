@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 url="$1"
 string="$2"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 sleep 0.1
 

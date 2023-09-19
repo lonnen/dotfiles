@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-IS_ZSH='true'
-IS_BASH='false'
-
 # Where the magic happens.
 export DOTFILES=~/.dotfiles
 
@@ -24,9 +21,6 @@ function src() {
   else
     for file in $DOTFILES/source/*; do
       if "$IS_ZSH" && [[ $file == *.zsh ]]; then
-        source "$file"
-      fi
-      if "$IS_BASH" && [[ $file == *.bash ]]; then
         source "$file"
       fi
       if [[ $file == *.sh ]]; then
