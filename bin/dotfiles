@@ -55,31 +55,6 @@ is_xcode_installed() {
   [[ $(xcode-select -p) ]] || return 1
 }
 
-# Given strings containing space-delimited words A and B, "setdiff A B" will
-# return all words in A that do not exist in B. Arrays in bash are insane
-# (and not in a good way).
-# From http://stackoverflow.com/a/1617303/142339
-setdiff() {
-  local debug skip a b
-  if [[ "$1" == 1 ]]; then debug=1; shift; fi
-  if [[ "$1" ]]; then
-    local setdiffA setdiffB setdiffC
-    setdiffA=("$1"); setdiffB=("$2")
-  fi
-  setdiffC=()
-  for a in "${setdiffA[@]}"; do
-    skip=
-    for b in "${setdiffB[@]}"; do
-      [[ "$a" == "$b" ]] && skip=1 && break
-    done
-    [[ "$skip" ]] || setdiffC=("${setdiffC[@]}" "$a")
-  done
-  [[ "$debug" ]] && for a in setdiffA setdiffB setdiffC; do
-    echo "$a ($(eval echo "\${#$a[*]}")) $(eval echo "\${$a[*]}")" 1>&2
-  done
-  [[ "$1" ]] && echo "${setdiffC[@]}"
-}
-
 case $1 in
   source)
     # if this file was being sourced, all the functions are set up now
@@ -95,31 +70,6 @@ esac
 if ! is_osx; then
   exit 1
 fi
-
-# Given a list of desired items and installed items, return a list
-# of uninstalled items. Arrays in bash are insane (not in a good way).
-to_install() {
-  local debug desired installed i desired_s installed_s remain
-  if [[ "$1" == 1 ]]; then debug=1; shift; fi
-  # Convert args to arrays, handling both space- and newline-separated lists.
-  read -ra desired < <(echo "$1" | tr '\n' ' ')
-  read -ra installed < <(echo "$2" | tr '\n' ' ')
-  # Sort desired and installed arrays.
-  unset i; while read -r; do desired_s[i++]=$REPLY; done < <(
-    printf "%s\n" "${desired[@]}" | sort
-  )
-  unset i; while read -r; do installed_s[i++]=$REPLY; done < <(
-    printf "%s\n" "${installed[@]}" | sort
-  )
-  # Get the difference. comm is awesome.
-  unset i; while read -r; do remain[i++]=$REPLY; done < <(
-    comm -13 <(printf "%s\n" "${installed_s[@]}") <(printf "%s\n" "${desired_s[@]}")
-  )
-  [[ "$debug" ]] && for v in desired desired_s installed installed_s remain; do
-    echo "$v ($(eval echo "\${#$v[*]}")) $(eval echo "\${$v[*]}")"
-  done
-  echo "${remain[@]}"
-}
 
 # Initialize.
 init_do() {
