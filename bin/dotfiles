@@ -118,7 +118,7 @@ link_test() {
 
 link_do() {
   e_success "Linking ~/$1."
-  ln -sf "${2#$HOME/}" ~/
+  ln -sf "${2#"$HOME"/}" ~/
 }
 
 # Copy, link, init, etc.
