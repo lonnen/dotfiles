@@ -217,7 +217,7 @@ do_stuff "link" "private"
 
 # Alert if backups were made.
 if [[ "$backup" ]]; then
-  echo -e "\nBackups were moved to ~/${backup_dir#$HOME/}"
+  echo -e "\nBackups were moved to ~/${backup_dir#"$HOME"/}"
 fi
 
 # Lest I forget to do a few additional things...
