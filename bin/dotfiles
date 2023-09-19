@@ -80,7 +80,7 @@ init_do() {
 # Offer the user a chance to skip something.
 skip() {
   REPLY=noskip
-  read -t 5 -n 1 -s -p "To skip, press X within 5 seconds. "
+  read -t 5 -n 1 -s -p -r "To skip, press X within 5 seconds. "
   if [[ "$REPLY" =~ ^[Xx]$ ]]; then
     echo "Skipping!"
   else
