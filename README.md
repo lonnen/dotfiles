@@ -42,7 +42,7 @@ Notes:
 * You need to have installed [XCode Command Line Tools](https://developer.apple.com/downloads/index.action?=command%20line%20tools), which are available as a separate, optional (and _much smaller_) download from XCode.
 
 ```sh
-bash -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles)" && source ~/.bashrc
+bash -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles)" && source ~/.zshrc
 ```
 
 ## The "init" step
@@ -59,7 +59,7 @@ Any file in the `link` subdirectory gets symbolically linked with `ln -s` into `
 If the `private` subdirectory exists, any file in it gets symbolically linked with `ln -s` into `~/`. This dir and all files in it will be ignored by git, so put your sensisitive data here. You can sync it between installs manually, or via a third party tool like BT Sync, or Dropbox and encFs.
 
 ## Aliases and Functions
-To keep things easy, the `~/.profile`, `~/.bashrc` and `~/.bash_profile` files are extremely simple, and should never need to be modified. Instead, add your aliases, functions, settings, etc into one of the files in the `source` subdirectory, or add a new file. They're all automatically sourced when a new shell is opened. If you're using boxen these will backup and replace files boxen creates on installation, but `/source/20_boxen` will keep things working.
+Rather than edit `~/.zshrc`, add your aliases, functions, settings, etc into one of the files in the `source` subdirectory, or add a new file. They're all automatically sourced when a new shell is opened.
 
 ## Scripts
 In addition to the aforementioned [dotfiles][dotfiles] script, there are a few other [bash scripts][bin].
