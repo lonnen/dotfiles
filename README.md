@@ -42,7 +42,7 @@ Notes:
 * You need to have installed [XCode Command Line Tools](https://developer.apple.com/downloads/index.action?=command%20line%20tools), which are available as a separate, optional (and _much smaller_) download from XCode.
 
 ```sh
-bash -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles)" && source ~/.zshrc
+zsh -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles)" && source ~/.zshrc
 ```
 
 ## The "init" step
@@ -62,10 +62,10 @@ If the `private` subdirectory exists, any file in it gets symbolically linked wi
 Rather than edit `~/.zshrc`, add your aliases, functions, settings, etc into one of the files in the `source` subdirectory, or add a new file. They're all automatically sourced when a new shell is opened.
 
 ## Scripts
-In addition to the aforementioned [dotfiles][dotfiles] script, there are a few other [bash scripts][bin].
+In addition to the aforementioned [dotfiles][dotfiles] script, there are a few other [zsh scripts][bin].
 
 * [dotfiles][dotfiles] - (re)initialize dotfiles. It might ask for your password (for `sudo`).
-* [src](https://github.com/lonnen/dotfiles/blob/master/link/.bashrc#L6-15) - (re)source all files in `source` directory
+* [src](https://github.com/lonnen/dotfiles/blob/master/link/.zsh) - (re)source all files in `source` directory
 * Look through the [bin][bin] subdirectory for a few more.
 
 ## Inspiration
