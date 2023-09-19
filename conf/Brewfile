@@ -67,7 +67,7 @@ brew "wget"
 brew "youtube-dl"
 brew "heroku/brew/heroku"
 
-# mas-cli before 'cask'
+# mas-cli before 'cask' to give precendence to app store versions of things
 mas "Tailscale", id: 1475387142 # Tailscale
 mas "Pixelmator Pro", id: 1289583905 # Pixelmator Classic
 
