@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/zsh
 
 # Ever pasted "$ somecommand" into the terminal and gotten this error?
-# -bash: $: command not found
+# -zsh: $: command not found
 
 # Begone, silly errors! Lazy copy + paste forever!! ETCETERA!!!!
 
