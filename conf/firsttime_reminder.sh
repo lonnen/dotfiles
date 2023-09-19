@@ -1,6 +1,6 @@
 # This file is sourced at the end of a first-time dotfiles install.
 setopt ALIASES
-source ~/.bashrc
+source ~/.zshrc
 
 cat <<EOF
 Remember!
