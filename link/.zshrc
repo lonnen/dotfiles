@@ -79,6 +79,10 @@ alias history="history 1"
 HISTSIZE=99999
 SAVEHIST=$HISTSIZE
 
+# Tweak file globbing.
+setopt DOT_GLOB
+setopt NULL_GLOB
+
 # Disable ZSH Correct
 unsetopt CORRECT
 unsetopt CORRECT_ALL

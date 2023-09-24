@@ -198,8 +198,9 @@ fi
 [[ -d $DOTFILES/bin ]] && PATH=$DOTFILES/bin:$PATH
 export PATH
 
-# Tweak file globbing.
-setopt DOTGLOB
+# Tweak file globbing
+# set here for firstrun of ./dotfiles and in .zshrc for post-install effect
+setopt DOT_GLOB
 setopt NULL_GLOB
 
 # Create caches directory, if it doesn't already exist.
