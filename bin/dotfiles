@@ -199,8 +199,8 @@ fi
 export PATH
 
 # Tweak file globbing.
-setopt dotglob
-setopt nullglob
+setopt DOTGLOB
+setopt NULL_GLOB
 
 # Create caches directory, if it doesn't already exist.
 mkdir -p "$DOTFILES/caches/init"
