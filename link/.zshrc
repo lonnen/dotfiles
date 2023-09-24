@@ -79,5 +79,6 @@ alias history="history 1"
 HISTSIZE=99999
 SAVEHIST=$HISTSIZE
 
-setopt CORRECT
-setopt CORRECT_ALL
+# Disable ZSH Correct
+unsetopt CORRECT
+unsetopt CORRECT_ALL
