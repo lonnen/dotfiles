@@ -126,9 +126,9 @@ do_stuff() {
   local base dest skip
   # allow a second arg to specify an alternate folder for the same function
   if [[ -n $2 ]]; then
-    local files=("$HOME/.dotfiles/$2/*")
+    local files=("$HOME/.dotfiles/$2/"*)
   else
-    local files=("$HOME/.dotfiles/$1/*")
+    local files=("$HOME/.dotfiles/$1/"*)
   fi
   [[ $(declare -f "$1_files") ]] && files=($("$1_files" "${files[@]}"))
   # No files? abort.
@@ -202,6 +202,7 @@ export PATH
 # set here for firstrun of ./dotfiles and in .zshrc for post-install effect
 setopt DOT_GLOB
 setopt NULL_GLOB
+setopt EXTENDED_GLOB
 
 # Create caches directory, if it doesn't already exist.
 mkdir -p "$DOTFILES/caches/init"
