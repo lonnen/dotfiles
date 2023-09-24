@@ -20,12 +20,7 @@ function src() {
     fi
   else
     for file in $DOTFILES/source/*; do
-      if "$IS_ZSH" && [[ $file == *.zsh ]]; then
-        source "$file"
-      fi
-      if [[ $file == *.sh ]]; then
-        source "$file"
-      fi
+      source "$file"
     done
     if [ -d "$DOTFILES/private-source" ]; then
       for file in $DOTFILES/private-source/*; do
