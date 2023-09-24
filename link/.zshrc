@@ -82,6 +82,7 @@ SAVEHIST=$HISTSIZE
 # Tweak file globbing.
 setopt DOT_GLOB
 setopt NULL_GLOB
+setopt EXTENDED_GLOB
 
 # Disable ZSH Correct
 unsetopt CORRECT
