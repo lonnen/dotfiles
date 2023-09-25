@@ -1,7 +1,7 @@
 # OSX-only stuff. Abort if not OSX.
 is_osx || return 1
 
-source ../source/02_homebrew.sh
+source $DOTFILES/source/02_homebrew.sh
 
 # Homebrew wants sbin
 if [ ! -d "/usr/local/sbin" ]; then
