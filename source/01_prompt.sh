@@ -134,9 +134,6 @@ function __prompt_command() {
   [[ "${__prompt_stack[0]}" == "__prompt_command" ]] && exit_code=0
   __prompt_stack=()
 
-  # Manually load z here, after $? is checked, to keep $? from being clobbered.
-  [[ "$(type -t _z)" ]] && _z --add "$(pwd -P 2>/dev/null)" 2>/dev/null
-
   # While the simple_prompt environment var is set, disable the awesome prompt.
   [[ "$simple_prompt" ]] && PS1='\n$ ' && return
 
