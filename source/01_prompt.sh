@@ -128,14 +128,14 @@ __prompt_stack=()
 trap '__prompt_stack=("${__prompt_stack[@]}" "$BASH_COMMAND")' DEBUG
 
 function __prompt_command() {
+  # While the simple_prompt environment var is set, disable the awesome prompt.
+  [[ "$simple_prompt" ]] && PS1='\n$ ' && return
+
   local i exit_code=$?
   # If the first command in the stack is __prompt_command, no command was run.
   # Set exit_code to 0 and reset the stack.
   [[ "${__prompt_stack[0]}" == "__prompt_command" ]] && exit_code=0
   __prompt_stack=()
-
-  # While the simple_prompt environment var is set, disable the awesome prompt.
-  [[ "$simple_prompt" ]] && PS1='\n$ ' && return
 
   __prompt_get_colors
   # http://twitter.com/cowboy/status/150254030654939137
