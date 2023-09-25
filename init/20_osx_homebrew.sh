@@ -1,12 +1,7 @@
 # OSX-only stuff. Abort if not OSX.
 is_osx || return 1
 
-# hardentheworld :: homebrew
-# also set these in /source/ in case homebrew is run directly
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_AUTO_UPDATE=1
-export HOMEBREW_NO_GITHUB_API=1
-export HOMEBREW_NO_INSECURE_REDIRECT=1
+source ../source/02_homebrew.sh
 
 # Homebrew wants sbin
 if [ ! -d "/usr/local/sbin" ]; then
