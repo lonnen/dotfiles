@@ -19,7 +19,7 @@ function src() {
       source "$DOTFILES/source/$1.sh"
     fi
   else
-    for file in $DOTFILES/source/*; do
+    for file in "$DOTFILES/source/"*; do
       source "$file"
     done
     if [ -d "$DOTFILES/private-source" ]; then
