@@ -11,8 +11,6 @@
 #   DOTFILES - path to the Dotfiles repository folder
 #
 
-set -e
-
 [[ "$1" == "source" ]] || echo '.files'
 
 usage() {
