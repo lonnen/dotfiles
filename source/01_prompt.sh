@@ -70,12 +70,6 @@ fi
 # Inside a prompt function, run this alias to setup local $c0-$c9 color vars.
 alias __prompt_get_colors='  __prompt_colors[9]=; local i; for i in ${(@)__prompt_colors}; do local c$i="\[\e[0;${__prompt_colors[$i]}m\]"; done'
 
-# Exit code of previous command.
-function __prompt_exit_code() {
-  __prompt_get_colors
-  [[ $1 != 0 ]] && echo " $c2$1$c9"
-}
-
 # Git status.
 function __prompt_git() {
   __prompt_get_colors
@@ -173,7 +167,7 @@ function __prompt_command() {
   # date: [HH:MM:SS]
   #PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"
   # exit code: 127
-  PS1="$PS1$(__prompt_exit_code "$exit_code")"
+  PS1="$PS1$c2%(?..%?)$c9"
   PS1="$PS1 \$ "
 }
 
