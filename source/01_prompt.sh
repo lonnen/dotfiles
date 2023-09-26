@@ -68,7 +68,7 @@ if [[ ! "${__prompt_colors[@]}" ]]; then
 fi
 
 # Inside a prompt function, run this alias to setup local $c0-$c9 color vars.
-alias __prompt_get_colors='__prompt_colors[9]=; local i; for i in ${!__prompt_colors[@]}; do local c$i="\[\e[0;${__prompt_colors[$i]}m\]"; done'
+alias __prompt_get_colors='  __prompt_colors[9]=; local i; for i in ${(@)__prompt_colors}; do local c$i="\[\e[0;${__prompt_colors[$i]}m\]"; done'
 
 # Exit code of previous command.
 function __prompt_exit_code() {
@@ -79,14 +79,14 @@ function __prompt_exit_code() {
 # Git status.
 function __prompt_git() {
   __prompt_get_colors
-  local status branch flags
-  status="$(git status 2>/dev/null)"
+  local git_status branch flags
+  git_status="$(git status 2>/dev/null)"
   [[ $? != 0 ]] && return 1;
   branch="$(echo "$status" | awk '/# Initial commit/ {print "(init)"}')"
-  [[ "$branch" ]] || branch="$(echo "$status" | awk '/# On branch/ {print $4}')"
+  [[ "$branch" ]] || branch="$(echo "$git_status" | awk '/# On branch/ {print $4}')"
   [[ "$branch" ]] || branch="$(git branch | perl -ne '/^\* \(detached from (.*)\)$/ ? print "($1)" : /^\* (.*)/ && print $1')"
   flags="$(
-    echo "$status" | awk 'BEGIN {r=""} \
+    echo "$git_status" | awk 'BEGIN {r=""} \
         /^(# )?Changes to be committed:$/        {r=r "+"}\
         /^(# )?Changes not staged for commit:$/  {r=r "!"}\
         /^(# )?Untracked files:$/                {r=r "?"}\
@@ -129,7 +129,7 @@ trap '__prompt_stack=("${__prompt_stack[@]}" "$BASH_COMMAND")' DEBUG
 
 function __prompt_command() {
   # While the simple_prompt environment var is set, disable the awesome prompt.
-  [[ "$simple_prompt" ]] && PS1='\n$ ' && return
+  [[ "$simple_prompt" ]] && PS1=$'\n'$ && return
 
   local i exit_code=$?
   # If the first command in the stack is __prompt_command, no command was run.
@@ -138,14 +138,15 @@ function __prompt_command() {
   __prompt_stack=()
 
   __prompt_get_colors
+
   # http://twitter.com/cowboy/status/150254030654939137
-  PS1="\n"
+  PS1=$'\n'
 
   # misc: [cmd#:hist#]
   # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
 
   # path: [user@host:path]
-  PS1="$PS1$c1$c0\u$c1@$c0\h$c1:$c0\w$c1$c9"
+  PS1="$PS1$c1$c0%n$c1@$c0%M$c1:$c0%~$c1$c9"
 
   __prompt_vcs_info=()
   # git: [branch:flags]
@@ -160,17 +161,17 @@ function __prompt_command() {
   # https://github.com/cowboy/dotfiles/pull/68
   if [[ "${#__prompt_vcs_info[@]}" != 0 ]]; then
     PS1="$PS1 $c3"
-    for i in "${!__prompt_vcs_info[@]}"; do
+    for i in "${(@)__prompt_vcs_info[@]}"; do
       if [[ "${__prompt_vcs_info[i]}" ]]; then
         [[ $i != 0 ]] && PS1="$PS1$c1:$c3"
-        PS1="$PS1\${__prompt_vcs_info[$i]}"
+        #PS1="$PS1\${__prompt_vcs_info[$i]}"
       fi
     done
     PS1="$PS1 $c9"
   fi
-  PS1="$PS1\n"
+  PS1=$PS1$'\n'
   # date: [HH:MM:SS]
-  PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"
+  #PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"
   # exit code: 127
   PS1="$PS1$(__prompt_exit_code "$exit_code")"
   PS1="$PS1 \$ "
