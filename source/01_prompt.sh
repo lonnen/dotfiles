@@ -125,7 +125,7 @@ function __prompt_command() {
   # While the simple_prompt environment var is set, disable the awesome prompt.
   [[ "$simple_prompt" ]] && PS1=$'\n'$ && return
 
-  local i exit_code=$?
+  local i=0 exit_code=$?
   # If the first command in the stack is __prompt_command, no command was run.
   # Set exit_code to 0 and reset the stack.
   [[ "${__prompt_stack[0]}" == "__prompt_command" ]] && exit_code=0
@@ -140,7 +140,7 @@ function __prompt_command() {
   # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
 
   # path: [user@host:path]
-  PS1="$PS1$c1$c0%n$c1@$c0%M$c1:$c0%~$c1$c9"
+  PS1="$PS1$c1$c0%n$c1@$c0%m$c1:$c0%~$c1$c9"
 
   __prompt_vcs_info=()
   # git: [branch:flags]
@@ -158,7 +158,7 @@ function __prompt_command() {
     for i in "${(@)__prompt_vcs_info[@]}"; do
       if [[ "${__prompt_vcs_info[i]}" ]]; then
         [[ $i != 0 ]] && PS1="$PS1$c1:$c3"
-        #PS1="$PS1\${__prompt_vcs_info[$i]}"
+        PS1="$PS1 $__prompt_vcs_info[$i]"
       fi
     done
     PS1="$PS1 $c9"
