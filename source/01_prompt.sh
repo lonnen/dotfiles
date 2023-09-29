@@ -17,10 +17,6 @@ function prompt_zero() {
   PS1='$ '
 }
 
-precmd() {
-  eval "$PROMPT_COMMAND"
-}
-
 # My zsh replicaiton of Cowboy's bash prompt
 # see https://github.com/cowboy/dotfiles#prompt for a screenshot
 #
