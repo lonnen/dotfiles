@@ -143,7 +143,7 @@ PS1=$'\n'
 # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
 
 # path: [user@host:path]
-PS1="$PS1$c1$c0%n$c1@$c0%m$c1:$c0%~$c1$c9"
+PS1="$PS1$c1"$'['"$c0%n$c1@$c0%m$c1:$c0%~$c1"$']'"$c9"
 
 # source control:
 # git: [branch:flags]
