@@ -1,22 +1,3 @@
-# Allow prompt to be restored to default.
-if [[ "${#__PROMPT_DEFAULT[@]}" == 0 ]]; then
-  __PROMPT_DEFAULT=("$PS1" "$PS2" "$PS3" "$PS4")
-fi
-
-# The default prompt.
-function prompt_default() {
-  unset PROMPT_COMMAND
-  for i in {1..4}; do
-    eval "PS$i='${__PROMPT_DEFAULT[i-1]}'"
-  done
-}
-
-# An uber-simple prompt for demos / screenshots.
-function prompt_zero() {
-  prompt_default
-  PS1='$ '
-}
-
 # My zsh replicaiton of Cowboy's bash prompt
 # see https://github.com/cowboy/dotfiles#prompt for a screenshot
 #
@@ -32,8 +13,13 @@ function prompt_zero() {
 # ! changed files
 # + staged files
 
-# Abort if a prompt is already defined.
-[[ "$PROMPT_COMMAND" ]] && return
+autoload -Uz vcs_info
+
+setopt PROMPT_SUBST
+
+precmd() {
+  vcs_info
+}
 
 # ANSI CODES - SEPARATE MULTIPLE VALUES WITH ;
 #
@@ -118,9 +104,6 @@ __prompt_stack=()
 trap '__prompt_stack=("${__prompt_stack[@]}" "$BASH_COMMAND")' DEBUG
 
 function __prompt_command() {
-  # While the simple_prompt environment var is set, disable the awesome prompt.
-  [[ "$simple_prompt" ]] && PS1=$'\n'$ && return
-
   local i=0 exit_code=$?
   # If the first command in the stack is __prompt_command, no command was run.
   # Set exit_code to 0 and reset the stack.
@@ -128,15 +111,6 @@ function __prompt_command() {
   __prompt_stack=()
 
   __prompt_get_colors
-
-  # http://twitter.com/cowboy/status/150254030654939137
-  PS1=$'\n'
-
-  # misc: [cmd#:hist#]
-  # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
-
-  # path: [user@host:path]
-  PS1="$PS1$c1$c0%n$c1@$c0%m$c1:$c0%~$c1$c9"
 
   __prompt_vcs_info=()
   # git: [branch:flags]
@@ -159,12 +133,33 @@ function __prompt_command() {
     done
     PS1="$PS1 $c9"
   fi
-  PS1=$PS1$'\n'
-  # date: [HH:MM:SS]
-  PS1="$PS1$c1%D{[$c0%K$c1:$c0%M$c1:$c0%S$c1]}$c9"
-  # exit code: 127
-  PS1="$PS1$c2%(?..%?)$c9"
-  PS1="$PS1 \$ "
+
 }
 
-PROMPT_COMMAND="__prompt_command"
+# newline to get started
+PS1=$'\n'
+
+# misc: [cmd#:hist#]
+# PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
+
+# path: [user@host:path]
+PS1="$PS1$c1$c0%n$c1@$c0%m$c1:$c0%~$c1$c9"
+
+# source control:
+# git: [branch:flags]
+# hg:  [branch:bookmark:flags]
+# svn: [repo:lastchanged]
+# flags:
+# /^(# )?Changes to be committed:$/        {r=r "+"}\
+# /^(# )?Changes not staged for commit:$/  {r=r "!"}\
+# /^(# )?Untracked files:$/                {r=r "?"}\
+zstyle ':vcs_info:*' enable git svn hg
+zstyle ':vcs_info:git*' formats "[%b:flags]"
+PS1="$PS1"'${vcs_info_msg_0_}'
+
+PS1=$PS1$'\n'
+# date: [HH:MM:SS]
+PS1="$PS1$c1%D{[$c0%K$c1:$c0%M$c1:$c0%S$c1]}$c9"
+# exit code: 127
+PS1="$PS1$c2%(?..%?)$c9"
+PS1="$PS1 \$ "
