@@ -150,11 +150,11 @@ PS1="$PS1$c1"$'['"$c0%n$c1@$c0%m$c1:$c0%~$c1"$']'"$c9"
 # hg:  [branch:bookmark:flags]
 # svn: [repo:lastchanged]
 # flags:
-# /^(# )?Changes to be committed:$/        {r=r "+"}\
-# /^(# )?Changes not staged for commit:$/  {r=r "!"}\
-# /^(# )?Untracked files:$/                {r=r "?"}\
+# + Changes to be committed
+# ! Changes not staged for commit
 zstyle ':vcs_info:*' enable git svn hg
-zstyle ':vcs_info:git*' formats "[%b:flags]"
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git:*' formats "[%b:%(c.+.)%(u.!.)]"
 PS1="$PS1"'${vcs_info_msg_0_}'
 
 PS1=$PS1$'\n'
