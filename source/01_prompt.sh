@@ -3,15 +3,14 @@
 #
 #
 # Example:
-# [master:!?][cowboy@CowBook:~/.dotfiles]
+# [lonnen@corey:~/.dotfiles][master:!?]
 # [11:14:45] $
 #
 # First bracketed section appears iff current director is a git repo
 # using the form [branch:flags] where flags are:
 #
-# ? untracked files
-# ! changed files
 # + staged files
+# ! changed but unstaged files
 
 autoload -Uz vcs_info
 autoload -U colors && colors
