@@ -154,7 +154,10 @@ PS1="$PS1$c1"$'['"$c0%n$c1@$c0%m$c1:$c0%~$c1"$']'"$c9"
 # ! Changes not staged for commit
 zstyle ':vcs_info:*' enable git svn hg
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*:*' formats "[%b:%(c.+.)%(u.!.)]"
+zstyle ':vcs_info:*' check-for-staged-changes true
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*:*' formats "[%b:%c%u]"
 PS1="$PS1"'${vcs_info_msg_0_}'
 
 PS1=$PS1$'\n'
