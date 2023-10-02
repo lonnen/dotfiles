@@ -14,6 +14,7 @@
 # + staged files
 
 autoload -Uz vcs_info
+autoload -U colors && colors
 
 setopt PROMPT_SUBST
 
@@ -34,10 +35,10 @@ precmd() {
 
 if [[ ! "${__prompt_colors[@]}" ]]; then
   __prompt_colors=(
-    "36" # information color
-    "37" # bracket color
-    "31" # error color
-    "34" # secondary info color
+    "36" # information color cyan foreground
+    "37" # bracket color white foreground
+    "31" # error color red foreground
+    "34" # secondary info color blue foreground
   )
 
   if [[ "$SSH_TTY" ]]; then
@@ -143,7 +144,7 @@ PS1=$'\n'
 # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
 
 # path: [user@host:path]
-PS1="$PS1$c1"$'['"$c0%n$c1@$c0%m$c1:$c0%~$c1"$']'"$c9"
+PS1="$PS1"$'['"%F{cyan}%n%f@%F{cyan}%m%f:%F{cyan}%~%f"$']'
 
 # source control:
 # git: [branch:flags]
@@ -157,12 +158,11 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' check-for-staged-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '!'
-zstyle ':vcs_info:*:*' formats "[%b:%c%u]"
+zstyle ':vcs_info:*:*' formats "[%F{cyan}%b%f:%F{cyan}%c%u%f]"
 PS1="$PS1"'${vcs_info_msg_0_}'
 
 PS1=$PS1$'\n'
 # date: [HH:MM:SS]
-PS1="$PS1$c1%D{[$c0%K$c1:$c0%M$c1:$c0%S$c1]}$c9"
+PS1="$PS1"$'['"%F{cyan}%*%f"$']'
 # exit code: 127
-PS1="$PS1$c2%(?..%?)$c9"
-PS1="$PS1 \$ "
+PS1="$PS1%F{red}%(?.. %B%?%b)%f \$ "
