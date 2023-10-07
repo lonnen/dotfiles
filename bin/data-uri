@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Command line script to convert a file, usually an image, into a data URI
 for use on the web."""
 
@@ -24,7 +24,7 @@ def img_to_data(path):
 
 
 def usage(argv):
-    print 'Usage: %s <path-to-file>' % argv[0]
+    print('Usage: %s <path-to-file>', argv[0])
 
 
 if __name__ == '__main__':
@@ -35,7 +35,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     try:
-        print img_to_data(path)
+        print(img_to_data(path))
     except FileNotFoundError:
-        print 'File not found!'
+        print('File not found!')
         sys.exit(2)
