@@ -49,4 +49,4 @@ PS1=$PS1$'\n'
 # date: [HH:MM:SS]
 PS1="$PS1"$'['"%F{cyan}%D{%H}%f:%F{cyan}%D{%M}%f:%F{cyan}%D{%S}%f"$']'
 # exit code: 127
-PS1="$PS1%F{red}%(?..%B%?%b)%f \$ "
+PS1="$PS1 %F{red}%(?..%B%?%b )%f\$ "
