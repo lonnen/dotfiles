@@ -6,3 +6,6 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 
 # Get homebrew's sbin on the path
 export PATH="/usr/local/sbin:$PATH"
+
+# Homebrew Brewfile
+export HOMEBREW_BREWFILE=~/.brewfile
