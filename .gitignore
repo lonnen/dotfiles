@@ -25,3 +25,6 @@
 # Ignore any file with LOCAL in the name (good for per-machine vars/functions)
 *LOCAL*
 .DS_Store
+
+# Brewfile Lock shouldn't be checked in
+conf/Brewfile.lock.json
