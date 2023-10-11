@@ -10,7 +10,7 @@ fi
 # Install Homebrew
 if [[ "$(which -s brew)" != 0 ]]; then
   e_header "Installing Homebrew"
-  true | "/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)""
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Exit if, for some reason, Homebrew is not installed
