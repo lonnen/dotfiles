@@ -8,7 +8,7 @@ if [ ! -d "/usr/local/sbin" ]; then
 fi
 
 # Install Homebrew
-if [[ ! "$(type -p brew)" ]]; then
+if [[ "$(which -s brew)" != 0 ]]; then
   e_header "Installing Homebrew"
   true | "/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)""
 fi
