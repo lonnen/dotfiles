@@ -13,7 +13,7 @@ export HOMEBREW_BREWFILE=~/.brewfile
 # see: https://docs.brew.sh/FAQ#why-is-the-default-installation-prefix-opthomebrew-on-apple-silicon
 if [[ "$(uname -m)" == "arm64" ]]; then
   # Apple Silicon
-  eval "$(/opt/homebrew/brew shellenv)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   # Intel
   eval "$(/usr/local/bin/brew shellenv)"
