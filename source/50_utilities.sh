@@ -16,7 +16,7 @@ alias json='python -m json.tool'
 
 # yokes
 alias please='sudo'
-#alias yolo='git commit -am "yolo" && git push -f origin master'
+#alias yolo='git commit -am "yolo" && git push -f origin main'
 
 # hub
 eval "$(hub alias -s)"
