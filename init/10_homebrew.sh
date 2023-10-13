@@ -1,12 +1,5 @@
-# default install directory on Intel Macs
-default_location="/usr/local"
-if [[ "$(uname -m)" == "arm64" ]]; then
-  default_location="/opt/homebrew"
-fi
-
-
 # Install Homebrew
-if [[ -d "$default_location)" != 0 ]]; then
+if [[ ! "$(which brew)" ]]; then
   e_header "Installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
@@ -17,7 +10,7 @@ fi
 source $DOTFILES/source/02_homebrew.sh
 
 # Exit if, for some reason, Homebrew is not installed
-[[ ! "$(type -p brew)" ]] && e_error "Homebrew failed to install." && return 1
+[[ ! "$(which brew)" ]] && e_error "Homebrew failed to install." && return 1
 
 e_header "Updating Homebrew"
 brew doctor
