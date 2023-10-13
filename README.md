@@ -12,8 +12,8 @@ Reducing the amount of manual work to set up and maintain machines is the goal. 
 
 > That command is [~/bin/dotfiles][dotfiles]
 
-[dotfiles]: https://github.com/lonnen/dotfiles/blob/master/bin/dotfiles
-[bin]: https://github.com/lonnen/dotfiles/tree/master/bin
+[dotfiles]: https://github.com/lonnen/dotfiles/blob/main/bin/dotfiles
+[bin]: https://github.com/lonnen/dotfiles/tree/main/bin
 
 ## What, exactly, does the "dotfiles" command do?
 
@@ -42,7 +42,7 @@ Notes:
 * You need to have installed [XCode Command Line Tools](https://developer.apple.com/downloads/index.action?=command%20line%20tools), which are available as a separate, optional (and _much smaller_) download from XCode.
 
 ```sh
-zsh -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/master/bin/dotfiles)" && source ~/.zshrc
+zsh -c "$(curl -fsSL https://raw.github.com/lonnen/dotfiles/main/bin/dotfiles)" && source ~/.zshrc
 ```
 
 ## The "init" step
@@ -65,7 +65,7 @@ Rather than edit `~/.zshrc`, add your aliases, functions, settings, etc into one
 In addition to the aforementioned [dotfiles][dotfiles] script, there are a few other [zsh scripts][bin].
 
 * [dotfiles][dotfiles] - (re)initialize dotfiles. It might ask for your password (for `sudo`).
-* [src](https://github.com/lonnen/dotfiles/blob/master/link/.zsh) - (re)source all files in `source` directory
+* [src](https://github.com/lonnen/dotfiles/blob/main/link/.zsh) - (re)source all files in `source` directory
 * Look through the [bin][bin] subdirectory for a few more.
 
 ## Inspiration
