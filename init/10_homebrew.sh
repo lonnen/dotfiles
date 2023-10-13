@@ -1,17 +1,12 @@
-# Get the apropriate homebrew settings in the environment
-source $DOTFILES/source/02_homebrew.sh
-
-# Homebrew wants sbin to exist
-if [ ! -d "/usr/local/sbin" ]; then
-  sudo mkdir -p /usr/local/sbin
-  sudo chown -R $(whoami) /usr/local/sbin
-fi
-
 # Install Homebrew
 if [[ "$(which -s brew)" != 0 ]]; then
   e_header "Installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+# Get the apropriate homebrew settings in the environment
+# note: do this after we're sure homebrew has been installed
+source $DOTFILES/source/02_homebrew.sh
 
 # Exit if, for some reason, Homebrew is not installed
 [[ ! "$(type -p brew)" ]] && e_error "Homebrew failed to install." && return 1
