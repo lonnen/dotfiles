@@ -177,7 +177,7 @@ if [[ ! -d $DOTFILES ]]; then
   new_dotfiles_install=1
   # ~/.dotfiles doesn't exist? Clone it!
   e_header "Downloading dotfiles"
-  git clone --recursive git://github.com/lonnen/dotfiles.git $DOTFILES
+  git clone --recursive https://github.com/lonnen/dotfiles.git $DOTFILES
   cd $DOTFILES || exit 1
 elif [[ "$1" != "restart" ]]; then
   # Make sure we have the latest files.
