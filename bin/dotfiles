@@ -11,7 +11,7 @@
 #   DOTFILES - path to the Dotfiles repository folder
 #
 
-[[ "$1" == "source" ]] || echo '.files'
+[[ "$1" == "source" ]] || echo "\nThe time for your labor has been granted.\n"
 
 usage() {
   cat <<HELP
