@@ -188,7 +188,7 @@ elif [[ "$1" != "restart" ]]; then
   git submodule update --init --recursive --quiet
   if [[ "$(git rev-parse HEAD)" != "$prev_head" ]]; then
     e_header "Changes detected, restarting script"
-    exec "$0" "restart"
+    exec "$0 restart"
   fi
 fi
 
