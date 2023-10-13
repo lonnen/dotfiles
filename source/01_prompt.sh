@@ -3,7 +3,7 @@
 #
 #
 # Example:
-# [lonnen@corey:~/.dotfiles][master:!?]
+# [lonnen@corey:~/.dotfiles][main:!?]
 # [11:14:45] $
 #
 # First bracketed section appears iff current director is a git repo
