@@ -98,6 +98,7 @@ cask "transmission-remote-gui"
 cask "visual-studio-code"
 cask "vlc"
 cask "webpquicklook"
+cask "zoom"
 
 # VS Code Plugins, too
 vscode "dbaeumer.vscode-eslint"
