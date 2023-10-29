@@ -43,6 +43,7 @@ zstyle ':vcs_info:*' check-for-staged-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '!'
 zstyle ':vcs_info:*:*' formats "[%F{cyan}%b%f:%F{cyan}%c%u%f]"
+zstyle ':vcs_info:*:*' actionformats "[%F{cyan}%b%f:%F{cyan}%c%u%f:F{red}*%f]"
 PS1="$PS1"'${vcs_info_msg_0_}'
 
 PS1=$PS1$'\n'
