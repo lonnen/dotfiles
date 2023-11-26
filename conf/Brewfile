@@ -118,3 +118,7 @@ vscode "redhat.vscode-yaml"
 vscode "rust-lang.rust-analyzer"
 vscode "Shopify.ruby-lsp"
 vscode "the-compiler.python-tox"
+
+# manual install
+#
+# RODE Central - https://rode.com/en/apps/rode-central
