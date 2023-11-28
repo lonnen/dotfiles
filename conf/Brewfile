@@ -57,7 +57,7 @@ brew "tox"
 brew "travis"
 brew "tree"
 brew "wget"
-brew "youtube-dl"
+brew "yt-dlp"
 brew "heroku/brew/heroku"
 
 # mas-cli before 'cask' to give precendence to app store versions of things
