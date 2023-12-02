@@ -67,6 +67,7 @@ mas "Tailscale", id: 1475387142
 
 cask "android-platform-tools"
 cask "atom"
+cask "audacity"
 cask "chromium"
 cask "discord"
 cask "firefox"
