@@ -62,6 +62,7 @@ brew "yt-dlp"
 brew "heroku/brew/heroku"
 brew "fastly/tap/fastly"
 brew "flyctl"
+brew "zola"
 
 # mas-cli before 'cask' to give precendence to app store versions of things
 mas "Moom", id: 419330170
