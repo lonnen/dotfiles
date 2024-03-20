@@ -7,7 +7,7 @@ fi
 
 # Get the apropriate homebrew settings in the environment
 # note: do this after we're sure homebrew has been installed
-source $DOTFILES/source/02_homebrew.sh
+source $DOTFILES/source/03_homebrew.sh
 
 # Exit if, for some reason, Homebrew is not installed
 (( $+commands[brew] )) || (e_error "Homebrew failed to install." && return 1)
