@@ -1,5 +1,5 @@
 # Exit if, for any reason, `gh` is not installed and available
-[[ ! "$(which gh)" ]] && e_error "Github CLI failed to install." && return 1
+(( $+commands[gh] )) || e_error "Github CLI failed to install." && return 1
 
 # Auth
 if [[ ! "$(gh auth status)" ]]; then
