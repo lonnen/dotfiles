@@ -1,5 +1,5 @@
 # Install Homebrew
-if [[ ! "$(which brew)" ]]; then
+if ! (( $+commands[brew] )); then
   e_header "Installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
@@ -10,7 +10,7 @@ fi
 source $DOTFILES/source/02_homebrew.sh
 
 # Exit if, for some reason, Homebrew is not installed
-[[ ! "$(which brew)" ]] && e_error "Homebrew failed to install." && return 1
+(( $+commands[brew] )) || (e_error "Homebrew failed to install." && return 1)
 
 e_header "Updating Homebrew"
 brew doctor
