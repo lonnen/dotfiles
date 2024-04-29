@@ -1,6 +1,8 @@
 # personal hack
 .todo
-.DS_*
+.DS_Store
+.vscode
+
 
 # Compiled source #
 ###################
