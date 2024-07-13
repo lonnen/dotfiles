@@ -28,3 +28,9 @@
 
 # Brewfile Lock shouldn't be checked in
 conf/Brewfile.lock.json
+
+# gh cli tools config is ok, but hosts is probably not
+/link/.config/gh/hosts.yml
+
+# ignore all iterm2 stuff
+/link/.config/iterm2
