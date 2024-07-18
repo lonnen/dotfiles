@@ -4,6 +4,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "mas-cli/tap"
 tap "microsoft/git"
+
 brew "ack"
 brew "act"
 brew "awscli"
@@ -74,6 +75,7 @@ mas "Tailscale", id: 1475387142
 
 cask "android-platform-tools"
 cask "audacity"
+cask "autodesk-fusion"
 cask "bambu-studio"
 cask "chromium"
 cask "discord"
