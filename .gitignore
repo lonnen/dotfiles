@@ -34,3 +34,4 @@ conf/Brewfile.lock.json
 
 # ignore all iterm2 stuff
 /link/.config/iterm2
+/link/.config/Autodesk
