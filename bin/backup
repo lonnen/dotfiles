@@ -14,7 +14,11 @@ fi
 
 if [ "$1" ]; then
     BACKUP="$1-backup-$(date +"%Y%m%d")"
-    cp -r "$1" "$BACKUP"
+    cp -rn "$1" "$BACKUP"
+    if [ $? -eq 1 ]; then
+        BACKUP="$BACKUP-$(date +"%s")"
+        cp -rn "$1" "$BACKUP"
+    fi
     echo "Created $BACKUP"
 else
   echo "Please provide a file to backup"
