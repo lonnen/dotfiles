@@ -1,0 +1,21 @@
+#!/bin/zsh
+# shellcheck shell=bash
+
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
+Local File Backup
+
+Usage: $(basename "$0") FILE
+
+Creates a copy of FILE in the same directory with the suffic "-backup-YYYYMMDD"
+
+HELP
+exit; 
+fi
+
+if [ "$1" ]; then
+    BACKUP="$1-backup-$(date +"%Y%m%d")"
+    cp -r "$1" "$BACKUP"
+    echo "Created $BACKUP"
+else
+  echo "Please provide a file to backup"
+fi
