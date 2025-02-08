@@ -85,3 +85,6 @@ Desktop.ini
 .node-version
 
 .ruby-version
+
+# personal standard virtual environment location
+.venv
