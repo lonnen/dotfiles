@@ -72,7 +72,7 @@ mas "Moom", id: 419330170
 mas "Pixelmator Pro", id: 1289583905
 mas "Tailscale", id: 1475387142
 
-cask "android-platform-tools"
+cask "1password"
 cask "audacity"
 cask "autodesk-fusion"
 cask "bambu-studio"
@@ -85,7 +85,6 @@ cask "flux"
 cask "google-chrome"
 cask "iterm2"
 cask "keybase"
-cask "little-snitch"
 cask "minecraft"
 cask "moonlight"
 cask "obs"
