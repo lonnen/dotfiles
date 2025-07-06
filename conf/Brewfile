@@ -54,6 +54,7 @@ brew "sdl2_ttf"
 brew "shellcheck"
 brew "sl"
 brew "ssh-copy-id", link: true
+brew "starship"
 brew "terminal-notifier"
 brew "the_silver_searcher"
 brew "tox"
