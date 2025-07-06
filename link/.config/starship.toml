@@ -47,6 +47,10 @@ format = '\[[$symbol($version)]($style)\]'
 [deno]
 format = '\[[$symbol($version)]($style)\]'
 
+[directory]
+truncate_to_repo = false
+truncation_length = 0
+
 [docker_context]
 format = '\[[$symbol$context]($style)\]'
 
@@ -97,6 +101,9 @@ format = '\[[$symbol($version)]($style)\]'
 
 [hg_branch]
 format = '\[[$symbol$branch]($style)\]'
+
+[hostname]
+ssh_only = false
 
 [java]
 format = '\[[$symbol($version)]($style)\]'
@@ -180,7 +187,7 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol$environment]($style)\]'
 
 [sudo]
-format = '\[[as $symbol]($style)\]'
+format = '$symbol($style)'
 
 [swift]
 format = '\[[$symbol($version)]($style)\]'
@@ -192,7 +199,8 @@ format = '\[[$symbol$workspace]($style)\]'
 format = '\[[$time]($style)\]'
 
 [username]
-format = '\[[$user]($style)\]'
+show_always = true
+# format = '\[[$user]($style)\]'
 
 [vagrant]
 format = '\[[$symbol($version)]($style)\]'
