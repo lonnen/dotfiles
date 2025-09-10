@@ -1,8 +1,5 @@
-tap "heroku/brew"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "mas-cli/tap"
+tap "mas-cli/tap" # mac app store cli
 tap "microsoft/git"
 
 brew "ack"
@@ -64,7 +61,6 @@ brew "tree"
 brew "uv"
 brew "wget"
 brew "yt-dlp"
-brew "heroku/brew/heroku"
 brew "fastly/tap/fastly"
 brew "flyctl"
 brew "zola"
