@@ -63,6 +63,7 @@ brew "wget"
 brew "yt-dlp"
 brew "fastly/tap/fastly"
 brew "flyctl"
+brew "zed"
 brew "zola"
 
 # mas-cli before 'cask' to give precendence to app store versions of things
