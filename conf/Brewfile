@@ -104,6 +104,7 @@ cask "transmission-remote-gui"
 cask "visual-studio-code"
 cask "vlc"
 cask "webpquicklook"
+cask "zed"
 cask "zoom"
 
 # VS Code Plugins, too

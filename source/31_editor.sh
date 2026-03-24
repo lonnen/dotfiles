@@ -1,5 +1,5 @@
 # Editing
 
-alias e="code"
-export EDITOR='code --wait .'
-export VISUAL="$EDITOR --new_window"
+alias e="zed"
+export EDITOR='zed --wait .'
+export VISUAL="$EDITOR --new"
