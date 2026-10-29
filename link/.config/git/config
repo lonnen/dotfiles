@@ -2,7 +2,7 @@
 	editor = code --wait
 [user]
 	name = lonnen
-	email = chris.lonnen@gmail.com
+	email = lonnen@users.noreply.github.com
 [init]
 	defaultBranch = main
 
@@ -43,7 +43,6 @@
 [merge]
         # (just 'diff3' if git version < 2.3)
         conflictstyle = zdiff3
-
 [pull]
         rebase = true
 [filter "lfs"]
